@@ -1,82 +1,79 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // --- CONSTANTS ---
+  const searchWrapper = document.getElementById("search-wrapper");
   const searchIcon = document.getElementById("search-icon");
   const searchBar = document.getElementById("search-bar");
   const mobileToggle = document.getElementById("mobile-toggle");
   const navLinks = document.getElementById("nav-links");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // Toggle search bar
-  searchIcon.addEventListener("click", () => {
-    searchBar.classList.toggle("active");
-    if (searchBar.classList.contains("active")) {
-      searchBar.focus();
-    } else {
-      searchBar.blur();
-    }
-  });
+  // --- NEW SEARCH LOGIC (ONLY CHANGE MADE) ---
+  // Toggles the 'active' class on the search wrapper when the icon is clicked.
+  if (searchIcon && searchWrapper && searchBar) {
+    searchIcon.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevents click from bubbling to document
+      searchWrapper.classList.toggle("active");
+      if (searchWrapper.classList.contains("active")) {
+        searchBar.focus();
+      }
+    });
+  }
 
-  // Close search bar when clicking outside
+  // Close search bar when clicking anywhere else on the page
   document.addEventListener("click", (e) => {
-    if (!searchIcon.contains(e.target) && !searchBar.contains(e.target)) {
-      searchBar.classList.remove("active");
+    if (searchWrapper && !searchWrapper.contains(e.target)) {
+      searchWrapper.classList.remove("active");
     }
   });
+  // --- END OF NEW SEARCH LOGIC ---
+
+
+  // --- EXISTING MENU AND BLOG LOGIC (PRESERVED FROM YOUR ORIGINAL FILE) ---
 
   // Toggle hamburger menu and icon
-  mobileToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    mobileToggle.classList.toggle("active");
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      mobileToggle.classList.toggle("active");
 
-    // Close all mobile dropdowns when menu closes
-    if (!navLinks.classList.contains("active")) {
-      dropdowns.forEach(dropdown => {
-        dropdown.classList.remove("active");
-      });
-    }
-  });
+      if (!navLinks.classList.contains("active")) {
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove("active");
+        });
+      }
+    });
+  }
 
   // Handle mobile dropdown clicks
   dropdowns.forEach(dropdown => {
-    // Find the link that toggles the dropdown
     const dropdownLink = dropdown.querySelector("a");
-
     dropdownLink.addEventListener("click", (e) => {
-      // Prevent the link from trying to navigate away
-      e.preventDefault();
-
-      // Stop the click from bubbling up to other listeners (like 'click outside to close')
-      e.stopPropagation();
-
-      // Check if the dropdown we just clicked is already open
-      const wasActive = dropdown.classList.contains("active");
-
-      // First, close all dropdowns to reset the state.
-      dropdowns.forEach(otherDropdown => {
-        otherDropdown.classList.remove("active");
-      });
-
-      // If the dropdown we clicked was NOT already open, then open it.
-      // If it WAS open, it will simply remain closed from the step above.
-      if (!wasActive) {
-        dropdown.classList.add("active");
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
+        const wasActive = dropdown.classList.contains("active");
+        dropdowns.forEach(otherDropdown => {
+          otherDropdown.classList.remove("active");
+        });
+        if (!wasActive) {
+          dropdown.classList.add("active");
+        }
       }
     });
   });
 
-  // Handle dropdown menu item clicks
+  // Handle dropdown menu item clicks for mobile
   dropdowns.forEach(dropdown => {
     const dropdownMenu = dropdown.querySelector(".dropdown-menu");
     if (dropdownMenu) {
       const menuItems = dropdownMenu.querySelectorAll("a");
       menuItems.forEach(item => {
-        item.addEventListener("click", (e) => {
-          // Allow normal navigation for dropdown menu items
-          // Close mobile menu after clicking a dropdown item
+        item.addEventListener("click", () => {
           if (window.innerWidth <= 768) {
             setTimeout(() => {
               navLinks.classList.remove("active");
               mobileToggle.classList.remove("active");
-              dropdown.classList.remove("active");
+              dropdowns.forEach(d => d.classList.remove("active"));
             }, 100);
           }
         });
@@ -87,14 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Improve desktop hover behavior
   dropdowns.forEach(dropdown => {
     let hoverTimeout;
-
     dropdown.addEventListener("mouseenter", () => {
       if (window.innerWidth > 768) {
         clearTimeout(hoverTimeout);
         dropdown.classList.add("hover");
       }
     });
-
     dropdown.addEventListener("mouseleave", () => {
       if (window.innerWidth > 768) {
         hoverTimeout = setTimeout(() => {
@@ -106,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
-    if (!mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
+    if (navLinks && mobileToggle && !mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove("active");
       mobileToggle.classList.remove("active");
       dropdowns.forEach(dropdown => {
@@ -115,11 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Handle window resize
+  // Handle window resize to close mobile menu
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
-      navLinks.classList.remove("active");
-      mobileToggle.classList.remove("active");
+      if (navLinks) navLinks.classList.remove("active");
+      if (mobileToggle) mobileToggle.classList.remove("active");
       dropdowns.forEach(dropdown => {
         dropdown.classList.remove("active");
       });

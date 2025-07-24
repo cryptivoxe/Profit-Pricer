@@ -5,25 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog – Profit Pricer</title>
-    <link rel="stylesheet" href="/pages/Blogs/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap"
+        rel="stylesheet">
 </head>
 
 <body id="blog-page">
     <header id="navbar">
-        <!-- Logo Left -->
         <div class="nav-left">
-            <img src="/assets/logo.png" alt="Profit Pricer Logo" />
+            <a href="/index.html">
+                <img src="/assets/logo.png" alt="Profit Pricer Logo" />
+            </a>
         </div>
 
-        <!-- Hamburger Icon -->
         <button id="mobile-toggle" class="mobile-menu-icon">
             <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Center Section with Menu + Search + Demo -->
         <div class="nav-center-wrapper" id="nav-links">
-            <!-- Navigation Links -->
             <div class="nav-center">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
@@ -49,19 +53,19 @@
                 </ul>
             </div>
 
-            <!-- Search + Button Wrapper -->
             <div class="search-demo-wrapper">
-                <div class="search-wrapper">
+                <div class="search-wrapper" id="search-wrapper">
                     <i id="search-icon" class="fas fa-search"></i>
-                    <input type="text" id="search-bar" placeholder="Search..." />
+                    <input type="text" id="search-bar" placeholder="Search" />
                 </div>
-                <button class="demo-btn" onclick="window.location.href='/pages/Contact/contact-us.html'">Request a Demo</button>
+                <button class="demo-btn" onclick="window.location.href='/pages/Contact/contact-us.html'">Request a
+                    Demo</button>
             </div>
         </div>
 
-        <!-- Right Section for Desktop -->
         <div class="nav-right">
-            <button class="demo-btn" onclick="window.location.href='/pages/Contact/contact-us.html'">Request a Demo</button>
+            <button class="demo-btn" onclick="window.location.href='/pages/Contact/contact-us.html'">Request a
+                Demo</button>
             <div class="lang">EN</div>
         </div>
     </header>
@@ -74,7 +78,6 @@
         </div>
 
         <section id="blog-grid" class="blog-grid">
-            <!-- First 4 blogs (visible by default) -->
             <div class="blog-card">
                 <img src="/assets/blogs/blog1.jpg" />
                 <div class="card-info">
@@ -111,7 +114,6 @@
                 </div>
             </div>
 
-            <!-- Hidden blogs (loaded later) -->
             <div class="blog-card hidden">
                 <img src="/assets/blogs/blog5.jpg" />
                 <div class="card-info">
@@ -157,7 +159,9 @@
 
     <footer class="global-footer">
         <div class="footer-box">
-            <h4>PROFIT PRICER</h4>
+            <a href="/index.html">
+                <img src="/assets/logo-white.png" alt="Profit Pricer Logo" class="footer-logo" />
+            </a>
             <p>One suite for pricing, customer and marketing strategy in real time.</p>
         </div>
         <div class="footer-box">
@@ -184,7 +188,7 @@
         <div><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></div>
     </div>
 
-    <script src="/pages/Blogs/script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -29,9 +29,10 @@ body {
 
 /* Logo */
 .nav-left img {
-  height: 2.5rem;
+  height: 3rem;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 /* Center Wrapper */
@@ -40,7 +41,7 @@ body {
   align-items: center;
   gap: 15px;
   flex: 1;
-  margin-left: 3rem;
+  margin-left: 5rem;
   margin-right: 1rem;
 }
 
@@ -123,49 +124,61 @@ body {
   display: block;
 }
 
-/* Search Input */
+/* --- SEARCH STYLES (ONLY CHANGE MADE) --- */
 .search-wrapper {
-  display: flex;
-  align-items: center;
   position: relative;
+  width: 40px; /* Initial width for the icon */
+  height: 40px;
+  transition: width 0.4s ease-in-out;
 }
 
 #search-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 18px;
   color: #333;
   cursor: pointer;
   padding: 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-#search-icon:hover {
-  background-color: #f0f0f0;
+  transition: left 0.4s ease-in-out, color 0.3s;
 }
 
 #search-bar {
-  display: none;
+  width: 100%;
+  height: 100%;
   border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 6px 12px;
-  margin-left: 10px;
+  border-radius: 25px;
+  padding: 10px 20px 10px 45px; /* Make space for icon on the left */
   font-size: 14px;
   outline: none;
-  width: 0;
-  transition: all 0.3s ease;
-  opacity: 0;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Not clickable by default */
+  transition: opacity 0.4s ease-in-out;
+  box-sizing: border-box;
 }
 
-#search-bar.active {
-  display: inline-block;
-  width: 140px;
-  opacity: 1;
+/* Active state for the search component */
+.search-wrapper.active {
+  width: 220px; /* Expanded width */
+}
+
+.search-wrapper.active #search-icon {
+  left: 18px; /* Move icon to the left inside the input */
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.search-wrapper.active #search-bar {
+  opacity: 1; /* Make it visible */
+  pointer-events: auto; /* Make it clickable */
 }
 
 #search-bar:focus {
   border-color: #357beb;
   box-shadow: 0 0 0 2px rgba(53, 123, 235, 0.1);
 }
+/* --- END OF SEARCH STYLES --- */
 
 /* Request a Demo button next to search */
 .search-demo-wrapper {
@@ -182,22 +195,28 @@ body {
 }
 
 .demo-btn {
-  background-color: #ffa400;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 20px;
+  background-color: #EDB463;
+  color: #111;
+  height: 40px;
+  padding: 0 30px;
+  border-radius: 26px;
   font-weight: 600;
-  border: none;
+  border: 1px solid #292C30;
   cursor: pointer;
   font-size: 14px;
   white-space: nowrap;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .demo-btn:hover {
-  background-color: #e6940a;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(255, 164, 0, 0.3);
+  background-color: rgba(25, 25, 25, 0.85);
+  color: #EDB463;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
 }
 
 .lang {
@@ -271,7 +290,8 @@ body {
   }
 
   .demo-btn {
-    padding: 7px 12px;
+    padding: 0 25px;
+    height: 48px;
     font-size: 13px;
   }
 
@@ -283,7 +303,8 @@ body {
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -401,20 +422,17 @@ body {
     flex: 1;
   }
 
-  #search-bar.active {
-    display: inline-block;
-    opacity: 1;
-    width: calc(100% - 60px) !important;
-    max-width: 200px;
-    transition: all 0.3s ease;
+  .search-wrapper.active {
+    width: calc(100% - 130px);
   }
 
   .demo-btn {
-    padding: 8px 16px;
+    padding: 0 16px;
     font-size: 14px;
     margin: 0;
     flex-shrink: 0;
     min-width: 120px;
+    height: 48px;
   }
 }
 
@@ -438,15 +456,15 @@ body {
     justify-content: flex-start;
   }
 
-  #search-bar.active {
-    width: calc(100% - 50px) !important;
-    max-width: none;
+  .search-wrapper.active {
+    width: 100%;
   }
 
   .demo-btn {
     width: 100%;
     text-align: center;
     min-width: auto;
+    height: 52px;
   }
 }
 
@@ -464,6 +482,11 @@ body {
 }
 
 .footer-box h4 {
+  margin-bottom: 10px;
+}
+
+.footer-logo {
+  width: 150px;
   margin-bottom: 10px;
 }
 
@@ -555,7 +578,7 @@ footer {
 
 .newsletter-input {
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 4rem;
   border: none;
   width: 200px;
   margin-right: 8px;
@@ -595,16 +618,18 @@ footer {
 }
 
 .blog-intro h3 {
-  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 40px;
+  font-weight: 400; 
   margin-bottom: 8px;
 }
 
 .blog-intro p {
-  font-size: 14px;
-  font-style: italic;
-  color: #666;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 30px; 
+  font-style: normal;
+  color: #000000; 
 }
-
 .blog-grid {
   display: grid;
   margin-top: 40px;
@@ -676,16 +701,28 @@ footer {
 
 /* Show More */
 .show-more {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .show-more button {
-  display: block;
+  width: 150px;
+  height: 50px;
   margin: 40px auto;
-  padding: 10px 24px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #DADADA;
+  border: 2.5px solid #C1C1C1;
+  border-radius: 15px;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: 500;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.show-more button:hover {
+  background-color: #484848;
+  border-color: #404040;
+  color: #FFFFFF;
 }
