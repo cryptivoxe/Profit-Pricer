@@ -41,7 +41,7 @@ body {
   align-items: center;
   gap: 15px;
   flex: 1;
-  margin-left: 5rem;
+  margin-left: 9rem;
   margin-right: 1rem;
 }
 
@@ -124,10 +124,10 @@ body {
   display: block;
 }
 
-/* --- SEARCH STYLES (ONLY CHANGE MADE) --- */
+/* --- SEARCH STYLES --- */
 .search-wrapper {
   position: relative;
-  width: 40px; /* Initial width for the icon */
+  width: 40px;
   height: 40px;
   transition: width 0.4s ease-in-out;
 }
@@ -149,36 +149,35 @@ body {
   height: 100%;
   border: 1px solid #ccc;
   border-radius: 25px;
-  padding: 10px 20px 10px 45px; /* Make space for icon on the left */
+  padding: 10px 20px 10px 45px;
   font-size: 14px;
   outline: none;
-  opacity: 0; /* Hidden by default */
-  pointer-events: none; /* Not clickable by default */
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.4s ease-in-out;
   box-sizing: border-box;
 }
 
 /* Active state for the search component */
 .search-wrapper.active {
-  width: 220px; /* Expanded width */
+  width: 175px;
 }
 
 .search-wrapper.active #search-icon {
-  left: 18px; /* Move icon to the left inside the input */
+  left: 18px;
   transform: translateY(-50%);
   color: #888;
 }
 
 .search-wrapper.active #search-bar {
-  opacity: 1; /* Make it visible */
-  pointer-events: auto; /* Make it clickable */
+  opacity: 1;
+  pointer-events: auto;
 }
 
 #search-bar:focus {
   border-color: #357beb;
   box-shadow: 0 0 0 2px rgba(53, 123, 235, 0.1);
 }
-/* --- END OF SEARCH STYLES --- */
 
 /* Request a Demo button next to search */
 .search-demo-wrapper {
@@ -197,7 +196,7 @@ body {
 .demo-btn {
   background-color: #EDB463;
   color: #111;
-  height: 40px;
+  height: 38px;
   padding: 0 30px;
   border-radius: 26px;
   font-weight: 600;
@@ -496,6 +495,11 @@ body {
   text-decoration: none;
   font-size: 14px;
   margin: 5px 0;
+  transition: color 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.footer-box a:hover {
+  color: #FFFFFF; /* Changes link color to white on hover */
 }
 
 .footer-box input {
@@ -620,74 +624,93 @@ footer {
 .blog-intro h3 {
   font-family: 'Rubik', sans-serif;
   font-size: 40px;
-  font-weight: 400; 
+  font-weight: 400;
   margin-bottom: 8px;
 }
 
 .blog-intro p {
   font-family: 'Quicksand', sans-serif;
-  font-size: 30px; 
+  font-size: 30px;
   font-style: normal;
-  color: #000000; 
+  color: #000000;
 }
 .blog-grid {
   display: grid;
-  margin-top: 40px;
+  margin-top: 50px;
   grid-template-columns: repeat(2, 1fr);
   gap: 3.5rem;
 }
 
 .blog-card {
-  background: rgba(255, 255, 255, 0.97);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+  background-color: #eee;
 }
 
 .card-info {
-  padding: 20px;
-  text-align: left;
+  padding: 30px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.card-info .blog-meta {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .card-info h4 {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  line-height: 1.4;
 }
 
 .card-info p {
   font-size: 14px;
-  color: #444;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .card-btn {
-  margin-top: 16px;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background-color: #333;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  padding: 12px 32px;
+  border-radius: 50px;
+  background-color: #222;
   color: white;
   border: none;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
 
-.card-btn:hover {
-  background-color: #555;
-}
 
 @media screen and (max-width: 1024px) {
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .blog-grid {
     grid-template-columns: 1fr;
   }

@@ -7,11 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.getElementById("nav-links");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // --- NEW SEARCH LOGIC (ONLY CHANGE MADE) ---
-  // Toggles the 'active' class on the search wrapper when the icon is clicked.
+  // --- SEARCH LOGIC ---
   if (searchIcon && searchWrapper && searchBar) {
     searchIcon.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevents click from bubbling to document
+      e.stopPropagation(); 
       searchWrapper.classList.toggle("active");
       if (searchWrapper.classList.contains("active")) {
         searchBar.focus();
@@ -19,18 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Close search bar when clicking anywhere else on the page
   document.addEventListener("click", (e) => {
     if (searchWrapper && !searchWrapper.contains(e.target)) {
       searchWrapper.classList.remove("active");
     }
   });
-  // --- END OF NEW SEARCH LOGIC ---
 
+  // --- MENU LOGIC ---
 
-  // --- EXISTING MENU AND BLOG LOGIC (PRESERVED FROM YOUR ORIGINAL FILE) ---
-
-  // Toggle hamburger menu and icon
   if (mobileToggle && navLinks) {
     mobileToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
@@ -44,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Handle mobile dropdown clicks
+  // Handles clicks on dropdowns (Solutions, Resources)
   dropdowns.forEach(dropdown => {
     const dropdownLink = dropdown.querySelector("a");
     dropdownLink.addEventListener("click", (e) => {
@@ -52,17 +47,34 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         e.stopPropagation();
         const wasActive = dropdown.classList.contains("active");
+        
+        // First, close all other dropdowns
         dropdowns.forEach(otherDropdown => {
           otherDropdown.classList.remove("active");
         });
+
+        // If the clicked dropdown wasn't already open, open it
         if (!wasActive) {
           dropdown.classList.add("active");
         }
+        // If it was already active, the loop above has now closed it.
       }
     });
   });
 
-  // Handle dropdown menu item clicks for mobile
+  // Handles clicks on non-dropdown links (Home, About Us, etc.)
+  const nonDropdownLinks = document.querySelectorAll(".nav-center > ul > li:not(.dropdown) > a");
+  nonDropdownLinks.forEach(link => {
+      link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+              // When a non-dropdown item is clicked, close any open dropdowns
+              dropdowns.forEach(d => {
+                  d.classList.remove("active");
+              });
+          }
+      });
+  });
+
   dropdowns.forEach(dropdown => {
     const dropdownMenu = dropdown.querySelector(".dropdown-menu");
     if (dropdownMenu) {
@@ -81,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Improve desktop hover behavior
   dropdowns.forEach(dropdown => {
     let hoverTimeout;
     dropdown.addEventListener("mouseenter", () => {
@@ -99,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
     if (navLinks && mobileToggle && !mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove("active");
@@ -110,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Handle window resize to close mobile menu
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
       if (navLinks) navLinks.classList.remove("active");
@@ -121,25 +130,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Load More Blogs Logic
-  const blogCards = document.querySelectorAll(".blog-card.hidden");
+  // --- NEW LOAD MORE BLOGS LOGIC ---
+  const allBlogCards = document.querySelectorAll(".blog-card");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const initialVisibleCount = 4;
 
-  if (loadMoreBtn && blogCards.length > 0) {
-    let loaded = 0;
-    const loadCount = 4;
+  if (loadMoreBtn) {
+    if (allBlogCards.length <= initialVisibleCount) {
+      const showMoreContainer = document.querySelector(".show-more");
+      if (showMoreContainer) {
+        showMoreContainer.style.display = "none";
+      }
+    } else {
+      const hiddenCards = Array.from(allBlogCards).slice(initialVisibleCount);
+      const loadCount = 4;
+      let currentlyShown = 0;
 
-    loadMoreBtn.addEventListener("click", () => {
-      for (let i = loaded; i < loaded + loadCount; i++) {
-        if (blogCards[i]) {
-          blogCards[i].classList.remove("hidden");
+      hiddenCards.forEach(card => card.classList.add("hidden"));
+
+      loadMoreBtn.addEventListener("click", () => {
+        const toShow = hiddenCards.slice(currentlyShown, currentlyShown + loadCount);
+        toShow.forEach(card => card.classList.remove("hidden"));
+        currentlyShown += toShow.length;
+
+        if (currentlyShown >= hiddenCards.length) {
+          loadMoreBtn.parentElement.style.display = "none";
         }
-      }
-      loaded += loadCount;
-
-      if (loaded >= blogCards.length) {
-        loadMoreBtn.style.display = "none";
-      }
-    });
+      });
+    }
   }
 });

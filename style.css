@@ -41,7 +41,7 @@ body {
   align-items: center;
   gap: 15px;
   flex: 1;
-  margin-left: 5rem;
+  margin-left: 9rem;
   margin-right: 1rem;
 }
 
@@ -124,10 +124,10 @@ body {
   display: block;
 }
 
-/* --- SEARCH STYLES (ONLY CHANGE MADE) --- */
+/* --- SEARCH STYLES --- */
 .search-wrapper {
   position: relative;
-  width: 40px; /* Initial width for the icon */
+  width: 40px;
   height: 40px;
   transition: width 0.4s ease-in-out;
 }
@@ -149,36 +149,35 @@ body {
   height: 100%;
   border: 1px solid #ccc;
   border-radius: 25px;
-  padding: 10px 20px 10px 45px; /* Make space for icon on the left */
+  padding: 10px 20px 10px 45px;
   font-size: 14px;
   outline: none;
-  opacity: 0; /* Hidden by default */
-  pointer-events: none; /* Not clickable by default */
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.4s ease-in-out;
   box-sizing: border-box;
 }
 
 /* Active state for the search component */
 .search-wrapper.active {
-  width: 220px; /* Expanded width */
+  width: 175px; 
 }
 
 .search-wrapper.active #search-icon {
-  left: 18px; /* Move icon to the left inside the input */
+  left: 18px; 
   transform: translateY(-50%);
   color: #888;
 }
 
 .search-wrapper.active #search-bar {
-  opacity: 1; /* Make it visible */
-  pointer-events: auto; /* Make it clickable */
+  opacity: 1; 
+  pointer-events: auto;
 }
 
 #search-bar:focus {
   border-color: #357beb;
   box-shadow: 0 0 0 2px rgba(53, 123, 235, 0.1);
 }
-/* --- END OF SEARCH STYLES --- */
 
 /* Request a Demo button next to search */
 .search-demo-wrapper {
@@ -197,7 +196,7 @@ body {
 .demo-btn {
   background-color: #EDB463;
   color: #111;
-  height: 40px;
+  height: 38px;
   padding: 0 30px;
   border-radius: 26px;
   font-weight: 600;

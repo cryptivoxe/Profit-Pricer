@@ -13,6 +13,23 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap"
         rel="stylesheet">
+
+    <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+
+    <style>
+        /* Adjust footer column spacing on larger screens */
+        @media screen and (min-width: 1025px) {
+            .global-footer .footer-box:nth-child(2) {
+                margin-left: 50px;
+                /* Increase gap between logo and quick links */
+            }
+
+            .global-footer .footer-box:nth-child(3) {
+                margin-left: -5px;
+                /* Decrease gap between quick links and solutions */
+            }
+        }
+    </style>
 </head>
 
 <body id="blog-page">
@@ -45,7 +62,6 @@
                         <a href="#">Resources <i class="fas fa-chevron-down dropdown-icon"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/pages/Blogs/blog.html">Blog</a></li>
-                            <li><a href="">Case Studies</a></li>
                         </ul>
                     </li>
 
@@ -79,76 +95,42 @@
 
         <section id="blog-grid" class="blog-grid">
             <div class="blog-card">
-                <img src="/assets/blogs/blog1.jpg" />
+                <img src="/assets/blogs/Blog-1/List-pricing-header-1200-x-479-px.webp" />
                 <div class="card-info">
-                    <h4>Blog Title 1</h4>
-                    <p>Description 1...</p>
-                    <button class="card-btn">Read More</button>
+                    <p class="blog-meta">Mar 24, 2024 | by Anya K</p>
+                    <h4>What is a Price List – Meaning, Benefits & Strategies</h4>
+                    <p>A list price is the price a manufacturer or supplier sets for their products or services without
+                        negotiations or discounts. List pricing is a starting point for price negotiations and can
+                        provide a standard price...</p>
+                    <button class="card-btn">Learn More</button>
                 </div>
             </div>
 
             <div class="blog-card">
-                <img src="/assets/blogs/blog2.jpg" />
+                <img src="/assets/blogs/Blog-2/benefits_2x-1.webp" />
                 <div class="card-info">
-                    <h4>Blog Title 2</h4>
-                    <p>Description 2...</p>
-                    <button class="card-btn">Read More</button>
+                    <p class="blog-meta">Mar 24, 2024 | by Anya K</p>
+                    <h4>Price Optimization: What is the Big Deal?</h4>
+                    <p>Where Picasso had his Blue period, we should call the last couple of years the Murphy’s Law
+                        Period. Whatever could happen, did happen: the worst of the COVID-19 pandemic, runaway
+                        inflation, exploding interest rates, see-sawing energy prices, domestic political turmoil,...
+                    </p>
+                    <button class="card-btn">Learn More</button>
                 </div>
             </div>
 
             <div class="blog-card">
-                <img src="/assets/blogs/blog3.jpg" />
+                <img src="/assets/blogs/Blog-3/machine-learning-dynamic-pricing.webp" />
                 <div class="card-info">
-                    <h4>Blog Title 3</h4>
-                    <p>Description 3...</p>
-                    <button class="card-btn">Read More</button>
+                    <p class="blog-meta">Mar 24, 2024 | by Anya K</p>
+                    <h4>How AI is transforming B2B pricing</h4>
+                    <p>It is almost universally accepted throughout the business world that AI will transform things. A
+                        PWC survey confirmed as much, with 85 percent of CEOs feeling AI will “significantly” alter how
+                        they do business in the next five years. In B2B pricing, the challenges...</p>
+                    <button class="card-btn">Learn More</button>
                 </div>
             </div>
 
-            <div class="blog-card">
-                <img src="/assets/blogs/blog4.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 4</h4>
-                    <p>Description 4...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
-
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog5.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 5</h4>
-                    <p>Description 5...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
-
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog6.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 6</h4>
-                    <p>Description 6...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
-
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog7.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 7</h4>
-                    <p>Description 7...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
-
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog8.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 8</h4>
-                    <p>Description 8...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
         </section>
 
         <div class="show-more">
@@ -166,15 +148,15 @@
         </div>
         <div class="footer-box">
             <h4>Quick Links</h4>
-            <a href="#">About Us</a>
+            <a href="/index.html">Home</a>
+            <a href="/pages/About-Us/about-us.html">About Us</a>
             <a href="/pages/blog.html">Blogs</a>
-            <a href="#">Contact</a>
+            <a href="/pages/Contact/contact-us.html">Contact</a>
         </div>
         <div class="footer-box">
             <h4>Solutions</h4>
-            <a href="#">Sample link</a>
-            <a href="#">Sample link</a>
-            <a href="#">Sample link</a>
+            <a href="/pages/Solutions/Fusion/fusion.html">Profit Pricer Fusion</a>
+            <a href="//pages/Solutions/Lite/lite.html">Profit Pricer Lite</a>
         </div>
         <div class="footer-box newsletter">
             <h4>Newsletter</h4>
