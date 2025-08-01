@@ -495,11 +495,11 @@ body {
   text-decoration: none;
   font-size: 14px;
   margin: 5px 0;
-  transition: color 0.2s ease-in-out; /* Smooth transition for hover effect */
+  transition: color 0.2s ease-in-out;
 }
 
 .footer-box a:hover {
-  color: #FFFFFF; /* Changes link color to white on hover */
+  color: #FFFFFF;
 }
 
 .footer-box input {
@@ -609,7 +609,7 @@ footer {
 /* ===================== BLOG PAGE ===================== */
 
 #blog-page {
-  background: url('/assets/blogs/blog-backgound.png') no-repeat center center/cover;
+  background: url('/assets/images/blogs/blog-backgound.png') no-repeat center center/cover;
   font-family: 'Segoe UI', sans-serif;
   color: #111;
 }

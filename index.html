@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog – Profit Pricer</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/blog-style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,18 +13,43 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap"
         rel="stylesheet">
-    
+
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+
     <style>
-      /* Adjust footer column spacing on larger screens */
-      @media screen and (min-width: 1025px) {
-        .global-footer .footer-box:nth-child(2) {
-          margin-left: 50px; /* Increase gap between logo and quick links */
+        /* Adjust footer column spacing on larger screens */
+        @media screen and (min-width: 1025px) {
+            .global-footer .footer-box:nth-child(2) {
+                margin-left: 50px;
+                /* Increase gap between logo and quick links */
+            }
+
+            .global-footer .footer-box:nth-child(3) {
+                margin-left: -5px;
+                /* Decrease gap between quick links and solutions */
+            }
         }
-      
-        .global-footer .footer-box:nth-child(3) {
-          margin-left: -10px; /* Decrease gap between quick links and solutions */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Remove */
+        #section{
+            height: 100vh;  
         }
-      }
     </style>
 </head>
 
@@ -32,7 +57,7 @@
     <header id="navbar">
         <div class="nav-left">
             <a href="/index.html">
-                <img src="/assets/logo.png" alt="Profit Pricer Logo" />
+                <img src="/assets/images/logo.png" alt="Profit Pricer Logo" />
             </a>
         </div>
 
@@ -44,24 +69,24 @@
             <div class="nav-center">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
-                    <li><a href="/pages/About-Us/about-us.html">About Us</a></li>
+                    <li><a href="/pages/about.html">About Us</a></li>
 
                     <li class="dropdown">
                         <a href="#">Solutions <i class="fas fa-chevron-down dropdown-icon"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/pages/Solutions/Fusion/fusion.html">Profit Pricer Fusion</a></li>
-                            <li><a href="/pages/Solutions/Lite/lite.html">Profit Pricer Lite</a></li>
+                            <li><a href="/pages/solutions/fussion.html">Profit Pricer Fusion</a></li>
+                            <li><a href="/pages/solutions/lite.html">Profit Pricer Lite</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
                         <a href="#">Resources <i class="fas fa-chevron-down dropdown-icon"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/pages/Blogs/blog.html">Blog</a></li>
+                            <li><a href="/pages/blog.html">Blog</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="/pages/Contact/contact-us.html">Contact Us</a></li>
+                    <li><a href="/pages/contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -70,122 +95,71 @@
                     <i id="search-icon" class="fas fa-search"></i>
                     <input type="text" id="search-bar" placeholder="Search" />
                 </div>
-                <button class="demo-btn" onclick="window.location.href='/pages/Contact/contact-us.html'">Request a
+                <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a
                     Demo</button>
             </div>
         </div>
 
         <div class="nav-right">
-            <button class="demo-btn" onclick="window.location.href='/pages/Contact/contact-us.html'">Request a
+            <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a
                 Demo</button>
             <div class="lang">EN</div>
         </div>
     </header>
 
 
-    <main class="blog-wrapper">
-        <div class="blog-intro">
-            <h3>Read more from us</h3>
-            <p>“Insights that inspire. Stories that shape tomorrow’s innovation”</p>
-        </div>
 
-        <section id="blog-grid" class="blog-grid">
-            <div class="blog-card">
-                <img src="/assets/blogs/blog1.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 1</h4>
-                    <p>Description 1...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card">
-                <img src="/assets/blogs/blog2.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 2</h4>
-                    <p>Description 2...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card">
-                <img src="/assets/blogs/blog3.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 3</h4>
-                    <p>Description 3...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card">
-                <img src="/assets/blogs/blog4.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 4</h4>
-                    <p>Description 4...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog5.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 5</h4>
-                    <p>Description 5...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog6.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 6</h4>
-                    <p>Description 6...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog7.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 7</h4>
-                    <p>Description 7...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
 
-            <div class="blog-card hidden">
-                <img src="/assets/blogs/blog8.jpg" />
-                <div class="card-info">
-                    <h4>Blog Title 8</h4>
-                    <p>Description 8...</p>
-                    <button class="card-btn">Read More</button>
-                </div>
-            </div>
-        </section>
 
-        <div class="show-more">
-            <button id="loadMoreBtn">Load More</button>
-        </div>
 
-    </main>
+
+
+
+<section id="section"></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <footer class="global-footer">
         <div class="footer-box">
             <a href="/index.html">
-                <img src="/assets/logo-white.png" alt="Profit Pricer Logo" class="footer-logo" />
+                <img src="/assets/images/logo-white.png" alt="Profit Pricer Logo" class="footer-logo" />
             </a>
             <p>One suite for pricing, customer and marketing strategy in real time.</p>
         </div>
         <div class="footer-box">
             <h4>Quick Links</h4>
-            <a href="#">About Us</a>
+            <a href="/index.html">Home</a>
+            <a href="/pages/about.html">About Us</a>
             <a href="/pages/blog.html">Blogs</a>
-            <a href="#">Contact</a>
+            <a href="/pages/contact.html">Contact</a>
         </div>
         <div class="footer-box">
             <h4>Solutions</h4>
-            <a href="#">Profit Pricer Fusion</a>
-            <a href="#">Profit Pricer Lite</a>
+            <a href="/pages/solutions/fussion.html">Profit Pricer Fusion</a>
+            <a href="/pages/solutions/lite.html">Profit Pricer Lite</a>
         </div>
         <div class="footer-box newsletter">
             <h4>Newsletter</h4>
@@ -199,7 +173,7 @@
         <div><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/js/blog-script.js"></script>
 </body>
 
 </html>
