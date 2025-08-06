@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Profit Pricer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('/assets/images/solutions/background-sign-in-up-pc.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background: url('/assets/images/solutions/background-sign-in-up-phn.png') no-repeat center center/cover;
+        align-items: flex-start;
+        padding-top: 80px;
+      }
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 120px;
+    }
+
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .form-section {
+      flex: 1;
+      max-width: 400px;
+      text-align: center; 
+    }
+    
+    .info-section {
+      flex: 1;
+      max-width: 320px; 
+    }
+    
+    .info-section p {
+        color: #555;
+        line-height: 1.7;
+        font-size: 0.95em;
+        text-align: left;
+    }
+
+    .form-section h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      color: #2e2e2e;
+      margin-bottom: 5px;
+    }
+
+    .form-section > p {
+      margin-bottom: 30px;
+      color: #666;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+    }
+
+    input {
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      background-color: #d6e1cb;
+      color: #333;
+      width: 100%;
+    }
+    
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0;
+        font-size: 0.85em;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      color: #444;
+    }
+
+    .checkbox-group input {
+      width: auto;
+      margin-right: 8px;
+    }
+    
+    .form-options a {
+        color: #444;
+        text-decoration: none;
+    }
+    
+    .form-options a:hover {
+        text-decoration: underline;
+    }
+
+    button {
+      background-color: #5b655e;
+      color: white;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3e4740;
+    }
+    
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9em; 
+        color: #333;
+    }
+    
+    .signup-link a {
+        color: #2e2e2e;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .login-container {
+        flex-direction: column;
+      }
+      /* .info-section {
+          display: none; 
+      } */
+      .form-section {
+          max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="/assets/images/logo.png" alt="Profit Pricer Logo" class="logo" />
+
+  <div class="login-container">
+    <div class="form-section">
+      <h1>Welcome Back</h1>
+      <p>We were waiting for you</p>
+
+      <form id="loginForm">
+        <input type="text" name="credential" placeholder="Email / Contact No." required />
+        <input type="password" name="password" placeholder="Password" required />
+
+        <div class="form-options">
+          <div class="checkbox-group">
+            <input type="checkbox" id="rememberMe" />
+            <label for="rememberMe">Remember Me</label>
+          </div>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+      
+      <p class="signup-link">New here? <a href="/pages/solutions/sign-up.html">Create an account</a></p>
+    </div>
+    
+    <div class="info-section">
+        <p>
+            Profit Pricer Lite is a fast, flexible pricing solution made for small businesses, teams, and entrepreneurs. It offers powerful pricing tools without the complexity of enterprise systems. With simple subscriptions, instant access, and key features like fast pricing and hassle-free plan changes, it helps you stay agile, in control, and ready to grow.
+        </p>
+    </div>
+  </div>
+
+</body>
+</html>

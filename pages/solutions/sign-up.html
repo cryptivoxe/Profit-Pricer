@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create an Account</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('/assets/images/solutions/background-sign-in-up-pc.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background: url('/assets/images/solutions/background-sign-in-up-phn.png') no-repeat center center/cover;
+      }
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 120px;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 2em;
+      font-weight: 700;
+      color: #2e2e2e;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      margin-bottom: 25px;
+      color: #666;
+    }
+
+    .container p a {
+      color: #6c63ff;
+      text-decoration: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .row input,
+    .row select {
+      flex: 1;
+    }
+
+    input, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      background-color: #d6e1cb;
+      color: #333;
+      width: 100%;
+    }
+
+    select:invalid {
+      color: #666;
+    }
+
+    option {
+      color: #666;
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      font-size: 0.9em;
+      color: #444;
+    }
+
+    .checkbox-group input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #5b655e;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3e4740;
+    }
+
+    @media (max-width: 600px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img src="/assets/images/logo.png" alt="Profit Pricer Logo" class="logo" />
+
+  <div class="container">
+    <h1>Create an account</h1>
+    <p>Already have an account? <a href="/pages/solutions/sign-in.html">Login</a></p>
+
+    <form id="signupForm">
+      <div class="row">
+        <input type="text" name="firstName" placeholder="First Name" required />
+        <input type="text" name="lastName" placeholder="Last Name" required />
+      </div>
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="Phone No." required />
+      <input type="password" name="password" placeholder="Password" required />
+      <div class="row">
+        <input type="text" name="companyName" placeholder="Company Name" required />
+        <select name="subscription" required>
+          <option value="" disabled selected>Subscription</option>
+          <option>Basic</option>
+          <option>Standard</option>
+          <option>Premium</option>
+        </select>
+      </div>
+      <div class="row">
+        <input type="text" name="companyAddress" placeholder="Company Address" required />
+        <input type="email" name="companyEmail" placeholder="Company Email Address" required />
+      </div>
+
+      <div class="checkbox-wrapper">
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" required />
+          <label for="terms">I agree to the terms and service</label>
+        </div>
+      </div>
+
+      <button type="submit">Create an account</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      const terms = document.getElementById("terms");
+      if (!terms.checked) {
+        alert("You must agree to the terms and service.");
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
