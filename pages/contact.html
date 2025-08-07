@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Quicksand:wght@400&family=Rubik:wght@400&family=Public+Sans:wght@300;400&display=swap"
         rel="stylesheet">
 
     <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
@@ -88,13 +88,13 @@
 
     <!-- Hero Section -->
     <section class="contact-hero">
-        <h1>Request a demo</h1>
-        <p>Let’s chat about your pricing strategy and how Profit Pricer can bring clarity and performance to your
-            revenue goals. We’ll tailor our walkthrough to your needs and goals.</p>
+        <h1>Book a demo</h1>
+        <p>Discover how our advanced solutions empower you to grow revenue, enhance your pricing strategies, and drive sales effectiveness. Share a few details about your business, and one of our pricing experts will get in touch to schedule your personalized consultation. Let’s chart a path to better profitability together.
+        </p>
     </section>
 
     <!-- What We'll Cover Section -->
-    <section class="call-steps">
+    <!-- <section class="call-steps">
         <h2 class="steps-heading">OUR INITIAL CALL WILL COVER:</h2>
         <div class="step">
             <div class="step-icon" style="background: linear-gradient(to right, #e8dbc1, #c1e6d6);">
@@ -139,26 +139,29 @@
                 <p>Get a personalized demo aligned with your specific needs.</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <section class="contact-image-block">
-        <img src="/assets/images/contact-us/Yellow Gradient Steps For Starting A New Business Graph.png " alt="Initial Call Steps" />
+        <img src="/assets/images/contact-us/Yellow Gradient Steps For Starting A New Business Graph.png "
+            alt="Initial Call Steps" />
     </section>
 
     <!-- Meet You Section -->
     <section class="meet-you">
-        <div class="meet-content">
-            <div class="text">
-                <h2>It’s nice to meet you.</h2>
-                <p>On the other end of this form, you'll connect with a real person. We’ll review your submission and
-                    schedule a 30-minute call. It’s not a sales pitch — just a quick intro & future-friendly ideas.</p>
-            </div>
-            <div class="image">
-                <img src="/assets/images/chart-meet.jpg" alt="Team discussing analytics" />
-            </div>
+    <div class="meet-content">
+        <div class="text">
+            <h2>Unlock Your Growth Potential with Profit Pricer Experts</h2>
+            <p>When you explore a demo with Profit Pricer, you’re not just viewing software—you’re meeting genuine pricing and consulting professionals dedicated to maximizing your commercial results. Our team guides you through every step, sharing proven strategies and data-driven recommendations tailored to your business. Expect hands-on consulting, actionable insights, and ongoing support to help you achieve smarter pricing strategies, effective list price management, and sustainable profit growth. Let's transform the way you price, together.</p>
         </div>
-    </section>
+        <div class="image">
+    <video id="meet-you-video-trigger" muted autoplay loop playsinline>
+        <source src="../assets/videos/profit-prier-marketing.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+    </div>
+</section>
 
     <!-- Contact Form -->
     <section class="contact-form">
@@ -176,11 +179,11 @@
     </section>
 
     <!-- Map Section -->
-    <section class="map-section">
+    <!-- <section class="map-section">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="300" style="border:0;"
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-    </section>
+    </section> -->
 
 
     <footer class="global-footer">
@@ -188,7 +191,13 @@
             <a href="/index.html">
                 <img src="/assets/images/logo-white.png" alt="Profit Pricer Logo" class="footer-logo" />
             </a>
-            <p>One suite for pricing, customer and marketing strategy in real time.</p>
+            <p> Built for Small and Medium sized teams who need intelligent, fast, and profit maximizing pricing.</p>
+
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/profitpricer/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
         </div>
         <div class="footer-box">
             <h4>Quick Links</h4>
@@ -204,6 +213,8 @@
         </div>
         <div class="footer-box newsletter">
             <h4>Newsletter</h4>
+            <p class="newsletter-description">Subscribe to our newsletter for the latest updates and pricing insights.
+            </p>
             <input type="email" placeholder="Enter your email" />
             <button>➤</button>
         </div>
@@ -212,6 +223,38 @@
     <div class="footer-bottom">
         <p>©2025 Copyright and All Rights Reserved</p>
         <div><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></div>
+    </div>
+
+
+    <!-- Chatbot Icon -->
+    <img src="/assets/images/chatbot-icon.png" alt="Chatbot" class="chatbot-icon" />
+
+    <div id="chatbot-window">
+        <div class="chat-header">
+            <strong>John Bot</strong>
+            <span class="close-chat">&times;</span>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message received">
+                <span>Hey There, Nice to meet you! Im John</span>
+            </div>
+        </div>
+        <form class="chat-input-area">
+            <input type="text" placeholder="Type your message" required autocomplete="off" />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+
+    <!-- Video Overlay -->
+    <div id="video-modal-overlay">
+        <div class="video-modal-content">
+            <span id="close-modal-btn">&times;</span>
+            <video id="popup-video" controls>
+                <source src="/assets/videos/profit-prier-marketing.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 
     <script src="/js/contact-script.js"></script>
