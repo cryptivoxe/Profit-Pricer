@@ -1268,7 +1268,6 @@ footer {
 }
 
 
-
 /* =================== Contact Form Section  =================== */
 .contact-form {
   padding: 60px 20px;
@@ -1479,6 +1478,7 @@ footer {
     display: none;
 }
 
+
 /* =================== TESTIMONIALS SECTION =================== */
 .testimonials-section {
 
@@ -1520,8 +1520,8 @@ footer {
   
 }
 
-/* Decorative quote mark in the background */
 
+/* Decorative quote mark in the background */
 .testimonial-card::after {
   content: "";
   position: absolute;
@@ -1532,7 +1532,6 @@ footer {
   height: 16rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  
   transition: 0.3s ease-in-out;
 
 

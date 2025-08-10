@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create an Account - Profit Pricer</title>
   <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
   <style>
@@ -12,7 +13,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       overflow: hidden;
     }
@@ -80,7 +82,8 @@
       flex: 1;
     }
 
-    input, select {
+    input,
+    select {
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -139,6 +142,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Logo -->
@@ -157,7 +161,7 @@
       <input type="tel" name="phone" placeholder="Phone No." required />
       <input type="password" name="password" placeholder="Password" required />
       <div class="row">
-        <input type="text" name="companyName" placeholder="Company Name" required />
+        <input type="text" name="companyName" placeholder="Company Name" />
         <select name="subscription" required>
           <option value="" disabled selected>Subscription</option>
           <option>Basic</option>
@@ -166,8 +170,8 @@
         </select>
       </div>
       <div class="row">
-        <input type="text" name="companyAddress" placeholder="Company Address" required />
-        <input type="email" name="companyEmail" placeholder="Company Email Address" required />
+        <input type="text" name="companyAddress" placeholder="Company Address" />
+        <input type="email" name="companyEmail" placeholder="Company Email Address" />
       </div>
 
       <div class="checkbox-wrapper">
@@ -182,13 +186,27 @@
   </div>
 
   <script>
-    document.getElementById("signupForm").addEventListener("submit", function(e) {
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const firstName = document.querySelector('input[name="firstName"]').value.trim();
+      const lastName = document.querySelector('input[name="lastName"]').value.trim();
+      const subscription = document.querySelector('select[name="subscription"]').value;
+
       const terms = document.getElementById("terms");
       if (!terms.checked) {
         alert("You must agree to the terms and service.");
-        e.preventDefault();
+        return;
       }
+
+      // Save to localStorage
+      localStorage.setItem("fullName", firstName + " " + lastName);
+      localStorage.setItem("selectedPlan", subscription);
+
+      // Redirect to payment page
+      window.location.href = "/pages/solutions/payment.html";
     });
   </script>
+
 </body>
 </html>

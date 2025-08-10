@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment - Profit Pricer</title>
+<link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+<style>
+    body {
+        height: 100vh; /* Exactly the height of the viewport */
+        margin: 0;
+        background-color: #f8f9fa;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden; /* Prevent scroll */
+    }
+
+    /* Logo fixed at top-left without affecting layout */
+    .logo-container {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+    }
+
+    .logo-container img {
+        width: 120px;
+        height: auto;
+    }
+
+    /* Centered payment card */
+    .payment-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 500px;
+        box-sizing: border-box;
+    }
+
+    .greeting {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .greeting span {
+        font-weight: bold;
+    }
+
+    .payment-form h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+    }
+
+    .form-row .form-group {
+        flex: 1;
+    }
+
+    label {
+        display: block;
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #28a745;
+        box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+    }
+
+    input.error {
+        border-color: #dc3545;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    .message-box {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: 500;
+        display: none;
+    }
+
+    .message-box.success {
+        background-color: #d4edda;
+        color: #155724;
+        display: block;
+    }
+
+    .message-box.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        display: block;
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="/assets/images/logo.png" alt="Profit Pricer Logo">
+    </div>
+
+    <div class="payment-card">
+        <!-- Greeting -->
+        <div class="greeting">
+            Hi <span id="userName"></span>, Welcome to Profit Pricer Family
+        </div>
+
+        <!-- Form -->
+        <form class="payment-form" id="paymentForm" novalidate>
+            <h2>Use Card for Payment</h2>
+
+            <div class="form-group">
+                <label>Plan Selected</label>
+                <input type="text" id="planField" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Credit Card</label>
+                <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Expiration Date</label>
+                    <input type="text" id="expiryDate" placeholder="MM / YY" required>
+                </div>
+                <div class="form-group">
+                    <label>CCV</label>
+                    <input type="password" id="ccv" placeholder="***" maxlength="4" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="customerName" placeholder="Full Name" required>
+            </div>
+
+            <button type="submit">Proceed with Payment</button>
+            <div id="messageBox" class="message-box"></div>
+        </form>
+    </div>
+
+<script>
+    // Auto-fill from localStorage
+    document.addEventListener("DOMContentLoaded", function () {
+        const fullName = localStorage.getItem("fullName") || "";
+        const selectedPlan = localStorage.getItem("selectedPlan") || "";
+
+        document.getElementById("userName").textContent = fullName;
+        document.getElementById("customerName").value = fullName;
+        document.getElementById("planField").value = selectedPlan ? `Profit Pricer: ${selectedPlan}` : "";
+
+        document.getElementById("cardNumber").value = "";
+        document.getElementById("expiryDate").value = "";
+        document.getElementById("ccv").value = "";
+    });
+
+    // Form validation
+    const paymentForm = document.getElementById('paymentForm');
+    const cardNumberInput = document.getElementById('cardNumber');
+    const expiryDateInput = document.getElementById('expiryDate');
+    const ccvInput = document.getElementById('ccv');
+    const nameInput = document.getElementById('customerName');
+    const messageBox = document.getElementById('messageBox');
+
+    paymentForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        [cardNumberInput, expiryDateInput, ccvInput, nameInput].forEach(input => input.classList.remove('error'));
+        messageBox.style.display = 'none';
+        messageBox.className = 'message-box';
+
+        let isValid = true;
+        if (cardNumberInput.value.trim() === '') { cardNumberInput.classList.add('error'); isValid = false; }
+        if (expiryDateInput.value.trim() === '') { expiryDateInput.classList.add('error'); isValid = false; }
+        if (ccvInput.value.trim() === '') { ccvInput.classList.add('error'); isValid = false; }
+        if (nameInput.value.trim() === '') { nameInput.classList.add('error'); isValid = false; }
+
+        if (isValid) {
+            messageBox.textContent = 'Payment processing... Success!';
+            messageBox.classList.add('success');
+        } else {
+            messageBox.textContent = 'Please fill out all required fields.';
+            messageBox.classList.add('error');
+        }
+    });
+</script>
+
+</body>
+</html>
