@@ -103,7 +103,8 @@
 
     .checkbox-wrapper {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .checkbox-group {
@@ -116,6 +117,16 @@
     .checkbox-group input {
       width: auto;
       margin-right: 10px;
+    }
+    
+    .explore-plans-link {
+        font-size: 0.9em;
+        color: #6c63ff;
+        text-decoration: none;
+    }
+
+    .explore-plans-link:hover {
+        text-decoration: underline;
     }
 
     button {
@@ -145,7 +156,6 @@
 
 <body>
 
-  <!-- Logo -->
   <img src="/assets/images/logo.png" alt="Profit Pricer Logo" class="logo" />
 
   <div class="container">
@@ -179,6 +189,7 @@
           <input type="checkbox" id="terms" required />
           <label for="terms">I agree to the terms and service</label>
         </div>
+        <a href="/pages/solutions/lite.html#pricing" class="explore-plans-link">Explore Plans</a>
       </div>
 
       <button type="submit">Create an account</button>
@@ -186,6 +197,23 @@
   </div>
 
   <script>
+    // This code runs when the page has loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the full URL's search parameters
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // Find the value of the 'plan' parameter
+      const planFromUrl = urlParams.get('plan');
+
+      // If a plan was found in the URL
+      if (planFromUrl) {
+        const subscriptionSelect = document.querySelector('select[name="subscription"]');
+        // Set the dropdown's value to the plan from the URL
+        subscriptionSelect.value = planFromUrl;
+      }
+    });
+
+
     document.getElementById("signupForm").addEventListener("submit", function (e) {
       e.preventDefault();
 

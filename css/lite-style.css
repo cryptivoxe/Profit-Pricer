@@ -1,0 +1,1570 @@
+/* ===================== General ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: url('/assets/images/solutions/texture.png') center/cover repeat;
+
+}
+
+/* ===================== HEADER STYLES ===================== */
+
+#navbar {
+    width: 100%;
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    min-height: 70px;
+}
+
+/* Logo */
+.nav-left img {
+    height: 3rem;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Center Wrapper */
+.nav-center-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    margin-left: 9rem;
+    margin-right: 1rem;
+}
+
+/* Center Nav Menu */
+.nav-center ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-center ul li {
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.nav-center ul li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    padding: 8px 4px;
+}
+
+.nav-center ul li a:hover {
+    color: #357beb;
+}
+
+/* Dropdown Styling */
+.dropdown-icon {
+    font-size: 10px;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 140px;
+    z-index: 999;
+    border: 1px solid #e5e5e5;
+}
+
+.dropdown .dropdown-menu li {
+    padding: 10px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown .dropdown-menu li:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown.hover .dropdown-menu {
+    display: block;
+}
+
+/* --- SEARCH STYLES --- */
+.search-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transition: width 0.4s ease-in-out;
+}
+
+#search-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    padding: 8px;
+    transition: left 0.4s ease-in-out, color 0.3s;
+}
+
+#search-bar {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px 20px 10px 45px;
+    font-size: 14px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+    box-sizing: border-box;
+}
+
+/* Active state for the search component */
+.search-wrapper.active {
+    width: 175px;
+}
+
+.search-wrapper.active #search-icon {
+    left: 18px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.search-wrapper.active #search-bar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#search-bar:focus {
+    border-color: #357beb;
+    box-shadow: 0 0 0 2px rgba(53, 123, 235, 0.1);
+}
+
+/* Request a Demo button next to search */
+.search-demo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Right corner items */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.demo-btn {
+    background-color: #EDB463;
+    color: #111;
+    height: 38px;
+    padding: 0 30px;
+    border-radius: 26px;
+    font-weight: 600;
+    border: 1px solid #292C30;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demo-btn:hover {
+    background-color: rgba(25, 25, 25, 0.85);
+    color: #EDB463;
+    border-color: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+.lang {
+    background-color: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.lang:hover {
+    background-color: #e0e0e0;
+}
+
+/* Hide mobile demo button on desktop */
+@media screen and (min-width: 1025px) {
+    .search-demo-wrapper .demo-btn {
+        display: none;
+    }
+}
+
+/* ===================== RESPONSIVE HEADER ===================== */
+
+.mobile-menu-icon {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-icon:hover {
+    background-color: #f0f0f0;
+}
+
+/* When hamburger is active (turn into cross) */
+.mobile-menu-icon.active i::before {
+    content: "\f00d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+    #navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-center-wrapper {
+        margin-left: 2rem;
+        gap: 10px;
+    }
+
+    .nav-center ul {
+        gap: 16px;
+    }
+
+    .nav-center ul li a {
+        font-size: 14px;
+    }
+
+    #search-bar.active {
+        width: 120px;
+    }
+
+    .demo-btn {
+        padding: 0 25px;
+        height: 48px;
+        font-size: 13px;
+    }
+
+    .lang {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    #navbar {
+        padding: 1rem;
+        justify-content: space-between;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        min-height: 60px;
+    }
+
+    .nav-left img {
+        height: 2rem;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .nav-center-wrapper {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        z-index: 998;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin: 0;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav-center-wrapper.active {
+        display: flex;
+    }
+
+    .nav-center {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .nav-center ul {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-center ul li {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 8px 0;
+    }
+
+    .nav-center ul li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-center ul li a {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+        font-size: 16px;
+    }
+
+    /* Mobile dropdown styling */
+    .dropdown .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        background-color: #f8f9fa;
+        margin-top: 8px;
+        border-radius: 4px;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown .dropdown-menu li {
+        padding: 8px 16px;
+        border-bottom: none;
+    }
+
+    .search-demo-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        width: 100%;
+        padding: 15px 0;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .search-wrapper {
+        display: flex;
+        align-items: center;
+        flex: 1;
+    }
+
+    .search-wrapper.active {
+        width: calc(100% - 130px);
+    }
+
+    .demo-btn {
+        padding: 0 16px;
+        font-size: 14px;
+        margin: 0;
+        flex-shrink: 0;
+        min-width: 120px;
+        height: 48px;
+    }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+    #navbar {
+        padding: 0.75rem;
+    }
+
+    .nav-left img {
+        height: 1.75rem;
+    }
+
+    .search-demo-wrapper {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .search-wrapper {
+        justify-content: flex-start;
+    }
+
+    .search-wrapper.active {
+        width: 100%;
+    }
+
+    .demo-btn {
+        width: 100%;
+        text-align: center;
+        min-width: auto;
+        height: 52px;
+    }
+}
+
+
+/* Footer */
+.global-footer {
+    width: 100%;
+    background: #111;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+}
+
+.footer-box h4 {
+    margin-bottom: 10px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-box a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 5px 0;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-box a:hover {
+    color: #FFFFFF;
+}
+
+.footer-box input {
+    padding: 8px;
+    width: 70%;
+    border-radius: 6px;
+    border: none;
+}
+
+.footer-box button {
+    background: #ffa400;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    width: 100%;
+    background: #000;
+    color: #ccc;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.footer-bottom a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+
+footer {
+    background-color: #111;
+    color: white;
+    padding: 60px 30px 20px 30px;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.newsletter-description {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.newsletter-input {
+    padding: 8px 12px;
+    border-radius: 4rem;
+    border: none;
+    width: 200px;
+    margin-right: 8px;
+}
+
+.newsletter-btn {
+    background-color: #ffa400;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #aaa;
+    padding-top: 30px;
+    font-size: 13px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #ccc;
+    font-size: 25px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #ffffff;
+    color: #0077b5;
+}
+
+
+/* ===================== CHATBOT STYLES ===================== */
+.chatbot-icon {
+    position: fixed;
+    /* Changed from 'absolute' to 'fixed' */
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    z-index: 990;
+    /* Increased to stay on top of page content */
+    transition: transform 0.3s ease;
+}
+
+/* ===================== CHATBOT WINDOW STYLES ===================== */
+#chatbot-window {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 316px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 23px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    z-index: 998;
+
+    display: flex;
+    flex-direction: column;
+
+    /* Pop-up animation */
+    transform-origin: bottom right;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease-out;
+}
+
+#chatbot-window.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* --- Chat Header --- */
+.chat-header {
+    padding: 1rem;
+    background-color: #f7f7f7;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.close-chat {
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-chat:hover {
+    color: #333;
+}
+
+/* --- Chat Body --- */
+.chat-body {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin-bottom: 1rem;
+}
+
+.chat-message.received span {
+    background-color: #e9e9e9;
+    padding: 10px 14px;
+    border-radius: 18px;
+    display: inline-block;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+/* --- Chat Input --- */
+.chat-input-area {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #e9e9e9;
+}
+
+.chat-input-area input {
+    flex: 1;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 12px 16px;
+    font-size: 14px;
+    outline: none;
+}
+
+.chat-input-area button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #357beb;
+    cursor: pointer;
+    padding: 0 12px;
+}
+
+
+/* ===================== PROFIT PRICER LITE HERO SECTION STYLES (UPDATED) ===================== */
+
+.hero-lite {
+    position: relative;
+    padding: 160px 2rem 100px 2rem; 
+    background: url('YOUR_BACKGROUND_IMAGE_PATH_HERE') center/cover no-repeat;
+    height: 100vh;
+}
+
+.hero-lite-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Increased gap for better spacing */
+}
+
+.hero-lite-image {
+    flex: 1 1 50%;
+    text-align: center;
+}
+
+.hero-lite-image img {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Text container is now constrained to encourage line wrapping */
+.hero-lite-text {
+    flex: 1 1 50%;
+    max-width: 480px; /* Limits the width to make the paragraph wrap into 3 lines */
+}
+
+.hero-lite-text h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #36354D;
+    line-height: 1.2; /* Adjust line-height for the two-line heading */
+    margin-bottom: 20px;
+}
+
+.hero-lite-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #36354C;
+    line-height: 1.7; /* Increased line-height for better readability */
+    margin-bottom: 32px;
+}
+
+.hero-lite-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+/* UPDATED BUTTON STYLES BASED ON YOUR NEW SCREENSHOT */
+.btn-lite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #121212;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    /* Border from Figma: 4px width, color #3D3D3D at 21% opacity */
+    border: 1px solid rgba(61, 61, 61, 0.21);
+}
+
+.btn-lite:hover {
+    /* 1. Dark Gradient Background */
+    /* This creates the top-to-bottom dark gradient from your design */
+    background: linear-gradient(to bottom, #1E2024, #242B3F);
+
+    /* 2. White Text Color */
+    /* This changes the text color to white for readability */
+    color: #FFFFFF;
+
+    /* 3. Darker Border Color */
+    /* This uses the border color from your Figma hover state */
+    border-color: rgba(132, 132, 180, 0.8);
+
+    /* 4. Keeps the existing visual feedback */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================== RESPONSIVE STYLES ===================== */
+@media screen and (max-width: 768px) {
+    .hero-lite-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-lite-text {
+        max-width: 100%; /* Remove max-width on mobile to use full space */
+    }
+
+    .hero-lite-buttons {
+        justify-content: center;
+    }
+}
+
+
+/* ===================== PRICING INFO SECTION STYLES (UPDATED) ===================== */
+
+.pricing-info {
+    position: relative;
+    padding: 100px 2rem;
+    background: url('/assets/images/solutions/lite/mini-hero-bg.png') center/cover no-repeat;
+    overflow: hidden; 
+    height: 100vh;
+}
+
+.pricing-info-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Increased gap to accommodate larger text */
+}
+
+/* Text container on the left */
+.pricing-info-text {
+    flex: 1 1 50%;
+}
+
+/* Main heading styles from Figma */
+.pricing-info-text h2 {
+    font-family: 'Inter', sans-serif;   
+    font-weight: 900;                   
+    font-size: 56px;                    
+    line-height: 1;                     
+    color: #273F2C;                     
+    letter-spacing: 0;                  
+    margin-bottom: 30px;
+}
+
+.pricing-info-text h2 span {
+    color: inherit; 
+}
+
+/* Paragraph text styles from Figma */
+.pricing-info-text p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;                  
+    font-size: 24px;                  
+    line-height: 1.4;                  
+    color: #292929;                     
+    letter-spacing: 0;                  
+}
+
+/* Image container on the right */
+.pricing-info-image {
+    flex: 1 1 50%;
+    text-align: center;
+}
+
+.pricing-info-image img {
+    max-width: 450px;
+    width: 100%;
+}
+
+/* ===================== RESPONSIVE STYLES ===================== */
+/* Adjusting font sizes for mobile devices */
+@media screen and (max-width: 992px) {
+    .pricing-info-text h2 {
+        font-size: 72px; /* Scaled down for tablets */
+    }
+    .pricing-info-text p {
+        font-size: 24px; /* Scaled down for tablets */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pricing-info-content {
+        flex-direction: column-reverse; 
+        text-align: center;
+        gap: 40px;
+    }
+
+    .pricing-info-text h2 {
+        font-size: 48px; /* Further scaled down for mobile */
+    }
+
+    .pricing-info-text p {
+        font-size: 18px; /* Further scaled down for mobile */
+    }
+}
+
+
+/* ===================== QUOTATION SECTION ===================== */
+.quote-section {
+    padding: 80px 2rem; /* Vertical space around the quote */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote-content blockquote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #333;
+    max-width: 800px; /* Limits the width of the text */
+    text-align: center;
+    line-height: 1.6;
+    border-left: none; /* Removes default blockquote styling */
+    margin: 0;
+}
+
+/* ===================================================================
+   FOCUS AREA SECTION
+   =================================================================== */
+
+.focus-area {
+    padding: 100px 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.focus-area h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #363A4A;
+    margin-bottom: 50px;
+}
+
+/*
+ * The Grid Container:
+ * - Defines a 3-column track for the staggered layout.
+ * - Sets a minimum height for all cards.
+*/
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    grid-auto-rows: minmax(320px, auto); 
+}
+
+/*
+ * Base Card Style:
+ * - Sets position to 'relative' to anchor the number box.
+ * - Adds padding and a subtle shadow.
+*/
+.focus-card {
+    position: relative;
+    padding: 30px;
+    padding-top: 50px; /* Extra top padding for number box */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Unique Styles for Each Card --- */
+
+/* Card 1: Narrow width, unique background */
+.focus-card:nth-child(1) {
+    grid-column: span 1;
+    background-color: rgba(203, 220, 207, 0.34); /* color from image_a88847.jpg */
+}
+
+/* Card 2: Wide width, unique background */
+.focus-card:nth-child(2) {
+    grid-column: span 2;
+    background-color: rgba(222, 218, 202, 0.34); /* color from image_a88849.jpg */
+}
+
+/* Card 3: Wide width, unique background */
+.focus-card:nth-child(3) {
+    grid-column: span 2;
+    background-color: rgba(172, 219, 218, 0.34); /* color from image_a88860.jpg */
+}
+
+/* Card 4: Narrow width, unique background */
+.focus-card:nth-child(4) {
+    grid-column: span 1;
+    background-color: rgba(220, 220, 220, 0.34); /* color from image_a88861.jpg */
+}
+
+
+
+/* Base style for the number box */
+.card-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    border-top-left-radius: 8px; 
+    border-bottom-right-radius: 8px;
+}
+
+/* Unique background colors for each number box */
+.focus-card:nth-child(1) .card-number { background-color: #454E46; } /* color from image_a7a027.jpg */
+.focus-card:nth-child(2) .card-number { background-color: #5C504C; } /* color from image_a7a2ca.jpg */
+.focus-card:nth-child(3) .card-number { background-color: #425559; } /* color from image_a7a2cc.jpg */
+.focus-card:nth-child(4) .card-number { background-color: #5C566E; } /* color from image_a7a2ce.jpg */
+
+
+/* --- Text Styles Inside Cards --- */
+
+.focus-card h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #454E46;
+    margin-bottom: 10px;
+}
+
+.focus-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #6C7287;
+    line-height: 1.6;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media screen and (max-width: 992px) {
+    .focus-grid {
+        /* Revert to a single column for smaller screens */
+        grid-template-columns: 1fr;
+    }
+
+    /* Reset the column spans for all cards on smaller screens */
+    .focus-card:nth-child(1),
+    .focus-card:nth-child(2),
+    .focus-card:nth-child(3),
+    .focus-card:nth-child(4) {
+        grid-column: span 1;
+    }
+}
+
+
+/* ===================================================================
+   KEY ENABLERS SECTION (Final Version with Text Adjustments)
+   =================================================================== */
+
+.key-enablers {
+    padding: 100px 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.key-enablers h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #222;
+    margin-bottom: 50px;
+}
+
+/* This container uses Flexbox to create the two columns */
+.enablers-column-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Each column is also a flex container to space the cards inside */
+.enablers-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* This creates the vertical space between cards */
+}
+
+/* Base styles for all cards */
+.enabler-card {
+    position: relative;
+    padding: 40px;
+    padding-left: 50px;
+    border-radius: 20px;
+    color: #fff;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Heights for a Balanced Layout --- */
+
+/* Tallest card */
+#enabler-1 {
+    height: 440px;
+}
+
+/* Medium-Tall cards */
+#enabler-4,
+#enabler-6 {
+    height: 400px;
+}
+
+/* Shortest cards */
+#enabler-2,
+#enabler-3,
+#enabler-5 {
+    height: 360px;
+}
+
+
+/* --- Unique Background Images --- */
+#enabler-1 { background-image: url('/assets/images/solutions/lite/card-texture/card1.png'); }
+#enabler-2 { background-image: url('/assets/images/solutions/lite/card-texture/card2.png'); }
+#enabler-3 { background-image: url('/assets/images/solutions/lite/card-texture/card3.png'); }
+#enabler-4 { background-image: url('/assets/images/solutions/lite/card-texture/card4.png'); }
+#enabler-5 { background-image: url('/assets/images/solutions/lite/card-texture/card5.png'); }
+#enabler-6 { background-image: url('/assets/images/solutions/lite/card-texture/card6.png'); }
+
+
+/* --- Card Content Styles --- */
+
+/* UPDATED NUMBER STYLES */
+.enabler-number {
+    position: absolute;
+    top: 15px;          /* MOVED UP */
+    left: 20px;         /* MOVED LEFT */
+    font-size: 80px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.1); /* MADE DARK and semi-transparent */
+    line-height: 1;
+    z-index: 1;
+}
+
+/* UPDATED HEADING STYLES */
+.enabler-card h3 {
+    position: relative;
+    z-index: 2;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-top: 80px; /* INCREASED PADDING to move text down, away from the number */
+}
+
+.enabler-card ul {
+    position: relative;
+    z-index: 2;
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.enabler-card li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    padding-left: 10px;
+}
+
+.enabler-card li::before {
+    content: '•';
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 768px) {
+    .enablers-column-container {
+        flex-direction: column;
+    }
+    
+    .enabler-card, #enabler-1, #enabler-4, #enabler-6, #enabler-2, #enabler-3, #enabler-5 {
+        height: auto;
+        min-height: 320px;
+    }
+}
+
+
+/* ===================================================================
+   WHY US SECTION
+   =================================================================== */
+
+.why-us-section {
+    padding: 100px 2rem;
+}
+
+.why-us-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    color: #003455; /* Dark blue color for the heading */
+    margin-bottom: 50px;
+}
+
+.comparison-table {
+    width: 100%;
+    max-width: 900px; /* Controls the overall width of the table */
+    margin: 0 auto;
+    border-collapse: collapse; /* Creates clean, single lines for borders */
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #e0e0e0; /* The horizontal line between rows */
+    text-align: left;
+}
+
+/* Style for the last row to remove the bottom border */
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table thead th {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #34495e; /* Darker text for the header */
+    padding-bottom: 25px;
+}
+
+.comparison-table tbody td {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #7f8c8d; /* Lighter gray for feature text */
+}
+
+/* Utility class to center text and icons */
+.comparison-table .text-center {
+    text-align: center;
+}
+
+
+/* --- PURE CSS ICONS --- */
+
+/* Base styles for both icons */
+.icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Green Checkmark Icon */
+.icon-check {
+    background-color: #27ae60; /* Green background */
+}
+
+.icon-check::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 7px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Red Cross Icon */
+.icon-cross {
+    background-color: #c0392b; /* Red background */
+}
+
+.icon-cross::before,
+.icon-cross::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 7px;
+    width: 3px;
+    height: 14px;
+    background-color: white;
+}
+
+.icon-cross::before {
+    transform: rotate(45deg);
+}
+.icon-cross::after {
+    transform: rotate(-45deg);
+}
+
+
+/* ===================================================================
+   PRICING SECTION (Final Alignment Version)
+   =================================================================== */
+
+.pricing-section {
+    padding: 100px 2rem;
+}
+
+.pricing-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-align: center;
+    color: #222430;
+    margin-bottom: 60px;
+}
+
+/*
+ * UPDATED: The grid now aligns all cards to their bottom edges.
+*/
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* This aligns cards along their bottom edge */
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/*
+ * UPDATED: Base styles for the two side cards.
+*/
+.pricing-card {
+    /* Changed to a semi-transparent white */
+    background-color: rgba(248, 249, 250, 0.10); 
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 350px;
+    min-height: 520px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+/*
+ * UPDATED: The featured card is now SHORTER to make its bottom appear higher.
+*/
+.pricing-card.featured {
+    /* Changed to a semi-transparent dark blue */
+    background-color: rgba(34, 36, 48, 0.75); 
+    color: #fff;
+    min-height: 490px;
+}
+
+
+/* --- Card Content & Button Styles --- */
+
+.plan-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.plan-price .price {
+    font-family: 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    display: block;
+    line-height: 1.1;
+}
+
+.featured .plan-price .price {
+    color: #fff;
+}
+
+.plan-price .price-period {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-top: 5px;
+    display: block;
+}
+
+.featured .plan-price .price-period {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    flex-grow: 1; 
+}
+
+.features-list li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.featured .features-list li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.features-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2327ae60'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.featured .features-list li::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+}
+
+.features-list .subtext {
+    display: block;
+    font-size: 12px;
+    color: #95a5a6;
+    margin-top: 2px;
+}
+
+.featured .features-list .subtext {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-choose-plan {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: #2c3e50;
+    color: #fff;
+    border: 2px solid transparent;
+}
+
+.featured .btn-choose-plan {
+    background-color: #fff;
+    color: #2c3e50;
+}
+
+/* --- Side Card Hover State (Trial & Small) --- */
+.pricing-card:not(.featured):hover {
+    background-color: rgba(201, 204, 238, 0.75);
+    transform: translateY(-5px);
+}
+
+
+/* --- Featured Card Hover State (Medium) --- */
+.pricing-card.featured:hover {
+    background-color: #687965; 
+    transform: translateY(-5px);
+}
+
+
+/* ===================================================================
+   CTA (INTERESTED) SECTION
+   =================================================================== */
+
+.cta-section {
+    padding: 120px 2rem;
+    background: url('/assets/images/solutions/intersted.png') no-repeat center center/cover;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #222430;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+     background-color: rgba(34, 36, 48, 0.86); /* Derived from #222430 at 86% opacity */
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px); /* For Safari browser support */
+    color: #fff;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: rgba(50, 52, 66, 0.9);
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .cta-section {
+        padding: 90px 1rem;
+    }
+
+    .cta-section h2 {
+        font-size: 42px;
+    }
+
+    .cta-button {
+        padding: 16px 40px;
+        font-size: 15px;
+    }
+}
