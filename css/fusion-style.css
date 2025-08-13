@@ -760,8 +760,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 60px;
-    background: url('YOUR_BACKGROUND_IMAGE_PATH_HERE') center/cover no-repeat;
-    max-width: 1200px;
+    background: url('/assets/images/solutions/fusion/hero-bg.png') center/cover no-repeat;
     margin: 0 auto;
     padding: 150px 30px 80px 30px;
     height: 100vh;

@@ -758,7 +758,7 @@ footer {
 .hero-lite {
     position: relative;
     padding: 160px 2rem 100px 2rem; 
-    background: url('YOUR_BACKGROUND_IMAGE_PATH_HERE') center/cover no-repeat;
+    background: url('/assets/images/solutions/lite/hero-bg.png') center/cover no-repeat;
     height: 100vh;
 }
 
@@ -915,7 +915,6 @@ footer {
 }
 
 .pricing-info-image img {
-    max-width: 450px;
     width: 100%;
 }
 

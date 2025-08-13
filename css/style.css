@@ -857,9 +857,8 @@ footer {
 }
 
 .hero-right img {
-  max-width: 100%;
   height: auto;
-  width: 450px;
+  width: 600px;
 }
 
 /* RESPONSIVE */
@@ -1703,17 +1702,20 @@ footer {
 
 /* ===================== CHATBOT STYLES ===================== */
 .chatbot-icon {
-  position: fixed;
-  /* Changed from 'absolute' to 'fixed' */
+  position: fixed; 
   bottom: 25px;
   right: 25px;
-  width: 50px;
-  height: auto;
+  font-size: 50px;
+  color: #117F3F;  
   cursor: pointer;
   z-index: 990;
-  /* Increased to stay on top of page content */
   transition: transform 0.3s ease;
 }
+
+.chatbot-icon:hover {
+  transform: scale(1.1);
+}
+
 
 /* ===================== CHATBOT WINDOW STYLES ===================== */
 #chatbot-window {

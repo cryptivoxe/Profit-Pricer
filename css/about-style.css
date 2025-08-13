@@ -756,7 +756,7 @@ footer {
 .about-hero-section {
     height: 100vh;
     padding: 120px 20px 80px;
-    background-image: url("/assets/images/texture-bg.png");
+    background-image: url("/assets/images/about-us/about-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
