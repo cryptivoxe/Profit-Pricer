@@ -597,21 +597,73 @@ footer {
     margin-bottom: 15px;
 }
 
-.newsletter-input {
-  padding: 8px 12px;
-  border-radius: 4rem;
-  border: none;
-  width: 200px;
-  margin-right: 8px;
+/* ===================== NEWSLETTER FORM & POP-UP STYLES ===================== */
+.newsletter-form-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.newsletter-btn {
-  background-color: #ffa400;
-  border: none;
-  padding: 9px 14px;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
+.newsletter-form-container input {
+    width: 100%;
+    flex-grow: 1; /* Allows input to take available space */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+}
+
+.newsletter-form-container button {
+    width: 45px; /* Fixed width for the button */
+    height: 37px; /* Match input height */
+    padding: 8px 12px;
+    margin: 0; /* Remove default margins */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+/* --- Success Pop-up --- */
+#success-popup {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%); /* Start off-screen */
+    background-color: #273444;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1010; /* Ensure it's on top of other elements */
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#success-popup.show {
+    transform: translateX(-50%) translateY(0); /* Animate into view */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#success-popup p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.close-popup-btn {
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    color: #aaa;
+    transition: color 0.2s;
+}
+
+.close-popup-btn:hover {
+    color: #fff;
 }
 
 .footer-bottom {
@@ -904,7 +956,7 @@ footer {
   /* width: 100%; */
   display: flex;
   align-items: center;
-  gap: 20rem;
+  gap: 5rem;
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
@@ -963,7 +1015,7 @@ footer {
 
 .mini-video {
   width: 100%;
-  max-width: 420px;
+  max-width: 500px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -1042,7 +1094,6 @@ footer {
 /* CARD BASE */
 .solution-box {
   padding: 50px;
-  padding-block-start: 7rem;
   margin-bottom: 2rem;
   /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
   transition: box-shadow 0.3s ease; */
@@ -1060,16 +1111,17 @@ footer {
 
 .solution-box.fusion h3 {
   font-family: 'Inter', sans-serif;
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 600;
   line-height: 100%;
   color: #45624A;
   margin-bottom: 30px;
+  
 }
 
 .solution-box.lite h3 {
   font-family: 'Inter', sans-serif;
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 600;
   line-height: 100%;
   color: #494582;
@@ -1091,7 +1143,7 @@ footer {
 }
 
 .fusion .solution-left p {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: #45624A;
   font-family: "Inter",sans-serif;
@@ -1099,7 +1151,7 @@ footer {
   margin-bottom: 25px;
 }
 .lite .solution-left p {
-  font-size: 15px;
+  font-size: 16px;
   font-family: "Inter",sans-serif;
   line-height: 1.6;
   color: #494562;
@@ -1109,7 +1161,7 @@ footer {
 }
 
 .fusion .solution-capabilities h4 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: #45624A;
   margin-bottom: 2rem;
@@ -1121,7 +1173,7 @@ footer {
   
 }
 .lite .solution-capabilities h4 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: #494562;
   margin-bottom: 2rem;
@@ -1134,7 +1186,7 @@ footer {
 }
 
 .solution-capabilities ul li {
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 1rem;
 }
 
@@ -1321,6 +1373,8 @@ footer {
 .contact-form button:hover {
   background-color: #245bb5;
 }
+
+
 
 
 /* =================== BLOGS SECTION =================== */
@@ -1705,8 +1759,11 @@ footer {
   position: fixed; 
   bottom: 25px;
   right: 25px;
-  font-size: 50px;
-  color: #117F3F;  
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;     
+  object-fit: cover;      
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
   cursor: pointer;
   z-index: 990;
   transition: transform 0.3s ease;

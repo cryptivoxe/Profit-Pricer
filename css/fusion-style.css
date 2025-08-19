@@ -592,21 +592,73 @@ footer {
     margin-bottom: 15px;
 }
 
-.newsletter-input {
-    padding: 8px 12px;
-    border-radius: 4rem;
-    border: none;
-    width: 200px;
-    margin-right: 8px;
+/* ===================== NEWSLETTER FORM & POP-UP STYLES ===================== */
+.newsletter-form-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.newsletter-btn {
-    background-color: #ffa400;
-    border: none;
-    padding: 9px 14px;
-    border-radius: 5px;
-    color: white;
+.newsletter-form-container input {
+    width: 100%;
+    flex-grow: 1; /* Allows input to take available space */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+}
+
+.newsletter-form-container button {
+    width: 45px; /* Fixed width for the button */
+    height: 37px; /* Match input height */
+    padding: 8px 12px;
+    margin: 0; /* Remove default margins */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+/* --- Success Pop-up --- */
+#success-popup {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%); /* Start off-screen */
+    background-color: #273444;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1010; /* Ensure it's on top of other elements */
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#success-popup.show {
+    transform: translateX(-50%) translateY(0); /* Animate into view */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#success-popup p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.close-popup-btn {
+    font-size: 26px;
+    font-weight: bold;
     cursor: pointer;
+    line-height: 1;
+    color: #aaa;
+    transition: color 0.2s;
+}
+
+.close-popup-btn:hover {
+    color: #fff;
 }
 
 .footer-bottom {

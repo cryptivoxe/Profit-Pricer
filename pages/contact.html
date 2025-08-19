@@ -89,7 +89,9 @@
     <!-- Hero Section -->
     <section class="contact-hero">
         <h1>Book a demo</h1>
-        <p>Discover how our advanced solutions empower you to grow revenue, enhance your pricing strategies, and drive sales effectiveness. Share a few details about your business, and one of our pricing experts will get in touch to schedule your personalized consultation. Let’s chart a path to better profitability together.
+        <p>Discover how our advanced solutions empower you to grow revenue, enhance your pricing strategies, and drive
+            sales effectiveness. Share a few details about your business, and one of our pricing experts will get in
+            touch to schedule your personalized consultation. Let’s chart a path to better profitability together.
         </p>
     </section>
 
@@ -149,19 +151,24 @@
 
     <!-- Meet You Section -->
     <section class="meet-you">
-    <div class="meet-content">
-        <div class="text">
-            <h2>Unlock Your Growth Potential with Profit Pricer Experts</h2>
-            <p>When you explore a demo with Profit Pricer, you’re not just viewing software—you’re meeting genuine pricing and consulting professionals dedicated to maximizing your commercial results. Our team guides you through every step, sharing proven strategies and data-driven recommendations tailored to your business. Expect hands-on consulting, actionable insights, and ongoing support to help you achieve smarter pricing strategies, effective list price management, and sustainable profit growth. Let's transform the way you price, together.</p>
+        <div class="meet-content">
+            <div class="text">
+                <h2>Unlock Your Growth Potential with Profit Pricer Experts</h2>
+                <p>When you explore a demo with Profit Pricer, you’re not just viewing software—you’re meeting genuine
+                    pricing and consulting professionals dedicated to maximizing your commercial results. Our team
+                    guides you through every step, sharing proven strategies and data-driven recommendations tailored to
+                    your business. Expect hands-on consulting, actionable insights, and ongoing support to help you
+                    achieve smarter pricing strategies, effective list price management, and sustainable profit growth.
+                    Let's transform the way you price, together.</p>
+            </div>
+            <div class="image">
+                <video id="meet-you-video-trigger" muted autoplay loop playsinline>
+                    <source src="../assets/videos/profit-prier-marketing.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-        <div class="image">
-    <video id="meet-you-video-trigger" muted autoplay loop playsinline>
-        <source src="../assets/videos/profit-prier-marketing.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Form -->
     <section class="contact-form">
@@ -215,14 +222,22 @@
             <h4>Newsletter</h4>
             <p class="newsletter-description">Subscribe to our newsletter for the latest updates and pricing insights.
             </p>
-            <input type="email" placeholder="Enter your email" />
-            <button>➤</button>
+
+            <form id="newsletter-form" class="newsletter-form-container">
+                <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+                <button type="submit" id="newsletter-btn">➤</button>
+            </form>
         </div>
     </footer>
 
     <div class="footer-bottom">
         <p>©2025 Copyright and All Rights Reserved</p>
         <div><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></div>
+    </div>
+
+    <div id="success-popup">
+        <p>✅ Thank you for subscribing to our newsletter!</p>
+        <span class="close-popup-btn">&times;</span>
     </div>
 
 

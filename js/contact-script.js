@@ -244,4 +244,43 @@ if (modalOverlay && closeModalBtn && popupVideo) {
         meetYouVideoTrigger.addEventListener("click", openModal);
     }
 }
+
+// --- NEWSLETTER SUBSCRIPTION LOGIC ---
+    const newsletterForm = document.getElementById("newsletter-form");
+    const emailInput = document.getElementById("newsletter-email");
+    const successPopup = document.getElementById("success-popup");
+    const closePopupBtn = document.querySelector(".close-popup-btn");
+
+    if (newsletterForm && emailInput && successPopup) {
+        
+        newsletterForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Stop the form from reloading the page
+
+            // The 'required' and 'type="email"' attributes already handle validation.
+            // This checks if the browser considers the input valid.
+            if (emailInput.checkValidity()) {
+                showPopup();
+                emailInput.value = ""; // Clear the input field after successful submission
+            }
+            // If invalid, the browser will automatically show a default error message.
+        });
+
+        const showPopup = () => {
+            successPopup.classList.add("show");
+
+            // Hide the pop-up automatically after 5 seconds
+            setTimeout(() => {
+                hidePopup();
+            }, 5000);
+        };
+
+        const hidePopup = () => {
+            successPopup.classList.remove("show");
+        };
+
+        // Allow the user to close the pop-up by clicking the 'x'
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener("click", hidePopup);
+        }
+    }
 });

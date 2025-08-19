@@ -88,7 +88,11 @@
       text-align: left;
     }
 
-    input {
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper input {
       padding: 14px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -97,7 +101,20 @@
       color: #333;
       width: 100%;
     }
-    
+
+    .input-wrapper input::placeholder {
+      color: #333;
+    }
+
+    .input-wrapper .required-star {
+      position: absolute;
+      right: 8px;
+      top: 4px; /* Moved to top right */
+      color: red;
+      font-size: 1.1em;
+      pointer-events: none;
+    }
+
     .form-options {
         display: flex;
         justify-content: space-between;
@@ -156,13 +173,14 @@
         text-decoration: none;
     }
 
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       .login-container {
         flex-direction: column;
       }
-      /* .info-section {
-          display: none; 
-      } */
       .form-section {
           max-width: 100%;
       }
@@ -179,8 +197,15 @@
       <p>We were waiting for you</p>
 
       <form id="loginForm">
-        <input type="text" name="credential" placeholder="Email / Contact No." required />
-        <input type="password" name="password" placeholder="Password" required />
+        <div class="input-wrapper">
+          <input type="text" name="credential" placeholder="Email / Contact No." required />
+          <span class="required-star">*</span>
+        </div>
+
+        <div class="input-wrapper">
+          <input type="password" name="password" placeholder="Password" required />
+          <span class="required-star">*</span>
+        </div>
 
         <div class="form-options">
           <div class="checkbox-group">
