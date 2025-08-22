@@ -601,20 +601,25 @@ footer {
 
 .newsletter-form-container input {
     width: 100%;
-    flex-grow: 1; /* Allows input to take available space */
+    flex-grow: 1;
+    /* Allows input to take available space */
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
 }
 
 .newsletter-form-container button {
-    width: 45px; /* Fixed width for the button */
-    height: 37px; /* Match input height */
+    width: 45px;
+    /* Fixed width for the button */
+    height: 37px;
+    /* Match input height */
     padding: 8px 12px;
-    margin: 0; /* Remove default margins */
+    margin: 0;
+    /* Remove default margins */
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    flex-shrink: 0; /* Prevents the button from shrinking */
+    flex-shrink: 0;
+    /* Prevents the button from shrinking */
 }
 
 /* --- Success Pop-up --- */
@@ -622,13 +627,15 @@ footer {
     position: fixed;
     bottom: 25px;
     left: 50%;
-    transform: translateX(-50%) translateY(150%); /* Start off-screen */
+    transform: translateX(-50%) translateY(150%);
+    /* Start off-screen */
     background-color: #273444;
     color: #fff;
     padding: 16px 24px;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    z-index: 1010; /* Ensure it's on top of other elements */
+    z-index: 1010;
+    /* Ensure it's on top of other elements */
     opacity: 0;
     pointer-events: none;
     transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.4s ease;
@@ -638,7 +645,8 @@ footer {
 }
 
 #success-popup.show {
-    transform: translateX(-50%) translateY(0); /* Animate into view */
+    transform: translateX(-50%) translateY(0);
+    /* Animate into view */
     opacity: 1;
     pointer-events: auto;
 }
@@ -807,28 +815,28 @@ footer {
 
 /* ===================== HERO SECTION ===================== */
 .contact-hero {
-  text-align: center;
-  padding: 120px 20px 60px;
-  background-color: #BBCECB;
+    text-align: center;
+    padding: 120px 20px 60px;
+    background-color: #BBCECB;
 }
 
 .contact-hero h1 {
-  font-family: 'Public Sans', sans-serif; 
-  font-size: 56px;       
-  font-weight: 400;      
-  line-height: 2;     
-  color: #234435;       
-  margin-bottom: 15px;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 2;
+    color: #234435;
+    margin-bottom: 15px;
 }
 
 .contact-hero p {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 20px;       
-  font-weight: 400;      
-  line-height: 1.2;     
-  color: #152E2E;       
-  max-width: 778px;      
-  margin: 0 auto;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #152E2E;
+    max-width: 778px;
+    margin: 0 auto;
 }
 
 /* .call-steps {
@@ -907,68 +915,69 @@ footer {
 } */
 
 .contact-image-block {
-  text-align: center;
-  margin: 40px 0;
+    text-align: center;
+    margin: 40px 0;
 }
 
 .contact-image-block img {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
 }
 
 /* Meet You Section */
 .meet-you {
-  padding: 60px 20px;
-  background-color: #ffffff; /* Changed to white background */
+    padding: 60px 20px;
+    background-color: #ffffff;
+    /* Changed to white background */
 }
 
 .meet-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .meet-content .text {
-  flex: 1;
-  min-width: 280px;
+    flex: 1;
+    min-width: 280px;
 }
 
 .meet-content .text h2 {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 48px; 
-  font-weight: 400; 
-  color: #234435; 
-  line-height: 100%; 
-  margin-bottom: 15px;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #234435;
+    line-height: 100%;
+    margin-bottom: 15px;
 }
 
 .meet-content .text p {
-  font-family: 'Public Sans', sans-serif;
-  font-size: 24px; 
-  font-weight: 300; 
-  color: #152E2E; 
-  line-height: 1.2; 
+    font-family: 'Public Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: #152E2E;
+    line-height: 1.2;
 }
 
 .meet-content .image {
-  flex: 1;
-  min-width: 280px;
+    flex: 1;
+    min-width: 280px;
 }
 
 .meet-content .image video {
-  max-width: 70%;
-  border-radius: 12px;
-  cursor: pointer; 
-  margin-left: 50px;
+    max-width: 70%;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 50px;
 }
 
 
-/* =================== Contact Form Section  =================== */
+/* =================== Contact Form Section  =================== */
 .contact-form {
   padding: 60px 20px;
   background-color: #fff;
@@ -977,10 +986,10 @@ footer {
 
 .contact-form h2 {
   font-family: 'Inter', sans-serif;
-  font-size: 44px; 
-  font-weight: 700; 
-  line-height: 100%; 
-  color: #383867; 
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #383867;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -1000,12 +1009,28 @@ footer {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
+  /* Added select for consistent styling */
   padding: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
   width: 100%;
   font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Custom styling for the select dropdown arrow */
+.contact-form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 8px 10px;
+  padding-right: 30px;
 }
 
 .contact-form button {
@@ -1023,71 +1048,108 @@ footer {
   background-color: #245bb5;
 }
 
+/* --- STYLES FOR THE RED STAR & PHONE ROW --- */
+
+.contact-form .required-field {
+  position: relative;
+  width: 100%;
+}
+
+.contact-form .form-group .required-field {
+  flex: 1;
+}
+
+.contact-form .required-field::after {
+  content: '*';
+  color: red;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Adjust star position for the select dropdown to avoid overlapping the arrow */
+.contact-form .required-field:has(select)::after {
+  right: 32px;
+}
+
+/* Flex properties for the phone number row */
+.contact-form .phone-country-code {
+  flex: 0.6;
+  /* Adjust ratio as needed */
+  min-width: 150px;
+}
+
+.contact-form .phone-number-input {
+  flex: 1;
+}
+
 
 /* ===================== VIDEO MODAL STYLES ===================== */
 #video-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
 
-  /* Center the modal content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    /* Center the modal content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  /* Hide by default, with a transition */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out;
+    /* Hide by default, with a transition */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
 }
 
 #video-modal-overlay.visible {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .video-modal-content {
-  position: relative;
-  background-color: #000;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    background-color: #000;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 #popup-video {
-  width: 100%;
-  display: block;
+    width: 100%;
+    display: block;
 }
 
 #close-modal-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 28px;
-  font-weight: normal;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 10;
-  
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 28px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
 }
 
 #close-modal-btn:hover {
-  background-color: #fff;
-  transform: scale(1.1);
+    background-color: #fff;
+    transform: scale(1.1);
 }
 
 
