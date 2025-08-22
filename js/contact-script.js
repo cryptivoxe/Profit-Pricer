@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatInput = chatForm.querySelector("input");
 
     if (chatbotIcon && chatbotWindow && closeChatBtn && chatForm) {
-        
+
         // --- Event Listeners to Open/Close Chat ---
         chatbotIcon.addEventListener("click", () => chatbotWindow.classList.toggle("visible"));
         closeChatBtn.addEventListener("click", () => chatbotWindow.classList.remove("visible"));
@@ -197,63 +197,63 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // --- VIDEO MODAL LOGIC ---
-const modalOverlay = document.getElementById("video-modal-overlay");
-const closeModalBtn = document.getElementById("close-modal-btn");
-const popupVideo = document.getElementById("popup-video");
+    const modalOverlay = document.getElementById("video-modal-overlay");
+    const closeModalBtn = document.getElementById("close-modal-btn");
+    const popupVideo = document.getElementById("popup-video");
 
-// Only run if the core modal components exist
-if (modalOverlay && closeModalBtn && popupVideo) {
-    const openModal = () => {
-        modalOverlay.classList.add("visible");
-        popupVideo.play();
-    };
+    // Only run if the core modal components exist
+    if (modalOverlay && closeModalBtn && popupVideo) {
+        const openModal = () => {
+            modalOverlay.classList.add("visible");
+            popupVideo.play();
+        };
 
-    const closeModal = () => {
-        modalOverlay.classList.remove("visible");
-        popupVideo.pause();
-        popupVideo.currentTime = 0;
-    };
+        const closeModal = () => {
+            modalOverlay.classList.remove("visible");
+            popupVideo.pause();
+            popupVideo.currentTime = 0;
+        };
 
-    // Attach listener for the close button
-    closeModalBtn.addEventListener("click", closeModal);
+        // Attach listener for the close button
+        closeModalBtn.addEventListener("click", closeModal);
 
-    // Attach listener to close modal when clicking the background
-    modalOverlay.addEventListener("click", (e) => {
-        if (e.target === modalOverlay) {
-            closeModal();
-        }
-    });
-
-    // --- Now, check for each individual trigger button ---
-
-    const learnMoreBtn = document.querySelector(".hero-btn");
-    if (learnMoreBtn) {
-        learnMoreBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            openModal();
+        // Attach listener to close modal when clicking the background
+        modalOverlay.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
         });
+
+        // --- Now, check for each individual trigger button ---
+
+        const learnMoreBtn = document.querySelector(".hero-btn");
+        if (learnMoreBtn) {
+            learnMoreBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        const miniHeroVideo = document.querySelector(".mini-video");
+        if (miniHeroVideo) {
+            miniHeroVideo.addEventListener("click", openModal);
+        }
+
+        const meetYouVideoTrigger = document.getElementById("meet-you-video-trigger");
+        if (meetYouVideoTrigger) {
+            meetYouVideoTrigger.addEventListener("click", openModal);
+        }
     }
 
-    const miniHeroVideo = document.querySelector(".mini-video");
-    if (miniHeroVideo) {
-        miniHeroVideo.addEventListener("click", openModal);
-    }
-
-    const meetYouVideoTrigger = document.getElementById("meet-you-video-trigger");
-    if (meetYouVideoTrigger) {
-        meetYouVideoTrigger.addEventListener("click", openModal);
-    }
-}
-
-// --- NEWSLETTER SUBSCRIPTION LOGIC ---
+    // --- NEWSLETTER SUBSCRIPTION LOGIC ---
     const newsletterForm = document.getElementById("newsletter-form");
     const emailInput = document.getElementById("newsletter-email");
     const successPopup = document.getElementById("success-popup");
     const closePopupBtn = document.querySelector(".close-popup-btn");
 
     if (newsletterForm && emailInput && successPopup) {
-        
-        newsletterForm.addEventListener("submit", function(event) {
+
+        newsletterForm.addEventListener("submit", function (event) {
             event.preventDefault(); // Stop the form from reloading the page
 
             // The 'required' and 'type="email"' attributes already handle validation.
@@ -282,5 +282,58 @@ if (modalOverlay && closeModalBtn && popupVideo) {
         if (closePopupBtn) {
             closePopupBtn.addEventListener("click", hidePopup);
         }
+    }
+
+    const searchableSelect = document.querySelector(".searchable-select");
+    if (searchableSelect) {
+        const searchInput = searchableSelect.querySelector(".search-input");
+        const hiddenInput = searchableSelect.querySelector(".hidden-value-input");
+        const optionsContainer = searchableSelect.querySelector(".options-container");
+        const options = optionsContainer.querySelectorAll(".option");
+
+        // 1. Toggle dropdown visibility
+        searchInput.addEventListener("click", (event) => {
+            event.stopPropagation();
+            optionsContainer.classList.toggle("active");
+        });
+
+        // 2. Filter options based on search input
+        searchInput.addEventListener("input", () => {
+            const filter = searchInput.value.toLowerCase();
+            // When user starts typing, we treat it as a search, not a selection display
+            hiddenInput.value = "";
+
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    option.style.display = "";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+        });
+
+        // 3. Handle option selection
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                // Set the visible input to the selected country's text
+                searchInput.value = option.textContent;
+                // Set the hidden input's value to the country code
+                hiddenInput.value = option.getAttribute("data-value");
+
+                // Manually trigger a "change" event for any other scripts that might be listening
+                hiddenInput.dispatchEvent(new Event('change'));
+
+                // Hide the dropdown
+                optionsContainer.classList.remove("active");
+            });
+        });
+
+        // 4. Close dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!searchableSelect.contains(event.target)) {
+                optionsContainer.classList.remove("active");
+            }
+        });
     }
 });

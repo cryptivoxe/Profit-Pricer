@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-   // --- HERO TEXT ANIMATION (Glitch & Flip Version) ---
+    // --- HERO TEXT ANIMATION (Glitch & Flip Version) ---
     const animatedWordEl = document.getElementById("animated-word");
     if (animatedWordEl) {
         const words = ["Immersive", "Engaging", "Captivating", "Dynamic"];
@@ -156,22 +156,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Remove the class to allow the word to flip back into view
                 animatedWordEl.classList.remove("is-animating");
-            }, 600); 
+            }, 600);
 
         }, 2500); // Time between word changes (in milliseconds)
     }
 
 
 
-   // --- VIDEO MODAL LOGIC ---
+    // --- VIDEO MODAL LOGIC ---
     const learnMoreBtn = document.querySelector(".hero-btn");
     const modalOverlay = document.getElementById("video-modal-overlay");
     const closeModalBtn = document.getElementById("close-modal-btn");
     const popupVideo = document.getElementById("popup-video");
-    const miniHeroVideo = document.querySelector(".mini-video"); 
+    const miniHeroVideo = document.querySelector(".mini-video");
 
     if (learnMoreBtn && modalOverlay && closeModalBtn && popupVideo) {
-        
+
         const openModal = () => {
             modalOverlay.classList.add("visible");
             popupVideo.play();
@@ -180,15 +180,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const closeModal = () => {
             modalOverlay.classList.remove("visible");
             popupVideo.pause();
-            popupVideo.currentTime = 0; 
+            popupVideo.currentTime = 0;
         };
 
         learnMoreBtn.addEventListener("click", (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             openModal();
         });
-        
-        miniHeroVideo.addEventListener("click", openModal); 
+
+        miniHeroVideo.addEventListener("click", openModal);
 
         closeModalBtn.addEventListener("click", closeModal);
 
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatInput = chatForm.querySelector("input");
 
     if (chatbotIcon && chatbotWindow && closeChatBtn && chatForm) {
-        
+
         // --- Event Listeners to Open/Close Chat ---
         chatbotIcon.addEventListener("click", () => chatbotWindow.classList.toggle("visible"));
         closeChatBtn.addEventListener("click", () => chatbotWindow.classList.remove("visible"));
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closePromoBtn = document.getElementById("close-promo-btn");
 
     if (promoOverlay && closePromoBtn) {
-        
+
         // Show the pop-up after a 3-second delay
         setTimeout(() => {
             promoOverlay.classList.add("visible");
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Event listeners to close the modal
         closePromoBtn.addEventListener("click", closePromoModal);
-        
+
         promoOverlay.addEventListener("click", (e) => {
             // Close only if the dark overlay itself is clicked, not the content
             if (e.target === promoOverlay) {
@@ -302,15 +302,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const blogsWrapper = blogsContainer.querySelector(".blogs-wrapper");
         const leftBtn = blogsContainer.querySelector(".scroll-btn.left");
         const rightBtn = blogsContainer.querySelector(".scroll-btn.right");
-        
-        if(blogsWrapper && leftBtn && rightBtn) {
+
+        if (blogsWrapper && leftBtn && rightBtn) {
             const card = blogsWrapper.querySelector(".blog-card");
             const cardWidth = card.offsetWidth + 30; // Card width + gap
 
             const handleScrollButtons = () => {
                 // Hide left button if at the beginning
                 leftBtn.classList.toggle("hidden", blogsWrapper.scrollLeft < 10);
-                
+
                 // Hide right button if at the end
                 const maxScrollLeft = blogsWrapper.scrollWidth - blogsWrapper.clientWidth;
                 rightBtn.classList.toggle("hidden", blogsWrapper.scrollLeft >= maxScrollLeft - 10);
@@ -342,8 +342,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const closePopupBtn = document.querySelector(".close-popup-btn");
 
     if (newsletterForm && emailInput && successPopup) {
-        
-        newsletterForm.addEventListener("submit", function(event) {
+
+        newsletterForm.addEventListener("submit", function (event) {
             event.preventDefault(); // Stop the form from reloading the page
 
             // The 'required' and 'type="email"' attributes already handle validation.
@@ -374,5 +374,58 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    
+
+
+    const searchableSelect = document.querySelector(".searchable-select");
+    if (searchableSelect) {
+        const searchInput = searchableSelect.querySelector(".search-input");
+        const hiddenInput = searchableSelect.querySelector(".hidden-value-input");
+        const optionsContainer = searchableSelect.querySelector(".options-container");
+        const options = optionsContainer.querySelectorAll(".option");
+
+        // 1. Toggle dropdown visibility
+        searchInput.addEventListener("click", (event) => {
+            event.stopPropagation();
+            optionsContainer.classList.toggle("active");
+        });
+
+        // 2. Filter options based on search input
+        searchInput.addEventListener("input", () => {
+            const filter = searchInput.value.toLowerCase();
+            // When user starts typing, we treat it as a search, not a selection display
+            hiddenInput.value = "";
+
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    option.style.display = "";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+        });
+
+        // 3. Handle option selection
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                // Set the visible input to the selected country's text
+                searchInput.value = option.textContent;
+                // Set the hidden input's value to the country code
+                hiddenInput.value = option.getAttribute("data-value");
+
+                // Manually trigger a "change" event for any other scripts that might be listening
+                hiddenInput.dispatchEvent(new Event('change'));
+
+                // Hide the dropdown
+                optionsContainer.classList.remove("active");
+            });
+        });
+
+        // 4. Close dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!searchableSelect.contains(event.target)) {
+                optionsContainer.classList.remove("active");
+            }
+        });
+    }
 });
