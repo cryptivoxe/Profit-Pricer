@@ -235,4 +235,57 @@ document.addEventListener("DOMContentLoaded", function () {
             closePopupBtn.addEventListener("click", hidePopup);
         }
     }
+
+    const searchableSelect = document.querySelector(".searchable-select");
+    if (searchableSelect) {
+        const searchInput = searchableSelect.querySelector(".search-input");
+        const hiddenInput = searchableSelect.querySelector(".hidden-value-input");
+        const optionsContainer = searchableSelect.querySelector(".options-container");
+        const options = optionsContainer.querySelectorAll(".option");
+
+        // 1. Toggle dropdown visibility
+        searchInput.addEventListener("click", (event) => {
+            event.stopPropagation();
+            optionsContainer.classList.toggle("active");
+        });
+
+        // 2. Filter options based on search input
+        searchInput.addEventListener("input", () => {
+            const filter = searchInput.value.toLowerCase();
+            // When user starts typing, we treat it as a search, not a selection display
+            hiddenInput.value = ""; 
+
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    option.style.display = "";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+        });
+
+        // 3. Handle option selection
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                // Set the visible input to the selected country's text
+                searchInput.value = option.textContent;
+                // Set the hidden input's value to the country code
+                hiddenInput.value = option.getAttribute("data-value");
+                
+                // Manually trigger a "change" event for any other scripts that might be listening
+                hiddenInput.dispatchEvent(new Event('change'));
+
+                // Hide the dropdown
+                optionsContainer.classList.remove("active");
+            });
+        });
+
+        // 4. Close dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!searchableSelect.contains(event.target)) {
+                optionsContainer.classList.remove("active");
+            }
+        });
+    }
 });

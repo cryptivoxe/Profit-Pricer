@@ -1252,55 +1252,157 @@ footer {
 
 /* =================== Contact Form Section  =================== */
 .contact-form {
-    padding: 80px 20px;
-    background-color: #fff;
-    text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
 }
 
 .contact-form h2 {
-    font-family: 'Inter', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 100%;
-    color: #383867;
-    text-align: center;
-    margin-bottom: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #383867;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .contact-form form {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .contact-form .form-group {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .contact-form input,
-.contact-form textarea {
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 100%;
-    font-size: 14px;
+.contact-form textarea,
+.contact-form select {
+  /* Added select for consistent styling */
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Custom styling for the select dropdown arrow */
+.contact-form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 8px 10px;
+  padding-right: 30px;
 }
 
 .contact-form button {
-    padding: 12px;
-    background-color: #357beb;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 12px;
+  background-color: #357beb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .contact-form button:hover {
-    background-color: #245bb5;
+  background-color: #245bb5;
+}
+
+/* --- STYLES FOR THE RED STAR & PHONE ROW --- */
+
+.contact-form .required-field {
+  position: relative;
+  width: 100%;
+}
+
+.contact-form .form-group .required-field {
+  flex: 1;
+}
+
+.contact-form .required-field::after {
+  content: '*';
+  color: red;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Adjust star position for the select dropdown to avoid overlapping the arrow */
+.contact-form .required-field:has(select)::after {
+  right: 32px;
+}
+
+/* Flex properties for the phone number row */
+.contact-form .phone-country-code {
+  flex: 0.6;
+  /* Adjust ratio as needed */
+  min-width: 150px;
+}
+
+.contact-form .phone-number-input {
+  flex: 1;
+}
+
+/* --- NEW STYLES FOR SEARCHABLE DROPDOWN --- */
+.searchable-select {
+    position: relative;
+    width: 100%;
+}
+
+.searchable-select .search-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 8px 10px;
+    padding-right: 30px;
+}
+
+.searchable-select .options-container {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.searchable-select .options-container.active {
+    display: block; /* Show when active */
+}
+
+.searchable-select .option {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.searchable-select .option:hover {
+    background-color: #f0f0f0;
 }
