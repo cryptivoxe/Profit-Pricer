@@ -708,7 +708,7 @@ footer {
 
 /* ===================== HERO SECTION ===================== */
 .hero-wrapper {
-  /* background-image: url('/assets/images/home/hero-background.png'); */
+  background-image: url('/assets/images/home/hero-background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -918,7 +918,7 @@ footer {
 
 .hero-right img {
   height: auto;
-  width: 600px;
+  width: 450px;
 }
 
 /* RESPONSIVE */
@@ -935,6 +935,32 @@ footer {
   .hero-right img {
     width: 300px;
     margin-top: 30px;
+  }
+}
+
+
+@media (min-width: 992px) {
+  body {
+    overflow-x: hidden; /* Prevents horizontal scroll on the whole page */
+  }
+
+  .hero-wrapper {
+    position: relative; 
+    overflow-x: hidden; 
+  }
+
+  .hero-right {
+    position: absolute;
+    right: 0;
+    top: 50%; 
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .hero-left {
+    max-width: 50%;
+    position: relative;
+    z-index: 2;
   }
 }
 
