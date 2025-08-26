@@ -941,7 +941,7 @@ footer {
 
 @media (min-width: 992px) {
   body {
-    overflow-x: hidden; /* Prevents horizontal scroll on the whole page */
+    overflow-x: hidden;
   }
 
   .hero-wrapper {
