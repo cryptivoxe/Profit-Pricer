@@ -816,7 +816,7 @@ footer {
 .hero-lite {
     position: relative;
     padding: 160px 2rem 100px 2rem; 
-    background: url('/assets/images/solutions/lite/hero-bg.png') center/cover no-repeat;
+    background: url('/assets/images/solutions/lite/hero-bg.png') center top/100% no-repeat;
     height: 100vh;
 }
 
