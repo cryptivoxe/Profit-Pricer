@@ -1226,8 +1226,8 @@ footer {
 }
 
 .industries-strip .industry-icon img {
-  height: 50px;
-  width: 50px;
+  height: 150px;
+  width: 125px;
   object-fit: contain; 
   margin-bottom: 20px;
 }

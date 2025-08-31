@@ -810,18 +810,19 @@ footer {
 }
 
 /* ===================================================================
-   SOLUTION HERO SECTION (Profit Pricer Fusion)
+   SOLUTION HERO SECTION (Profit Pricer Fusion) - RESPONSIVE
    =================================================================== */
 
 .hero-fusion-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 60px;
+    gap: 60px; /* Gap between text and image */
     background: url('/assets/images/solutions/fusion/hero-bg.png') center/cover no-repeat;
     margin: 0 auto;
-    padding: 150px 30px 80px 30px;
-    height: 100vh;
+    padding: 150px 40px 80px 40px; /* Top padding accounts for the navbar */
+    min-height: 90vh; /* Use min-height instead of height for better flexibility */
+    box-sizing: border-box;
 }
 
 .hero-fusion-content-left {
@@ -832,10 +833,11 @@ footer {
 .hero-fusion-content-right {
     flex: 1;
     text-align: center;
+    max-width: 600px;
 }
 
 .hero-fusion-content-right img {
-    max-width: 80%;
+    max-width: 100%; /* Image will scale down with its container */
     height: auto;
     border-radius: 8px;
 }
@@ -861,7 +863,6 @@ footer {
 .hero-fusion-button {
     display: inline-block;
     padding: 16px 40px;
-    /* Creates a large button without fixed dimensions */
     text-decoration: none;
     text-align: center;
     color: #FFFFFF;
@@ -871,7 +872,6 @@ footer {
     background-color: rgba(58, 91, 59, 0.65);
     border: 4px solid rgba(128, 128, 128, 0.1);
     -webkit-backdrop-filter: blur(28.6px);
-    /* For Safari */
     backdrop-filter: blur(28.6px);
     transition: all 0.3s ease-out;
 }
@@ -882,35 +882,78 @@ footer {
     box-shadow: 0 8px 20px rgba(48, 91, 83, 0.2);
 }
 
-/* --- Responsive adjustments for mobile --- */
-@media screen and (max-width: 768px) {
+/* ===================================================================
+   RESPONSIVE ADJUSTMENTS
+   =================================================================== */
+
+/* --- Tablet View (e.g., iPads) --- */
+@media screen and (max-width: 1024px) {
     .hero-fusion-section {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 100px;
+        /* Reduce spacing for slightly smaller screens */
         gap: 40px;
+        padding: 120px 30px 60px 30px;
+        min-height: auto; /* Let content define the height */
     }
 
     .hero-fusion-title {
-        font-size: 40px;
+        font-size: 44px; /* Slightly smaller title */
+    }
+
+    .hero-fusion-description {
+        font-size: 16px;
+    }
+}
+
+
+/* --- Mobile View (e.g., iPhones, Android phones) --- */
+@media screen and (max-width: 768px) {
+    .hero-fusion-section {
+        flex-direction: column; /* Stack the text and image vertically */
+        text-align: center;     /* Center the text content */
+        padding: 100px 20px 50px 20px; /* Adjust padding for mobile navbar */
+        gap: 40px; /* Adjust gap for vertical layout */
+    }
+
+    .hero-fusion-content-left {
+        /* The container no longer needs a max-width as it will be full-width */
+        max-width: 100%; 
+    }
+    
+    .hero-fusion-content-right img {
+        max-width: 80%; /* Make the image slightly smaller than the screen width */
+        margin: 0 auto; /* Ensure it's centered */
+    }
+
+    .hero-fusion-title {
+        font-size: 36px; /* Make title significantly smaller for mobile readability */
+    }
+    
+    .hero-fusion-description {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-fusion-button {
+        padding: 14px 35px;
+        font-size: 16px;
     }
 }
 
 
 /* ===================================================================
-   Feature Section with Image Slider
+   Feature Section with Image Slider - RESPONSIVE
    =================================================================== */
 
 .feature-section {
-    /* Replace with the path to your subtle background image */
+    /* The subtle background image */
     background-image: url('/assets/images/solutions/fusion/mini-hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #f8f9fa;
-    /* Fallback color */
-    padding: 80px 30px;
+    background-color: #f8f9fa; /* Fallback color */
+    padding: 80px 40px; /* Default padding for desktop */
     width: 100%;
+    box-sizing: border-box;
 }
 
 .feature-container {
@@ -932,7 +975,7 @@ footer {
     font-size: 56px;
     font-weight: 700;
     color: #272F2C;
-    line-height: 1.3;
+    line-height: 1.2;
     margin-bottom: 15px;
 }
 
@@ -995,72 +1038,90 @@ footer {
 .slider-images img {
     width: 25%;
     flex-shrink: 0;
+    display: block; /* Fixes potential whitespace issues */
 }
 
 /* --- The Animation Logic --- */
 @keyframes slide {
+    0%, 20% { transform: translateX(0%); }
+    25%, 45% { transform: translateX(-25%); }
+    50%, 70% { transform: translateX(-50%); }
+    75%, 95% { transform: translateX(-75%); }
+    100% { transform: translateX(0%); }
+}
 
-    /* Wait 3s on Image 1 (0s to 3s) */
-    0% {
-        transform: translateX(0%);
+
+/* ===================================================================
+   RESPONSIVE ADJUSTMENTS
+   =================================================================== */
+
+/* --- Tablet View --- */
+@media screen and (max-width: 1024px) {
+    .feature-section {
+        padding: 60px 30px;
     }
 
-    20% {
-        transform: translateX(0%);
+    .feature-container {
+        gap: 40px; /* Reduce gap between text and slider */
     }
 
-    /* Slide to and wait 3s on Image 2 (3s to 6s) */
-    25% {
-        transform: translateX(-25%);
-    }
-
-    45% {
-        transform: translateX(-25%);
-    }
-
-    /* Slide to and wait 3s on Image 3 (6s to 9s) */
-    50% {
-        transform: translateX(-50%);
-    }
-
-    70% {
-        transform: translateX(-50%);
-    }
-
-    /* Slide to and wait 3s on Image 4 (9s to 12s) */
-    75% {
-        transform: translateX(-75%);
-    }
-
-    95% {
-        transform: translateX(-75%);
-    }
-
-    100% {
-        transform: translateX(0%);
+    .feature-main-title {
+        font-size: 42px; /* Make title smaller to prevent awkward wrapping */
     }
 }
 
-/* --- Responsive Design --- */
-@media screen and (max-width: 992px) {
+
+/* --- Mobile View --- */
+@media screen and (max-width: 768px) {
+    .feature-section {
+        padding: 50px 20px;
+    }
+
     .feature-container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column; /* Stack text and slider vertically */
+        text-align: center;     /* Center align the text content */
+        gap: 50px; /* Adjust gap for the new vertical layout */
+    }
+
+    .feature-main-title {
+        font-size: 32px; /* Further reduce title size for mobile readability */
+    }
+
+    .feature-subtitle {
+        font-size: 18px;
+    }
+
+    .feature-description {
+        font-size: 15px;
+    }
+    
+    .feature-list {
+        /* This trick allows the list block to be centered, while keeping text inside it left-aligned */
+        display: inline-block; 
+        margin: 0 auto;
+        max-width: 400px;
     }
 
     .feature-list li {
-        text-align: left;
+        text-align: left; /* Keep list items left-aligned for readability */
+        font-size: 15px;
+    }
+
+    .slider-wrapper {
+        max-width: 100%; /* Allow slider to take the full width of its container */
     }
 }
 
 
 /* ===================================================================
-   Immersive Pricing Section
+   Immersive Pricing Section - RESPONSIVE
    =================================================================== */
 
 .immersive-section {
-    padding: 100px 30px;
-    font-family: 'Inter', sans-serif; 
+    padding: 100px 40px; /* Default padding for desktop */
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .immersive-container {
@@ -1087,7 +1148,7 @@ footer {
     color: #353535;
     line-height: 1.7;
     max-width: 700px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 /* --- Bottom Content Part --- */
@@ -1108,6 +1169,7 @@ footer {
 .immersive-image-wrapper img {
     max-width: 100%;
     height: auto;
+    display: block; /* Removes any extra space below the image */
 }
 
 .immersive-text-wrapper h3 {
@@ -1125,15 +1187,51 @@ footer {
     line-height: 1.8;
 }
 
-/* --- Responsive Design for Mobile --- */
+/* ===================================================================
+   RESPONSIVE ADJUSTMENTS
+   =================================================================== */
+
+/* --- Tablet View --- */
 @media screen and (max-width: 992px) {
+    .immersive-section {
+        padding: 80px 30px;
+    }
+
     .immersive-content {
-        flex-direction: column;
-        text-align: center;
+        gap: 40px; /* Reduce the space between the image and text */
+    }
+
+    .immersive-header h2,
+    .immersive-text-wrapper h3 {
+        font-size: 32px; /* Slightly smaller headings */
+    }
+
+    .immersive-header p {
+        font-size: 17px;
+    }
+}
+
+/* --- Mobile View --- */
+@media screen and (max-width: 768px) {
+    .immersive-section {
+        padding: 60px 20px;
+    }
+
+    .immersive-header {
+        margin-bottom: 50px;
+    }
+    
+    .immersive-content {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center; /* Center the text content */
+    }
+    
+    .immersive-image-wrapper {
+        margin-bottom: 20px; /* Add some space below the image when stacked */
     }
 
     .immersive-header h2 {
-        font-size: 32px;
+        font-size: 28px; /* Further reduce heading size for mobile */
     }
 
     .immersive-header p {
@@ -1141,13 +1239,17 @@ footer {
     }
 
     .immersive-text-wrapper h3 {
-        font-size: 30px;
+        font-size: 26px; /* Adjust the stacked heading size */
+    }
+
+    .immersive-text-wrapper h3 br {
+        display: none; /* This is the new line - it hides the line breaks on mobile */
     }
 }
 
 
 /* ===================================================================
-   Process Section (Final with Separate Arrow Classes)
+   Process Section 
    =================================================================== */
 
 .process-section {
@@ -1155,6 +1257,8 @@ footer {
     font-family: 'Inter', sans-serif;
     position: relative;
     overflow: hidden; 
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .process-container {
@@ -1207,6 +1311,7 @@ footer {
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 180px;
 }
 
 .flow-box:hover {
@@ -1244,6 +1349,7 @@ footer {
 .purple-box h3 {
     color: #2d3748;
 }
+.purple-box ul { list-style: none; padding-left: 0; }
 .purple-box li {
     font-size: 15px;
     color: #3e4859;
@@ -1251,7 +1357,6 @@ footer {
     padding-left: 22px; 
     position: relative;
 }
-.purple-box ul { list-style: none; padding-left: 0; }
 .purple-box li::before {
     content: '•';
     position: absolute;
@@ -1262,9 +1367,7 @@ footer {
 }
 
 /* --- Arrow Designs --- */
-
-/* Top Section Arrow Style */
-.flow-arrow {
+.flow-arrow, .config-arrow {
     align-self: center;
     opacity: 0;
     animation: fadeInUp 0.5s ease-out forwards;
@@ -1272,7 +1375,7 @@ footer {
     height: 40px;
     flex-shrink: 0;
 }
-.flow-arrow::after {
+.flow-arrow::after, .config-arrow::after {
     content: '';
     display: block;
     width: 100%;
@@ -1283,37 +1386,6 @@ footer {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* NEW: Separate class for the Bottom Section Arrow */
-.config-arrow {
-    align-self: center;
-    opacity: 0;
-    animation: fadeInUp 0.5s ease-out forwards;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-}
-.config-arrow::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #9facbf; /* Default color is purple to match its section */
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Hover effects for arrows */
-.green-box:hover + .flow-arrow::after {
-    background-color: #4A55E1;
-    transform: translateX(5px);
-}
-.purple-box:hover + .config-arrow::after {
-    background-color: #38A169; /* Green color on hover */
-    transform: translateX(5px);
-}
-
-
 /* --- Animation & Staggering --- */
 #data-collection .flow-box:nth-of-type(1) { animation-delay: 0.2s; }
 #data-collection .flow-arrow:nth-of-type(1) { animation-delay: 0.35s; }
@@ -1323,11 +1395,9 @@ footer {
 #data-collection .flow-arrow:nth-of-type(3) { animation-delay: 0.95s; }
 #data-collection .flow-box:nth-of-type(4) { animation-delay: 1.1s; }
 
-/* UPDATED: Animation delays now target the new .config-arrow class */
 #config-demo .flow-box:nth-of-type(1) { animation-delay: 0.3s; }
 #config-demo .config-arrow:nth-of-type(1) { animation-delay: 0.5s; }
 #config-demo .flow-box:nth-of-type(2) { animation-delay: 0.7s; }
-
 
 /* --- Reusable Animation Keyframes --- */
 @keyframes fadeInUp {
@@ -1341,21 +1411,61 @@ footer {
     }
 }
 
-/* --- Responsive Design --- */
+
+/* ===================================================================
+   RESPONSIVE ADJUSTMENTS
+   =================================================================== */
+
+/* --- Tablet & Mobile View --- */
 @media (max-width: 1024px) {
     .flow-wrapper.horizontal-flow {
-        flex-direction: column;
+        flex-direction: column; /* Stack the flow boxes vertically */
     }
     .flow-box {
-        max-width: 500px;
-        margin: 0 auto;
+        max-width: 500px; /* Constrain box width on tablets */
+        margin: 0 auto;   /* Center the boxes in the column */
+        animation: none;  /* Disable fade-in animations */
+        opacity: 1;       /* Make sure boxes are visible without animation */
     }
-    /* UPDATED: Both arrow classes are targeted for rotation */
     .flow-arrow, .config-arrow {
         animation: none; 
         opacity: 1; 
-        transform: rotate(90deg);
+        transform: rotate(90deg); /* Point arrows downwards */
         margin: 20px 0;
+    }
+
+    /* Remove animation delays since they are disabled */
+    #data-collection .flow-box, #data-collection .flow-arrow,
+    #config-demo .flow-box, #config-demo .config-arrow {
+        animation-delay: 0s !important;
+    }
+}
+
+/* --- Mobile-Specific View --- */
+@media (max-width: 768px) {
+    .process-section {
+        padding: 60px 20px; /* Reduce overall section padding */
+    }
+
+    .flow-part {
+        margin-bottom: 60px; /* Reduce space between the two process flows */
+    }
+
+    .section-heading {
+        font-size: 28px; /* Make heading smaller */
+        margin-bottom: 40px;
+    }
+
+    .flow-box {
+        padding: 25px; /* Reduce padding inside the boxes */
+    }
+
+    .flow-box h3 {
+        font-size: 18px; /* Make box titles smaller */
+    }
+
+    .purple-box li, .green-box p {
+        font-size: 14px; /* Make box content text smaller */
     }
 }
 
