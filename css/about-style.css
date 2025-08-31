@@ -601,20 +601,25 @@ footer {
 
 .newsletter-form-container input {
     width: 100%;
-    flex-grow: 1; /* Allows input to take available space */
+    flex-grow: 1;
+    /* Allows input to take available space */
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
 }
 
 .newsletter-form-container button {
-    width: 45px; /* Fixed width for the button */
-    height: 37px; /* Match input height */
+    width: 45px;
+    /* Fixed width for the button */
+    height: 37px;
+    /* Match input height */
     padding: 8px 12px;
-    margin: 0; /* Remove default margins */
+    margin: 0;
+    /* Remove default margins */
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    flex-shrink: 0; /* Prevents the button from shrinking */
+    flex-shrink: 0;
+    /* Prevents the button from shrinking */
 }
 
 /* --- Success Pop-up --- */
@@ -622,13 +627,15 @@ footer {
     position: fixed;
     bottom: 25px;
     left: 50%;
-    transform: translateX(-50%) translateY(150%); /* Start off-screen */
+    transform: translateX(-50%) translateY(150%);
+    /* Start off-screen */
     background-color: #273444;
     color: #fff;
     padding: 16px 24px;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    z-index: 1010; /* Ensure it's on top of other elements */
+    z-index: 1010;
+    /* Ensure it's on top of other elements */
     opacity: 0;
     pointer-events: none;
     transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.4s ease;
@@ -638,7 +645,8 @@ footer {
 }
 
 #success-popup.show {
-    transform: translateX(-50%) translateY(0); /* Animate into view */
+    transform: translateX(-50%) translateY(0);
+    /* Animate into view */
     opacity: 1;
     pointer-events: auto;
 }
@@ -696,21 +704,21 @@ footer {
 
 /* ===================== CHATBOT STYLES ===================== */
 .chatbot-icon {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  z-index: 990;
-  transition: transform 0.3s ease;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 990;
+    transition: transform 0.3s ease;
 }
 
 .chatbot-icon:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 
@@ -810,10 +818,12 @@ footer {
 }
 
 
-/* =================== HERO SECTION =================== */
+/* =================== HERO SECTION (Updated with Reduced Space) =================== */
 .about-hero-section {
-    height: 100vh;
-    padding: 120px 20px 80px;
+    /* The section's height is now determined by its content and padding */
+    box-sizing: border-box;
+    padding: 120px 40px 80px;
+    /* Top padding pushes content below the navbar */
     background-image: url("/assets/images/about-us/about-bg.png");
     background-size: cover;
     background-position: center;
@@ -822,24 +832,25 @@ footer {
 
 .about-hero-container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
 .hero-left {
-    flex: 1 1 500px;
+    flex: 1 1 55%;
+    max-width: 600px;
 }
 
 .hero-left h1 {
-    margin-top: 70px;
-    font-size: 44px;
+    font-size: 48px;
     color: #2b2b57;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .hero-left p {
@@ -849,31 +860,56 @@ footer {
 }
 
 .hero-right {
-    flex: 1 1 400px;
+    flex: 1 1 45%;
     text-align: center;
 }
 
 .hero-right img {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     height: auto;
     object-fit: contain;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .about-hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-left,
-    .hero-right {
-        flex: 1 1 100%;
+/* ================ Tablet Styles =============== */
+@media (max-width: 1024px) {
+    .about-hero-section {
+        padding: 100px 30px 60px;
+        /* Reduced padding for tablets */
     }
 
     .hero-left h1 {
-        font-size: 36px;
+        font-size: 40px;
+    }
+
+    .hero-left p {
+        font-size: 17px;
+    }
+}
+
+/* ================ Phone Styles =============== */
+@media (max-width: 768px) {
+    .about-hero-section {
+        padding: 90px 20px 50px;
+        /* Further reduced padding for phones */
+    }
+
+    .about-hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-right {
+        margin-bottom: 20px;
+    }
+
+    .hero-right img {
+        max-width: 320px;
+    }
+
+    .hero-left h1 {
+        font-size: 34px;
     }
 
     .hero-left p {
@@ -885,7 +921,8 @@ footer {
 /* =================== LEADERSHIP TEAM  =================== */
 .leadership-team-exact {
     padding: 80px 20px;
-    max-width: 900px; /* Increased max-width for a better layout */
+    max-width: 900px;
+    /* Increased max-width for a better layout */
     margin: auto;
 }
 
@@ -899,12 +936,15 @@ footer {
 
 .leader-card {
     display: flex;
-    align-items: center; /* Vertically center align text with the image */
-    background-color: #f8f9fa; /* Clean, light gray background */
+    align-items: center;
+    /* Vertically center align text with the image */
+    background-color: #f8f9fa;
+    /* Clean, light gray background */
     border-radius: 12px;
     padding: 40px;
     margin-bottom: 30px;
-    gap: 40px; /* Space between image and text */
+    gap: 40px;
+    /* Space between image and text */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
@@ -914,7 +954,8 @@ footer {
     height: 180px;
     border-radius: 10px;
     object-fit: cover;
-    flex-shrink: 0; /* Prevents image from shrinking */
+    flex-shrink: 0;
+    /* Prevents image from shrinking */
 }
 
 .leader-text {
@@ -924,17 +965,19 @@ footer {
 .leader-text h3 {
     font-family: 'Quicksand', sans-serif;
     font-size: 26px;
-    font-weight: 600; /* Bolder weight for title */
-    color: #2A2A2A; /* Color from Figma */
+    font-weight: 600;
+    /* Bolder weight for title */
+    color: #2A2A2A;
+    /* Color from Figma */
     margin-bottom: 12px;
 }
 
 .leader-text p {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    font-weight: 400; 
-    color: #585858; 
-    line-height: 1.7; 
+    font-weight: 400;
+    color: #585858;
+    line-height: 1.7;
 }
 
 .leader-card:nth-child(odd) {
@@ -955,23 +998,29 @@ footer {
         text-align: center;
         gap: 40px;
     }
+
     .mv-left {
         text-align: center;
     }
+
     .mv-container blockquote {
         font-size: 22px;
         padding: 0 10px;
     }
+
     .mv-container blockquote::before,
     .mv-container blockquote::after {
         display: none;
     }
+
     .mv-left h2 {
         font-size: 36px;
     }
+
     .why-grid {
         grid-template-columns: 1fr;
     }
+
     .why-container h2 {
         font-size: 34px;
     }
@@ -981,174 +1030,179 @@ footer {
 
 /* =================== MISSION AND VISION  =================== */
 .mission-vision-section {
-  background-color: #ffffff;
-  padding: 80px 20px;
-  overflow: hidden; 
+    background-color: #ffffff;
+    padding: 80px 20px;
+    overflow: hidden;
 }
 
 .mv-container {
-  max-width: 1100px;
-  margin: auto;
+    max-width: 1100px;
+    margin: auto;
 }
 
-.mv-container > h2 {
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 44px;
-  font-weight: 700;
-  color: #2b2b57;
-  margin-bottom: 50px;
+.mv-container>h2 {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #2b2b57;
+    margin-bottom: 50px;
 }
 
 
 .mv-container blockquote {
-  font-family: 'Poppins', sans-serif;
-  font-size: 26px;
-  font-weight: 500;
-  color: #2A2A2A;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 80px auto;
-  line-height: 1.6;
-  position: relative;
-  padding: 0 60px; 
-  font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2A2A2A;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    line-height: 1.6;
+    position: relative;
+    padding: 0 60px;
+    font-style: italic;
 }
 
 /* Opening Quote Mark */
 .mv-container blockquote::before {
-  content: '“';
-  font-family: serif;
-  font-size: 120px;
-  font-weight: 700;
-  color: #111;
-  position: absolute;
-  left: 0;
-  top: -25px;
-  line-height: 1;
+    content: '“';
+    font-family: serif;
+    font-size: 120px;
+    font-weight: 700;
+    color: #111;
+    position: absolute;
+    left: 0;
+    top: -25px;
+    line-height: 1;
 }
 
 /* Closing Quote Mark - uses an image for the pixelated effect */
 .mv-container blockquote::after {
-  content: '”';
-  font-family: serif;
-  font-size: 120px;
-  font-weight: 700;
-  color: #111;
-  position: absolute;
-  right: 0;
-  bottom: -60px; 
-  line-height: 1;
+    content: '”';
+    font-family: serif;
+    font-size: 120px;
+    font-weight: 700;
+    color: #111;
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+    line-height: 1;
 }
 
 /* Main Content Styling */
 .mv-content {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
 .mv-left {
-  flex: 1 1 500px;
-  text-align: left;
+    flex: 1 1 500px;
+    text-align: left;
 }
 
 .mv-left h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: #111;
-  line-height: 1.2;
-  margin-bottom: 25px;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 25px;
 }
 
 .mv-left p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: #585858; 
-  line-height: 1.7; 
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #585858;
+    line-height: 1.7;
 }
 
 .mv-right {
-  flex: 1 1 400px;
+    flex: 1 1 400px;
 }
 
 .mv-right img {
-  width: 100%;
-  height: auto;
-  border-radius: 0; 
+    width: 100%;
+    height: auto;
+    border-radius: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .mv-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 40px;
-  }
-  .mv-left {
-    text-align: center;
-  }
-  .mv-container blockquote {
-    font-size: 22px;
-    padding: 0 10px;
-  }
-   .mv-container blockquote::before,
-   .mv-container blockquote::after {
-    display: none; /* Hide graphical quotes on mobile for a cleaner look */
-   }
-  .mv-left h2 {
-    font-size: 36px;
-  }
+    .mv-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .mv-left {
+        text-align: center;
+    }
+
+    .mv-container blockquote {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    .mv-container blockquote::before,
+    .mv-container blockquote::after {
+        display: none;
+        /* Hide graphical quotes on mobile for a cleaner look */
+    }
+
+    .mv-left h2 {
+        font-size: 36px;
+    }
 }
 
 
 /* =================== RIGHT CHOICE  =================== */
 .why-choose-section {
-  padding: 80px 20px;
+    padding: 80px 20px;
 }
 
 .why-container {
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
 }
 
 .why-container h2 {
-  font-size: 44px;
-  color: #2b2b57;
-  font-weight: 700;
-  margin-bottom: 60px;
-  font-family: 'Inter', sans-serif;
+    font-size: 44px;
+    color: #2b2b57;
+    font-weight: 700;
+    margin-bottom: 60px;
+    font-family: 'Inter', sans-serif;
 }
 
 .why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .why-card {
-  background-color: #ffffff;
-  border: 1px solid #e9ecef; 
-  border-radius: 8px;
-  text-align: left; 
-  overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .why-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(43, 43, 87, 0.1); 
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(43, 43, 87, 0.1);
 }
 
 .why-card img {
-  width: 100%;
-  height: 200px; 
-  object-fit: contain; 
-  display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
 }
 
 .why-card-content {
@@ -1156,34 +1210,37 @@ footer {
 }
 
 .why-card h3 {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: #131313; 
-  margin: 0 0 15px 0;
-  text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #131313;
+    margin: 0 0 15px 0;
+    text-align: center;
 }
 
 .why-card p {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: #6c757d; 
-  line-height: 1.6;
-  margin: 0;
-  text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 992px) {
     .why-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for tablets */
     }
 }
 
 @media screen and (max-width: 768px) {
     .why-grid {
-        grid-template-columns: 1fr; /* 1 column for mobile */
+        grid-template-columns: 1fr;
+        /* 1 column for mobile */
     }
+
     .why-container h2 {
         font-size: 34px;
     }
@@ -1192,64 +1249,65 @@ footer {
 
 /* =================== INDUSTRIES  =================== */
 .industries-strip {
-  background-color: #323547; 
-  color: #ffffff;
-  padding: 70px 20px;
-  text-align: center;
+    background-color: #323547;
+    color: #ffffff;
+    padding: 70px 20px;
+    text-align: center;
 }
 
 .industries-strip .industries-container {
-  max-width: 1000px;
-  margin: auto;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .industries-strip h2 {
-  font-size: 38px;
-  font-weight: 700;
-  margin-bottom: 60px;
-  font-family: 'Inter', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    font-family: 'Inter', sans-serif;
 }
 
 .industries-strip .industries-grid {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .industries-strip .industry-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-basis: 150px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 150px;
 }
 
 .industries-strip .industry-icon img {
-  height: 150px;
-  width: 125px;
-  object-fit: contain; 
-  margin-bottom: 20px;
+    height: 150px;
+    width: 125px;
+    object-fit: contain;
+    margin-bottom: 20px;
 }
 
 .industries-strip .industry-icon p {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.4;
-  font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
 }
 
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 768px) {
-  .industries-strip .industries-grid {
-    gap: 40px;
-  }
+    .industries-strip .industries-grid {
+        gap: 40px;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .industries-strip h2 {
         font-size: 32px;
     }
+
     .industries-strip .industry-icon {
         flex-basis: 120px;
     }
@@ -1258,110 +1316,110 @@ footer {
 
 /* =================== Contact Form Section  =================== */
 .contact-form {
-  padding: 60px 20px;
-  background-color: #fff;
-  text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
 }
 
 .contact-form h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 100%;
-  color: #383867;
-  text-align: center;
-  margin-bottom: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 100%;
+    color: #383867;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .contact-form form {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .contact-form .form-group {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
-  /* Added select for consistent styling */
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-size: 14px;
-  background-color: #fff;
-  box-sizing: border-box;
+    /* Added select for consistent styling */
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 14px;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 
 /* Custom styling for the select dropdown arrow */
 .contact-form select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 8px 10px;
-  padding-right: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 8px 10px;
+    padding-right: 30px;
 }
 
 .contact-form button {
-  padding: 12px;
-  background-color: #357beb;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s ease;
+    padding: 12px;
+    background-color: #357beb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .contact-form button:hover {
-  background-color: #245bb5;
+    background-color: #245bb5;
 }
 
 /* --- STYLES FOR THE RED STAR & PHONE ROW --- */
 
 .contact-form .required-field {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .contact-form .form-group .required-field {
-  flex: 1;
+    flex: 1;
 }
 
 .contact-form .required-field::after {
-  content: '*';
-  color: red;
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 16px;
-  pointer-events: none;
+    content: '*';
+    color: red;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 16px;
+    pointer-events: none;
 }
 
 /* Adjust star position for the select dropdown to avoid overlapping the arrow */
 .contact-form .required-field:has(select)::after {
-  right: 32px;
+    right: 32px;
 }
 
 /* Flex properties for the phone number row */
 .contact-form .phone-country-code {
-  flex: 0.6;
-  /* Adjust ratio as needed */
-  min-width: 150px;
+    flex: 0.6;
+    /* Adjust ratio as needed */
+    min-width: 150px;
 }
 
 .contact-form .phone-number-input {
-  flex: 1;
+    flex: 1;
 }
 
 /* --- NEW STYLES FOR SEARCHABLE DROPDOWN --- */
@@ -1385,7 +1443,8 @@ footer {
 }
 
 .searchable-select .options-container {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     position: absolute;
     top: 100%;
     left: 0;
@@ -1400,7 +1459,8 @@ footer {
 }
 
 .searchable-select .options-container.active {
-    display: block; /* Show when active */
+    display: block;
+    /* Show when active */
 }
 
 .searchable-select .option {

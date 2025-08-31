@@ -716,11 +716,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 60px;
-  /* Increased top padding */
+  padding: 100px 60px 60px;
   position: relative;
-  overflow: hidden;
-  /* Prevents content from spilling out */
   z-index: 1;
 }
 
@@ -731,12 +728,12 @@ footer {
   max-width: 1200px;
   width: 100%;
   gap: 40px;
+  flex-wrap: wrap;
   z-index: 2;
 }
 
 .hero-left {
-  flex: 1 1 55%;
-  /* Allow it to take up more space */
+  flex: 1;
   min-width: 280px;
 }
 
@@ -745,13 +742,13 @@ footer {
   font-weight: 700;
   color: #494949;
   margin-bottom: 20px;
-  line-height: 1.1;
-  /* Adjusted for better spacing */
+  line-height: 100%;
   font-family: 'Inter', sans-serif;
 }
 
 /* --- Text Animation Container --- */
 .hero-left h1 {
+  /* Add perspective to the parent for a 3D flip effect */
   perspective: 800px;
 }
 
@@ -763,7 +760,6 @@ footer {
   transform-origin: bottom;
 }
 
-/* (The rest of your existing animation CSS for #animated-word remains the same) */
 /* --- The Glitch Pseudo-Elements --- */
 #animated-word::before,
 #animated-word::after {
@@ -793,11 +789,13 @@ footer {
 }
 
 /* --- State Change Class --- */
+/* This class triggers the animation */
 #animated-word.is-animating {
   transform: rotateX(90deg) translateY(-20px);
   opacity: 0;
 }
 
+/* This class makes the glitch visible during the animation */
 #animated-word.is-animating::before,
 #animated-word.is-animating::after {
   opacity: 1;
@@ -888,7 +886,6 @@ footer {
   }
 }
 
-
 .hero-left p {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
@@ -896,8 +893,6 @@ footer {
   color: #484848;
   line-height: 1.6;
   margin-bottom: 30px;
-  max-width: 500px;
-  /* Prevents text line from getting too long */
 }
 
 .hero-btn {
@@ -916,114 +911,83 @@ footer {
 }
 
 .hero-right {
-  flex: 1 1 45%;
+  flex: 1;
   text-align: center;
+  min-width: 300px;
 }
 
 .hero-right img {
-  max-width: 100%;
   height: auto;
-  max-height: 450px;
+  width: 450px;
 }
 
-/* =================== RESPONSIVE STYLES FOR HERO SECTION =================== */
-
-/* Large Tablet (e.g., iPad Pro Landscape) & Small Laptop view */
-@media (max-width: 1024px) {
-  .hero-wrapper {
-    min-height: auto;
-    padding: 150px 40px;
-  }
-
+/* RESPONSIVE */
+@media (max-width: 991px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 50px;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-left h1 {
-    font-size: 3.5rem;
-  }
-
-  .hero-left p {
-    max-width: 100%;
-  }
-
-  .hero-right img {
-    max-height: 350px;
-  }
-}
-
-/* Mobile view - Reduce fonts and spacing */
-@media (max-width: 768px) {
-  .hero-wrapper {
-    padding: 150px 20px;
-    /* Readjust padding for portrait view */
-  }
-
-  .hero-left h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-left p {
-    font-size: 16px;
-  }
-
-  .hero-right img {
-    max-height: 300px;
-  }
-}
-
-/* Small mobile view - Final adjustments */
-@media (max-width: 480px) {
-  .hero-wrapper {
-    padding: 150px 15px;
   }
 
   .hero-left h1 {
     font-size: 2.2rem;
   }
 
-  .hero-btn {
-    padding: 12px 24px;
-    font-size: 14px;
+  .hero-right img {
+    width: 300px;
+    margin-top: 30px;
   }
 }
 
-/* --- Force Hero Image to Extreme Right on Laptops/Desktops --- */
-@media (min-width: 1025px) {
+
+@media (min-width: 992px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .hero-wrapper {
-    position: relative;
-    /* This is the positioning anchor */
+    position: relative; 
+    overflow-x: hidden; 
   }
 
   .hero-right {
     position: absolute;
-    /* Takes the image out of the normal flow */
     right: 0;
-    /* Pins it to the right edge */
-    top: 50%;
-    /* Helps with vertical centering */
+    top: 55%; 
     transform: translateY(-50%);
-    /* Precisely centers the image vertically */
-    width: 36%;
-    /* Controls the width of the image container */
-    
-    /* Prevents the image from becoming too large */
+    z-index: 1;
   }
 
   .hero-left {
-    /* Prevents the left text content from stretching under the image */
     max-width: 50%;
+    position: relative;
+    z-index: 2;
   }
 }
+@media screen and (max-width: 384px){
+ .hero-left{
+    /* background-color: blue; */
+    /* background-color: blue; */
+    padding: 10px;
+    /* background-color: red; */
+ }
+ .hero-left p{
+  padding-top: 2rem;
+ }
+ .hero-wrapper{
+  padding-inline: 0px;
+  /* background-color: blue; */
+ }
 
+ .hero-right{
+  /* background-color: blue; */
+  padding: 0px;
+ }
+ .hero-right img{ 
+   height: 370px;
+   width: auto;
+
+ }
+}
 
 /* ================= MINI HERO ================= */
 .mini-hero {
@@ -1034,9 +998,9 @@ footer {
   padding: 100px 60px;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
   z-index: 1;
+
 }
 
 .mini-hero::before {
@@ -1047,11 +1011,12 @@ footer {
 }
 
 .mini-hero-content {
-  max-width: 1200px;
-  width: 100%;
+  /* max-width: 1200px; */
+  /* width: 100%; */
   display: flex;
   align-items: center;
   gap: 5rem;
+  flex-wrap: wrap;
   position: relative;
   z-index: 2;
 }
@@ -1064,7 +1029,7 @@ footer {
   font-family: 'Inter', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.175;
   margin-bottom: 16px;
 
   /* --- Linear Gradient Text Effect --- */
@@ -1077,8 +1042,10 @@ footer {
 .mini-text p {
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
+  padding-block: 1rem;
   font-weight: 200;
-  line-height: 1.4;
+  line-height: 1.2;
+  /* width: 30rem; */
   margin-bottom: 20px;
 
   /* --- Linear Gradient Text Effect --- */
@@ -1099,7 +1066,6 @@ footer {
   border-radius: 30px;
   font-weight: 200;
   display: inline-block;
-  transition: background-color 0.3s ease;
 }
 
 .mini-btn:hover {
@@ -1107,70 +1073,63 @@ footer {
 }
 
 .mini-video {
-  flex: 1;
   width: 100%;
   max-width: 500px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* =================== RESPONSIVE STYLES FOR MINI HERO =================== */
 
-/* Tablet view - Stacks content vertically */
-@media screen and (max-width: 992px) {
+/* Responsive */
+@media screen and (max-width: 768px) {
   .mini-hero {
-    padding: 80px 40px;
+    padding: 2rem;
+    text-align: center;
+    flex-direction: column;
+
+
   }
 
   .mini-hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 3rem;
-  }
+    gap: 2rem;
+    margin-top: 2rem;
 
-  .mini-text {
-    max-width: 600px;
-    /* Constrains text width for better readability */
-  }
-}
-
-/* Mobile view - Adjusts fonts and spacing */
-@media screen and (max-width: 768px) {
-  .mini-hero {
-    padding: 60px 20px;
-  }
-
-  .mini-hero-content {
-    gap: 2.5rem;
   }
 
   .mini-text h2 {
-    font-size: 2.5rem;
-    /* Reduced font size for mobile */
+    font-size: 3rem;
+    background-color: blue;
+
   }
 
+  
+
   .mini-text p {
-    font-size: 1.25rem;
-    /* Reduced font size for mobile */
+    font-size: 1rem;
+    padding-inline: 5rem;
   }
 
   .mini-video {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-}
+    height: 25rem;
+    width: 100%;
+    padding: 0;
+    box-shadow: none;
+    padding-block: 2rem;
 
-/* Small mobile view - Further refinement */
-@media screen and (max-width: 480px) {
-  .mini-hero {
-    padding: 50px 15px;
   }
 
-  .mini-text h2 {
-    font-size: 2.2rem;
-  }
+  @media screen and (max-width: 426px) {
+    .mini-hero {
+      padding: 0;
+    }
 
-  .mini-text p {
-    font-size: 1.1rem;
+    .mini-text h2 {
+      font-size: 2rem;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
 
@@ -1185,7 +1144,7 @@ footer {
   font-family: 'Inter', sans-serif;
   font-size: 56px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 100%;
   text-align: center;
   margin-bottom: 60px;
   background-image: linear-gradient(to right, #45624A, #567F5D);
@@ -1198,105 +1157,118 @@ footer {
 .solution-box {
   padding: 50px;
   margin-bottom: 2rem;
-  border-radius: 8px;
-  /* Added subtle border-radius */
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s ease; */
 }
+
+/* .solution-box:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+} */
 
 .solution-content-wrapper {
   display: flex;
   gap: 40px;
-  align-items: center;
-  /* Vertically align content */
-}
-
-/* Card Headers */
-.solution-box h3 {
-  font-family: 'Inter', sans-serif;
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 30px;
+  align-items: flex-start;
 }
 
 .solution-box.fusion h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 100%;
   color: #45624A;
+  margin-bottom: 30px;
+
 }
 
 .solution-box.lite h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 100%;
   color: #494582;
+  margin-bottom: 30px;
 }
 
 .solution-box h3 span {
   font-family: 'Inter', sans-serif;
   font-size: 32px;
-  color: inherit;
+  color: #45624A;
   font-weight: 400;
-  display: block;
-  margin-top: 5px;
 }
 
-/* Flexbox column sizing */
+
 .solution-left,
-.solution-capabilities {
-  flex: 1.5;
-}
-
+.solution-capabilities,
 .solution-right {
   flex: 1;
-  text-align: center;
 }
 
-/* Paragraphs and Lists */
-.solution-left p {
+.fusion .solution-left p {
   font-size: 16px;
   line-height: 1.6;
+  color: #45624A;
   font-family: "Inter", sans-serif;
   font-weight: 300;
   margin-bottom: 25px;
 }
 
-.fusion .solution-left p,
-.fusion .solution-capabilities {
-  color: #45624A;
-}
-
-.lite .solution-left p,
-.lite .solution-capabilities {
+.lite .solution-left p {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
   color: #494562;
+  margin-bottom: 25px;
+  font-weight: 300;
+
 }
 
-.solution-capabilities h4 {
-  font-size: 18px;
+.fusion .solution-capabilities h4 {
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  color: #45624A;
+  margin-bottom: 2rem;
 }
 
-.solution-capabilities ul {
+.fusion .solution-capabilities ul {
   padding-left: 20px;
-  width: 100%;
-  /* IMPORTANT: Ensures the list is responsive */
+  color: #45624A;
+
+}
+
+.lite .solution-capabilities h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #494562;
+  margin-bottom: 2rem;
+}
+
+.lite .solution-capabilities ul {
+  padding-left: 20px;
+  color: #494562;
+  width: 25rem;
 }
 
 .solution-capabilities ul li {
   font-size: 15px;
   margin-bottom: 1rem;
-  line-height: 1.5;
 }
 
-/* Responsive Images */
-.solution-right img {
-  max-width: 100%;
-  /* Ensures image scales down */
-  height: auto;
-  /* Maintains aspect ratio */
-  max-height: 320px;
-  /* Optional: Constrain height on large screens */
+.fusion .solution-right img {
+  height: 18rem;
+
 }
 
-/* BUTTON STYLES */
+.lite .solution-right img {
+  height: 20rem;
+
+}
+
+/*  BUTTON   */
 .explore-btn {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   padding: 16px 32px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -1304,132 +1276,155 @@ footer {
   text-decoration: none;
   text-align: center;
   color: #fff;
-  border: 2px solid transparent;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
 
 .explore-btn.green {
   background-color: #45624A;
+  border: 2px transparent solid;
+
 }
 
 .explore-btn.purple {
   background-color: #494562;
+  border: 2px transparent solid;
+
 }
 
 .explore-btn.green:hover {
   background-color: transparent;
   border-color: #45624A;
+
   color: #45624A;
 }
 
 .explore-btn.purple:hover {
   background-color: transparent;
   border-color: #494562;
+  border: 2px solid;
   color: #494562;
 }
 
-/* Background Colors */
+/*  Background Colors */
 .solution-box.fusion {
+  /* Color: #D8D8D0 with 28% opacity */
   background-color: rgba(216, 216, 208, 0.28);
 }
 
 .solution-box.lite {
+  /* Color: #D0D4DB with 42% opacity */
   background-color: rgba(208, 212, 219, 0.42);
 }
 
-/* Button visibility by default */
 .mobile-btn {
   display: none;
 }
 
-.desktop-btn {
-  display: inline-block;
-}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .solutions-exact {
+    padding: 0px;
+  }
 
-/* =================== RESPONSIVE STYLES FOR SOLUTIONS SECTION =================== */
+  .solutions-exact h2 {
+    padding-top: 4rem;
+  }
 
-/* Tablet view: Stacks columns vertically */
-@media screen and (max-width: 992px) {
   .solution-content-wrapper {
     flex-direction: column;
-    align-items: center;
+  }
+
+  .solution-box h3 {
     text-align: center;
-    gap: 30px;
   }
 
-  /* For visual variety, the image appears first in the 'Lite' card */
-  .solution-box.lite .solution-content-wrapper {
-    flex-direction: column;
-  }
-
-  .solution-left,
-  .solution-capabilities,
-  .solution-right {
-    max-width: 550px;
-    /* Constrain width for better readability on tablets */
-  }
-
-  .solution-capabilities ul {
-    display: inline-block;
-    /* Allows the centered text-align to work on the block */
-    text-align: left;
-    /* Keeps list items aligned left for readability */
-  }
-
-  /* Swap button visibility */
   .desktop-btn {
     display: none;
+    /* Hide the desktop button on mobile */
   }
 
   .mobile-btn {
     display: inline-block;
+    /* Show the mobile button */
     margin-top: 20px;
-  }
-}
-
-/* Mobile view: Adjusts padding and font sizes */
-@media screen and (max-width: 768px) {
-  .solutions-exact {
-    padding: 60px 20px;
+    /* Add some space above the button */
   }
 
-  .solutions-exact h2 {
-    font-size: 42px;
-    padding-top: 0;
-    /* Removed extra padding from old query */
-  }
-
-  .solution-box {
-    padding: 30px 20px;
-  }
-
-  .solution-box h3 {
-    font-size: 32px;
-  }
-
-  .solution-box h3 span {
-    font-size: 22px;
-  }
-}
-
-/* Small mobile view: Further refinement */
-@media screen and (max-width: 480px) {
-  .solutions-exact h2 {
-    font-size: 36px;
-  }
-
-  .solution-box h3 {
+  .solution-box.fusion h3,
+  .solution-box.lite h3 {
     font-size: 28px;
+    /* Makes the main heading smaller on mobile */
   }
 
   .solution-box h3 span {
     font-size: 20px;
+    /* Makes the "(For Enterprises)" part smaller */
   }
 
-  .mobile-btn {
-    width: 100%;
-    padding: 14px;
+  .solution-right {
+    align-self: center;
+
+
+  }
+
+  .solution-right img {
+    opacity: 1;
+  }
+
+  .blogs-section h2 {
+    padding-top: 3rem;
+
+  }
+
+}
+
+@media screen and (max-width: 426px) {
+  .solutions-exact {
+    padding: 0px;
+
+  }
+
+  .solutions-exact h2 {
+    padding-top: 4rem;
+  }
+
+  .blogs-section h2 {
+    margin-top: 2rem;
+  }
+
+
+}
+@media screen and (max-width: 384px){
+  .solution-box.lite {
+    padding: 0;
+    /* background-color: red; */
+  }
+  .solution-box.lite h3{
+    padding: 2rem;
+  }
+  .lite .solution-left{
+    /* background-color: red; */
+    padding: 2rem;
+  }
+
+  .lite .solution-capabilities{
+    /* background-color: blue; */
+    padding: 10px;
+  }
+  .lite .solution-capabilities ul{
+    /* background-color: red; */
+    padding: 30px;
+    left: 0;
+    
+  }
+  .lite .solution-content-wrapper{
+    /* background-color: red; */
+    padding: 0;
+  }
+  .lite .solution-content-wrapper a{
+    margin-left: 2rem;
   }
 }
 
@@ -1544,53 +1539,51 @@ footer {
 
 /* --- NEW STYLES FOR SEARCHABLE DROPDOWN --- */
 .searchable-select {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .searchable-select .search-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  box-sizing: border-box;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 8px 10px;
-  padding-right: 30px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 8px 10px;
+    padding-right: 30px;
 }
 
 .searchable-select .options-container {
-  display: none;
-  /* Hidden by default */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 0 0 6px 6px;
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: #fff;
-  z-index: 10;
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 10;
 }
 
 .searchable-select .options-container.active {
-  display: block;
-  /* Show when active */
+    display: block; /* Show when active */
 }
 
 .searchable-select .option {
-  padding: 10px 12px;
-  cursor: pointer;
-  font-size: 14px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .searchable-select .option:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 

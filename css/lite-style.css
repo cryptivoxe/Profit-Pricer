@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 /* ===================== General ===================== */
 * {
     margin: 0;
@@ -821,7 +823,7 @@ footer {
 }
 
 .hero-lite-content {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -835,22 +837,27 @@ footer {
 
 .hero-lite-image img {
     max-width: 500px;
-    width: 100%;
+    background-color: red;
+    /* width: 100%; */
 }
 
 /* Text container is now constrained to encourage line wrapping */
 .hero-lite-text {
-    flex: 1 1 50%;
-    max-width: 480px; /* Limits the width to make the paragraph wrap into 3 lines */
+    /* flex: 1 1 50%; */
+    /* background-color: #0077b5; */
+    margin-top: 5%;
+    margin-right: 10%;
+    
+    /* max-width: 480px; Limits the width to make the paragraph wrap into 3 lines */
 }
 
 .hero-lite-text h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 48px;
+    font-size: 4rem;
     font-weight: 700;
     color: #36354D;
     line-height: 1.2; /* Adjust line-height for the two-line heading */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .hero-lite-text p {
@@ -906,14 +913,64 @@ footer {
     .hero-lite-content {
         flex-direction: column;
         text-align: center;
+        padding: 0;
     }
 
     .hero-lite-text {
-        max-width: 100%; /* Remove max-width on mobile to use full space */
+        padding: 0;
+        margin: 15%;
+        /* background-color: blue; */
+        /* max-width: 100%; Remove max-width on mobile to use full space */
     }
+    .hero-lite-text p{
+        color: #c5d5c8;
+    }
+   
 
     .hero-lite-buttons {
         justify-content: center;
+    }
+    .hero-lite{
+        background-size: cover;
+        background-position-x: 100%;
+    }
+}
+@media screen and (max-width: 448px){
+    .hero-lite-content{
+        /* background-color: blue; */
+        height: 70vh;
+        
+        justify-content: center;
+    }
+    .hero-lite{
+        background-size: cover;
+        background-position-x: 80%;
+        padding: 0;
+    }
+    .hero-lite-text{
+        margin-top: 60%;        
+        /* background-color: #00000074; */
+        /* height: 100vh; */
+        margin-right: 10%;
+        /* padding: 5%; */
+
+    }
+    .hero-lite-text h1{
+        color: #192a45;
+        font-size: 3rem;
+        /* font-family: "Rubik Mono One", monospace; */
+        /* font-family: "Playfair Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-style: normal; */
+    }
+    .hero-lite-text p{
+        color: #bdcbc6;
+        /* font-family: "Rubik Mono One", monospace; */
+
+        /* background-color: blue; */
+        /* padding-inline: 10%; */
     }
 }
 
@@ -922,14 +979,15 @@ footer {
 
 .pricing-info {
     position: relative;
-    padding: 100px 2rem;
+    /* padding: 100px 4rem; */
     background: url('/assets/images/solutions/lite/mini-hero-bg.png') center/cover no-repeat;
     overflow: hidden; 
-    height: 100vh;
+    /* height: 100vh; */
+    /* background-color: red; */
 }
 
 .pricing-info-content {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -939,13 +997,15 @@ footer {
 /* Text container on the left */
 .pricing-info-text {
     flex: 1 1 50%;
+    padding-left: 5rem;
 }
 
 /* Main heading styles from Figma */
 .pricing-info-text h2 {
-    font-family: 'Inter', sans-serif;   
-    font-weight: 900;                   
-    font-size: 56px;                    
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 200;
+    font-size: 3rem;
+    font-style: normal;                   
     line-height: 1;                     
     color: #273F2C;                     
     letter-spacing: 0;                  
@@ -973,7 +1033,15 @@ footer {
 }
 
 .pricing-info-image img {
-    width: 100%;
+    /* width: 100%; */
+    padding: 0;
+    height: 600px;
+    margin-left: 20%;
+    z-index: 100;
+    /* position: relative; */
+    /* background-color: blue; */
+    
+    
 }
 
 /* ===================== RESPONSIVE STYLES ===================== */
@@ -988,10 +1056,24 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .pricing-info{
+        padding: 0;
+        /* background-color: blue; */
+        margin: 0;
+    }
     .pricing-info-content {
         flex-direction: column-reverse; 
         text-align: center;
-        gap: 40px;
+        /* background-color: blue; */
+        /* gap: 40px; */
+        padding: 0;
+        margin: 0;
+        /* margin-top: 10%; */
+    }
+    .pricing-info-text{
+        /* margin-top: 10%; */
+        padding: 0;
+        /* background-color: blue; */
     }
 
     .pricing-info-text h2 {
@@ -1000,9 +1082,45 @@ footer {
 
     .pricing-info-text p {
         font-size: 18px; /* Further scaled down for mobile */
+        padding: 4rem;
+    }
+    
+    .pricing-info-image img{
+        height: 400px;
+        margin-right: 15rem;
+        
+        /* background-color: black; */
     }
 }
-
+@media screen and (max-width: 448px){
+    
+    .pricing-info-image{
+        /* margin-top: 10%; */
+    } 
+    .pricing-info-image img{
+        height: 400px;
+        /* background-color: blue; */
+        /* padding: 5%; */
+        margin: 0;
+        z-index: 99;
+    }
+    .pricing-info-text{
+        /* background-color: blue; */
+        padding-inline: 0;
+        padding-block: 2rem;
+    }
+    .pricing-info-text h2{
+        font-family: "Rubik Mono One", monospace;
+        font-weight: 400;
+        font-size: 2.5rem;
+        font-style: normal;
+    }
+    .pricing-info-text p{
+        /* background-color: red; */
+        padding: 2rem;
+        
+    }
+}
 
 /* ===================== QUOTATION SECTION ===================== */
 .quote-section {
@@ -1288,6 +1406,9 @@ footer {
     .enabler-card, #enabler-1, #enabler-4, #enabler-6, #enabler-2, #enabler-3, #enabler-5 {
         height: auto;
         min-height: 320px;
+    }
+    .enabler-number{
+        display: none;
     }
 }
 
