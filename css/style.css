@@ -1583,7 +1583,7 @@ footer {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  flex: 0 0 440px;
+  flex: 0 0 400px;
   /* max-width: 340px;  */
 }
 
