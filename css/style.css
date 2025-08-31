@@ -716,8 +716,11 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 60px 60px;
+  padding: 120px 60px;
+  /* Increased top padding */
   position: relative;
+  overflow: hidden;
+  /* Prevents content from spilling out */
   z-index: 1;
 }
 
@@ -728,12 +731,12 @@ footer {
   max-width: 1200px;
   width: 100%;
   gap: 40px;
-  flex-wrap: wrap;
   z-index: 2;
 }
 
 .hero-left {
-  flex: 1;
+  flex: 1 1 55%;
+  /* Allow it to take up more space */
   min-width: 280px;
 }
 
@@ -742,13 +745,13 @@ footer {
   font-weight: 700;
   color: #494949;
   margin-bottom: 20px;
-  line-height: 100%;
+  line-height: 1.1;
+  /* Adjusted for better spacing */
   font-family: 'Inter', sans-serif;
 }
 
 /* --- Text Animation Container --- */
 .hero-left h1 {
-  /* Add perspective to the parent for a 3D flip effect */
   perspective: 800px;
 }
 
@@ -760,6 +763,7 @@ footer {
   transform-origin: bottom;
 }
 
+/* (The rest of your existing animation CSS for #animated-word remains the same) */
 /* --- The Glitch Pseudo-Elements --- */
 #animated-word::before,
 #animated-word::after {
@@ -789,13 +793,11 @@ footer {
 }
 
 /* --- State Change Class --- */
-/* This class triggers the animation */
 #animated-word.is-animating {
   transform: rotateX(90deg) translateY(-20px);
   opacity: 0;
 }
 
-/* This class makes the glitch visible during the animation */
 #animated-word.is-animating::before,
 #animated-word.is-animating::after {
   opacity: 1;
@@ -886,6 +888,7 @@ footer {
   }
 }
 
+
 .hero-left p {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
@@ -893,6 +896,8 @@ footer {
   color: #484848;
   line-height: 1.6;
   margin-bottom: 30px;
+  max-width: 500px;
+  /* Prevents text line from getting too long */
 }
 
 .hero-btn {
@@ -911,58 +916,114 @@ footer {
 }
 
 .hero-right {
-  flex: 1;
+  flex: 1 1 45%;
   text-align: center;
-  min-width: 300px;
 }
 
 .hero-right img {
+  max-width: 100%;
   height: auto;
-  width: 450px;
+  max-height: 450px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 991px) {
+/* =================== RESPONSIVE STYLES FOR HERO SECTION =================== */
+
+/* Large Tablet (e.g., iPad Pro Landscape) & Small Laptop view */
+@media (max-width: 1024px) {
+  .hero-wrapper {
+    min-height: auto;
+    padding: 150px 40px;
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
+    gap: 50px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-left h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-left p {
+    max-width: 100%;
+  }
+
+  .hero-right img {
+    max-height: 350px;
+  }
+}
+
+/* Mobile view - Reduce fonts and spacing */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 150px 20px;
+    /* Readjust padding for portrait view */
+  }
+
+  .hero-left h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+  }
+
+  .hero-right img {
+    max-height: 300px;
+  }
+}
+
+/* Small mobile view - Final adjustments */
+@media (max-width: 480px) {
+  .hero-wrapper {
+    padding: 150px 15px;
   }
 
   .hero-left h1 {
     font-size: 2.2rem;
   }
 
-  .hero-right img {
-    width: 300px;
-    margin-top: 30px;
+  .hero-btn {
+    padding: 12px 24px;
+    font-size: 14px;
   }
 }
 
-
-@media (min-width: 992px) {
-  body {
-    overflow-x: hidden;
-  }
-
+/* --- Force Hero Image to Extreme Right on Laptops/Desktops --- */
+@media (min-width: 1025px) {
   .hero-wrapper {
     position: relative;
-    overflow-x: hidden;
+    /* This is the positioning anchor */
   }
 
   .hero-right {
     position: absolute;
+    /* Takes the image out of the normal flow */
     right: 0;
-    top: 55%;
+    /* Pins it to the right edge */
+    top: 50%;
+    /* Helps with vertical centering */
     transform: translateY(-50%);
-    z-index: 1;
+    /* Precisely centers the image vertically */
+    width: 36%;
+    /* Controls the width of the image container */
+    
+    /* Prevents the image from becoming too large */
   }
 
   .hero-left {
+    /* Prevents the left text content from stretching under the image */
     max-width: 50%;
-    position: relative;
-    z-index: 2;
   }
 }
+
 
 /* ================= MINI HERO ================= */
 .mini-hero {
@@ -973,9 +1034,9 @@ footer {
   padding: 100px 60px;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 1;
-
 }
 
 .mini-hero::before {
@@ -986,12 +1047,11 @@ footer {
 }
 
 .mini-hero-content {
-  /* max-width: 1200px; */
-  /* width: 100%; */
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 5rem;
-  flex-wrap: wrap;
   position: relative;
   z-index: 2;
 }
@@ -1004,7 +1064,7 @@ footer {
   font-family: 'Inter', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1.175;
+  line-height: 1.2;
   margin-bottom: 16px;
 
   /* --- Linear Gradient Text Effect --- */
@@ -1017,10 +1077,8 @@ footer {
 .mini-text p {
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
-  padding-block: 1rem;
   font-weight: 200;
-  line-height: 1.2;
-  /* width: 30rem; */
+  line-height: 1.4;
   margin-bottom: 20px;
 
   /* --- Linear Gradient Text Effect --- */
@@ -1041,6 +1099,7 @@ footer {
   border-radius: 30px;
   font-weight: 200;
   display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
 .mini-btn:hover {
@@ -1048,63 +1107,70 @@ footer {
 }
 
 .mini-video {
+  flex: 1;
   width: 100%;
   max-width: 500px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* =================== RESPONSIVE STYLES FOR MINI HERO =================== */
 
-/* Responsive */
-@media screen and (max-width: 768px) {
+/* Tablet view - Stacks content vertically */
+@media screen and (max-width: 992px) {
   .mini-hero {
-    padding: 2rem;
-    text-align: center;
-    flex-direction: column;
-
-
+    padding: 80px 40px;
   }
 
   .mini-hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 3rem;
+  }
 
+  .mini-text {
+    max-width: 600px;
+    /* Constrains text width for better readability */
+  }
+}
+
+/* Mobile view - Adjusts fonts and spacing */
+@media screen and (max-width: 768px) {
+  .mini-hero {
+    padding: 60px 20px;
+  }
+
+  .mini-hero-content {
+    gap: 2.5rem;
   }
 
   .mini-text h2 {
-    font-size: 3rem;
-    background-color: blue;
-
+    font-size: 2.5rem;
+    /* Reduced font size for mobile */
   }
 
-  .mini-hero-content h2 {}
-
   .mini-text p {
-    font-size: 1rem;
-    padding-inline: 5rem;
+    font-size: 1.25rem;
+    /* Reduced font size for mobile */
   }
 
   .mini-video {
-    height: 25rem;
-    width: 100%;
-    padding: 0;
-    box-shadow: none;
-    padding-block: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
 
+/* Small mobile view - Further refinement */
+@media screen and (max-width: 480px) {
+  .mini-hero {
+    padding: 50px 15px;
   }
 
-  @media screen and (max-width: 426px) {
-    .mini-hero {
-      padding: 0;
-    }
+  .mini-text h2 {
+    font-size: 2.2rem;
+  }
 
-    .mini-text h2 {
-      font-size: 2rem;
-      padding: 0;
-      margin: 0;
-    }
+  .mini-text p {
+    font-size: 1.1rem;
   }
 }
 
@@ -1164,10 +1230,8 @@ footer {
   font-family: 'Inter', sans-serif;
   font-size: 32px;
   color: inherit;
-  /* Inherits color from parent h3 */
   font-weight: 400;
   display: block;
-  /* Ensures span stacks vertically on smaller screens */
   margin-top: 5px;
 }
 
@@ -1175,13 +1239,11 @@ footer {
 .solution-left,
 .solution-capabilities {
   flex: 1.5;
-  /* Give more space to text content */
 }
 
 .solution-right {
   flex: 1;
   text-align: center;
-  /* Center the image within its container */
 }
 
 /* Paragraphs and Lists */
