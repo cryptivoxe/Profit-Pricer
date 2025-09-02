@@ -813,312 +813,271 @@ footer {
 }
 
 
-/* ===================== PROFIT PRICER LITE HERO SECTION STYLES (UPDATED) ===================== */
+/* ===================== PROFIT PRICER LITE HERO SECTION STYLES (FINAL & WORKING) ===================== */
 
 .hero-lite {
-    position: relative;
-    padding: 160px 2rem 100px 2rem; 
-    background: url('/assets/images/solutions/lite/hero-bg.png') center top/100% no-repeat;
-    height: 100vh;
+    /* Base styles for mobile devices */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    padding: 120px 1.5rem;
+    text-align: center;
+    background: url('/assets/images/solutions/lite/hero-bg.png') no-repeat center top/cover;
 }
 
 .hero-lite-content {
-    /* max-width: 1200px; */
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 60px; /* Increased gap for better spacing */
+    max-width: 1200px;
+    width: 100%;
 }
 
 .hero-lite-image {
-    flex: 1 1 50%;
-    text-align: center;
+    display: none;
 }
 
-.hero-lite-image img {
-    max-width: 500px;
-    background-color: red;
-    /* width: 100%; */
-}
-
-/* Text container is now constrained to encourage line wrapping */
 .hero-lite-text {
-    /* flex: 1 1 50%; */
-    /* background-color: #0077b5; */
-    margin-top: 5%;
-    margin-right: 10%;
-    
-    /* max-width: 480px; Limits the width to make the paragraph wrap into 3 lines */
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .hero-lite-text h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 4rem;
     font-weight: 700;
     color: #36354D;
-    line-height: 1.2; /* Adjust line-height for the two-line heading */
-    /* margin-bottom: 20px; */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-size: 2.75rem;
 }
 
 .hero-lite-text p {
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 1.1rem;
     color: #36354C;
-    line-height: 1.7; /* Increased line-height for better readability */
-    margin-bottom: 32px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-lite-buttons {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* UPDATED BUTTON STYLES BASED ON YOUR NEW SCREENSHOT */
 .btn-lite {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 50px;
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
-    color: #121212;
     text-decoration: none;
     transition: all 0.3s ease;
     background-color: #ffffff;
-    /* Border from Figma: 4px width, color #3D3D3D at 21% opacity */
     border: 1px solid rgba(61, 61, 61, 0.21);
 }
 
 .btn-lite:hover {
-    /* 1. Dark Gradient Background */
-    /* This creates the top-to-bottom dark gradient from your design */
     background: linear-gradient(to bottom, #1E2024, #242B3F);
-
-    /* 2. White Text Color */
-    /* This changes the text color to white for readability */
     color: #FFFFFF;
-
-    /* 3. Darker Border Color */
-    /* This uses the border color from your Figma hover state */
     border-color: rgba(132, 132, 180, 0.8);
-
-    /* 4. Keeps the existing visual feedback */
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ===================== RESPONSIVE STYLES ===================== */
-@media screen and (max-width: 768px) {
-    .hero-lite-content {
-        flex-direction: column;
-        text-align: center;
-        padding: 0;
+/* --- Tablet Styles (screens 768px and wider) --- */
+@media screen and (min-width: 768px) {
+    .hero-lite-text h1 {
+        font-size: 3.5rem;
     }
 
-    .hero-lite-text {
-        padding: 0;
-        margin: 15%;
-        /* background-color: blue; */
-        /* max-width: 100%; Remove max-width on mobile to use full space */
+    .hero-lite-text p {
+        font-size: 1.2rem;
     }
-    .hero-lite-text p{
-        color: #c5d5c8;
-    }
-   
 
     .hero-lite-buttons {
+        flex-direction: row;
         justify-content: center;
     }
-    .hero-lite{
-        background-size: cover;
-        background-position-x: 100%;
+
+    .btn-lite {
+        width: auto;
+        padding: 15px 50px;
     }
 }
-@media screen and (max-width: 448px){
-    .hero-lite-content{
-        /* background-color: blue; */
-        height: 70vh;
-        
-        justify-content: center;
-    }
-    .hero-lite{
-        background-size: cover;
-        background-position-x: 80%;
-        padding: 0;
-    }
-    .hero-lite-text{
-        margin-top: 60%;        
-        /* background-color: #00000074; */
-        /* height: 100vh; */
-        margin-right: 10%;
-        /* padding: 5%; */
 
+/* --- Laptop/Desktop Styles (screens 1024px and wider) --- */
+@media screen and (min-width: 1024px) {
+    .hero-lite {
+        min-height: 100vh;
+        text-align: left;
+        justify-content: flex-end;   /* PUSHES content block to the RIGHT */
+        padding: 0 8%;
     }
-    .hero-lite-text h1{
-        color: #192a45;
-        font-size: 3rem;
-        /* font-family: "Rubik Mono One", monospace; */
-        /* font-family: "Playfair Display", serif;
-        font-optical-sizing: auto;
-        font-weight: 600;
-        font-style: normal;
-        font-style: normal; */
-    }
-    .hero-lite-text p{
-        color: #bdcbc6;
-        /* font-family: "Rubik Mono One", monospace; */
 
-        /* background-color: blue; */
-        /* padding-inline: 10%; */
+    /* THIS IS THE KEY FIX */
+    .hero-lite-content {
+        width: auto;                 /* Allows the container to shrink, so it can be pushed to the right */
+    }
+    
+    .hero-lite-text {
+        margin: 0;
+        max-width: 550px;            /* Adjusted max-width slightly for better fit */
+    }
+
+    .hero-lite-text h1 {
+        font-size: 4rem;
+    }
+    
+    .hero-lite-text p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .hero-lite-buttons {
+        justify-content: flex-start; /* Aligns buttons to the LEFT of their container */
     }
 }
 
 
-/* ===================== PRICING INFO SECTION STYLES (UPDATED) ===================== */
+/* ===================== PRICING INFO SECTION STYLES (CORRECTED & FINAL) ===================== */
 
 .pricing-info {
-    position: relative;
-    /* padding: 100px 4rem; */
+    padding: 4rem 1.5rem;
     background: url('/assets/images/solutions/lite/mini-hero-bg.png') center/cover no-repeat;
-    overflow: hidden; 
-    /* height: 100vh; */
-    /* background-color: red; */
+    overflow: hidden;
 }
 
 .pricing-info-content {
-    /* max-width: 1200px; */
-    margin: 0 auto;
     display: flex;
+    flex-direction: column-reverse; /* Stack image on top of text on mobile */
     align-items: center;
-    gap: 60px; /* Increased gap to accommodate larger text */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* This is correct for mobile and tablet */
 }
 
-/* Text container on the left */
 .pricing-info-text {
-    flex: 1 1 50%;
-    padding-left: 5rem;
+    flex: 1;
+    text-align: center; /* Center text on mobile */
+    width: 100%;
 }
 
-/* Main heading styles from Figma */
 .pricing-info-text h2 {
     font-family: "Rubik Mono One", monospace;
-    font-weight: 200;
-    font-size: 3rem;
-    font-style: normal;                   
-    line-height: 1;                     
-    color: #273F2C;                     
-    letter-spacing: 0;                  
-    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: #273F2C;
+    margin-bottom: 1.5rem;
 }
 
 .pricing-info-text h2 span {
-    color: inherit; 
+    color: inherit;
 }
 
-/* Paragraph text styles from Figma */
 .pricing-info-text p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 300;                  
-    font-size: 24px;                  
-    line-height: 1.4;                  
-    color: #292929;                     
-    letter-spacing: 0;                  
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #292929;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Image container on the right */
 .pricing-info-image {
-    flex: 1 1 50%;
-    text-align: center;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pricing-info-image img {
-    /* width: 100%; */
-    padding: 0;
-    height: 600px;
-    margin-left: 20%;
-    z-index: 100;
-    /* position: relative; */
-    /* background-color: blue; */
-    
-    
+    width: 100%;
+    height: auto;
+    max-width: 450px;
 }
 
-/* ===================== RESPONSIVE STYLES ===================== */
-/* Adjusting font sizes for mobile devices */
-@media screen and (max-width: 992px) {
-    .pricing-info-text h2 {
-        font-size: 72px; /* Scaled down for tablets */
-    }
-    .pricing-info-text p {
-        font-size: 24px; /* Scaled down for tablets */
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .pricing-info{
-        padding: 0;
-        /* background-color: blue; */
-        margin: 0;
-    }
+/* --- Tablet Styles (screens 768px and wider) --- */
+@media screen and (min-width: 768px) {
     .pricing-info-content {
-        flex-direction: column-reverse; 
-        text-align: center;
-        /* background-color: blue; */
-        /* gap: 40px; */
-        padding: 0;
-        margin: 0;
-        /* margin-top: 10%; */
-    }
-    .pricing-info-text{
-        /* margin-top: 10%; */
-        padding: 0;
-        /* background-color: blue; */
+        flex-direction: row; /* Switch to side-by-side layout */
+        gap: 3rem;
     }
 
+    .pricing-info-text {
+        text-align: left; /* Align text to the left */
+    }
+    
     .pricing-info-text h2 {
-        font-size: 48px; /* Further scaled down for mobile */
+        /* UPDATED: Reduced font size to prevent excessive wrapping */
+        font-size: 2.8rem;
     }
 
     .pricing-info-text p {
-        font-size: 18px; /* Further scaled down for mobile */
-        padding: 4rem;
+        font-size: 1.25rem;
+        margin: 0;
     }
-    
-    .pricing-info-image img{
-        height: 400px;
-        margin-right: 15rem;
-        
-        /* background-color: black; */
+
+    .pricing-info-image img {
+        max-width: 100%;
     }
 }
-@media screen and (max-width: 448px){
+
+/* --- Laptop/Desktop Styles (screens 1024px and wider) --- */
+@media screen and (min-width: 1024px) {
+    .pricing-info {
+        position: relative; /* Establishes a positioning context for the image */
+        padding: 0;
+        display: flex; /* Aligns the text container */
+        align-items: center;
+    }
+
+    .pricing-info-content {
+        /* This container holds the text and is now locked to the left */
+        width: 50%;
+        padding: 6rem 4rem;
+        /* THIS IS THE KEY FIX: Overrides the 'margin: auto' from the mobile style */
+        margin: 0; 
+        z-index: 2; /* Ensure text is on top of the image */
+    }
     
-    .pricing-info-image{
-        /* margin-top: 10%; */
-    } 
-    .pricing-info-image img{
-        height: 400px;
-        /* background-color: blue; */
-        /* padding: 5%; */
-        margin: 0;
-        z-index: 99;
+    .pricing-info-text {
+       max-width: 600px;
     }
-    .pricing-info-text{
-        /* background-color: blue; */
-        padding-inline: 0;
-        padding-block: 2rem;
+    
+    .pricing-info-text h2 {
+        /* UPDATED: Reduced font size to fit in three lines */
+        font-size: 3.2rem;
     }
-    .pricing-info-text h2{
-        font-family: "Rubik Mono One", monospace;
-        font-weight: 400;
-        font-size: 2.5rem;
-        font-style: normal;
+
+    .pricing-info-text p {
+        font-size: 1.5rem;
     }
-    .pricing-info-text p{
-        /* background-color: red; */
-        padding: 2rem;
-        
+
+    .pricing-info-image {
+        /* Position the image to fill the right half of the screen */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%; /* Occupies the right 50% of the section */
+        height: 100%; /* Fills the full height of the section */
+        z-index: 1; /* Sits behind the text content */
+    }
+
+    .pricing-info-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; /* Ensures the image fills the space without distortion */
     }
 }
 
