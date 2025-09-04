@@ -1,4 +1,5 @@
 /* -------------------Fonts---------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* ===================== General ===================== */
@@ -743,7 +744,7 @@ footer {
   color: #494949;
   margin-bottom: 20px;
   line-height: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 /* --- Text Animation Container --- */
@@ -991,7 +992,8 @@ footer {
 
 /* ================= MINI HERO ================= */
 .mini-hero {
-  background-image: url('/assets/images/home/mini-hero-background.png');
+  /* background-image: url('/assets/images/home/mini-hero-background.png'); */
+  background-color: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1026,7 +1028,7 @@ footer {
 }
 
 .mini-text h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.175;
@@ -1141,16 +1143,17 @@ footer {
 }
 
 .solutions-exact h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 56px;
   font-weight: 700;
   line-height: 100%;
   text-align: center;
   margin-bottom: 60px;
-  background-image: linear-gradient(to right, #45624A, #567F5D);
+  background-image: linear-gradient(to right, #28372a, #415644);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  /* color: #121212; */
 }
 
 /* CARD BASE */
@@ -1172,9 +1175,9 @@ footer {
 }
 
 .solution-box.fusion h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 100%;
   color: #45624A;
   margin-bottom: 30px;
@@ -1182,9 +1185,9 @@ footer {
 }
 
 .solution-box.lite h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 100%;
   color: #494582;
   margin-bottom: 30px;
@@ -1596,11 +1599,11 @@ footer {
 }
 
 .blogs-section h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 56px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 100%;
-  color: #525259;
+  color: #2b2b3b;
   margin-left: 50px;
   margin-bottom: 70px;
 }
@@ -1756,13 +1759,14 @@ footer {
 }
 
 .testimonials-section h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 56px;
   font-weight: 700;
   line-height: 100%;
   text-align: center;
   margin-bottom: 60px;
   background-image: linear-gradient(to right, #483838, #666666);
+  
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

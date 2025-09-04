@@ -963,11 +963,12 @@ footer {
 }
 
 .meet-content .text p {
-    font-family: 'Public Sans', sans-serif;
-    font-size: 24px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 19px;
     font-weight: 300;
     color: #152E2E;
     line-height: 1.2;
+    margin-top: 2rem;
 }
 
 .meet-content .image {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif+Display&display=swap');
 /* ===================== General ===================== */
 * {
     margin: 0;
@@ -846,6 +848,7 @@ footer {
 }
 
 .hero-left h1 {
+    font-family: "Ubuntu", sans-serif;
     font-size: 48px;
     color: #2b2b57;
     margin-bottom: 20px;
@@ -930,6 +933,7 @@ footer {
     text-align: center;
     font-size: 44px;
     margin-bottom: 50px;
+    font-family: 'Ubuntu', sans-serif;
     color: #2b2b57;
     font-weight: 700;
 }
@@ -1042,7 +1046,7 @@ footer {
 
 .mv-container>h2 {
     text-align: center;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 44px;
     font-weight: 700;
     color: #2b2b57;
@@ -1051,12 +1055,12 @@ footer {
 
 
 .mv-container blockquote {
-    font-family: 'Poppins', sans-serif;
-    font-size: 26px;
-    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 2rem;
     color: #2A2A2A;
     text-align: center;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto 80px auto;
     line-height: 1.6;
     position: relative;
@@ -1070,7 +1074,7 @@ footer {
     font-family: serif;
     font-size: 120px;
     font-weight: 700;
-    color: #111;
+    color: #373434;
     position: absolute;
     left: 0;
     top: -25px;
@@ -1105,7 +1109,7 @@ footer {
 }
 
 .mv-left h2 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 36px;
     font-weight: 700;
     color: #111;
@@ -1175,7 +1179,7 @@ footer {
     color: #2b2b57;
     font-weight: 700;
     margin-bottom: 60px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .why-grid {
