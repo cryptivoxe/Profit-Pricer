@@ -28,17 +28,10 @@
       background: url('/assets/images/solutions/background-sign-in-up-pc.png') no-repeat center center/cover;
       display: flex;
       /* MODIFIED: Changed back to center to ensure it fits without scrolling */
-      align-items: center; 
+      align-items: center;
       justify-content: center;
       padding: 20px;
       position: relative;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        background: url('/assets/images/solutions/background-sign-in-up-phn.png') no-repeat center center/cover;
-        overflow: auto; /* Allow scrolling on small screens */
-      }
     }
 
     .logo {
@@ -110,7 +103,7 @@
       color: #333;
       width: 100%;
     }
-    
+
     .choices__inner {
       padding: 8px 12px;
       border: 1px solid #ccc;
@@ -120,8 +113,9 @@
       color: #333;
       min-height: auto;
     }
+
     .choices[data-type*="select-one"]::after {
-        right: 15px;
+      right: 15px;
     }
 
     .input-wrapper .required-star {
@@ -198,6 +192,11 @@
     }
 
     @media (max-width: 600px) {
+      body {
+        background: #f4f4f4;
+        overflow: auto;
+      }
+
       .row {
         flex-direction: column;
       }
@@ -216,17 +215,20 @@
     <form id="signupForm">
       <div class="row">
         <div class="input-wrapper">
-          <input type="text" name="firstName" placeholder="First Name" required pattern="[A-Za-z\s]+" title="Only alphabets allowed" />
+          <input type="text" name="firstName" placeholder="First Name" required pattern="[A-Za-z\s]+"
+            title="Only alphabets allowed" />
           <span class="required-star">*</span>
         </div>
         <div class="input-wrapper">
-          <input type="text" name="lastName" placeholder="Last Name" required pattern="[A-Za-z\s]+" title="Only alphabets allowed" />
+          <input type="text" name="lastName" placeholder="Last Name" required pattern="[A-Za-z\s]+"
+            title="Only alphabets allowed" />
           <span class="required-star">*</span>
         </div>
       </div>
 
       <div class="input-wrapper">
-        <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email" />
+        <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Enter a valid email" />
         <span class="required-star">*</span>
       </div>
 
@@ -477,7 +479,8 @@
           </select>
         </div>
         <div class="input-wrapper" style="flex:1;">
-          <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{7,15}" title="Only numbers allowed" />
+          <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{7,15}"
+            title="Only numbers allowed" />
           <span class="required-star">*</span>
         </div>
       </div>
@@ -513,7 +516,8 @@
       <div class="checkbox-wrapper">
         <div class="checkbox-group">
           <input type="checkbox" id="terms" required />
-          <label for="terms">I agree to the <a href="/pages/solutions/terms.html" class="terms-link">Terms & Service</a></label>
+          <label for="terms">I agree to the <a href="/pages/solutions/terms.html" class="terms-link">Terms &
+              Service</a></label>
         </div>
         <a href="/pages/solutions/lite.html#pricing" class="explore-plans-link">Explore Plans</a>
       </div>
@@ -523,7 +527,7 @@
   </div>
 
   <script>
-    document.getElementById("signupForm").addEventListener("submit", function(e) {
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
       const password = document.querySelector('input[name="password"]').value;
