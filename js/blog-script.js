@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const displayInitialCategories = () => {
             chatBody.innerHTML = "";
-            appendMessage("Hey There! I'm John. Please select a category below.", "received");
+            appendMessage("Hey There! I'm Profit Pricer assistant. Please select a category below.", "received");
 
             const optionsDiv = document.createElement("div");
             optionsDiv.classList.add("chat-options");
