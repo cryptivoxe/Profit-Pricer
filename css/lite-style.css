@@ -874,7 +874,7 @@ footer {
 .hero-lite-text h1 {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #36354D;
+    color: white;
     line-height: 1.2;
     margin-bottom: 1rem;
     font-size: 2.75rem;
@@ -883,7 +883,7 @@ footer {
 .hero-lite-text p {
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
-    color: #36354C;
+    color: white;
     line-height: 1.7;
     margin-bottom: 2rem;
     max-width: 500px;
