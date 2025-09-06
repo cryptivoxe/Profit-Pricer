@@ -119,8 +119,10 @@ body {
     background-color: #f8f9fa;
 }
 
-.dropdown:hover .dropdown-menu {
+@media (hover: hover) and (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
     display: block;
+  }
 }
 
 .dropdown.active .dropdown-menu {

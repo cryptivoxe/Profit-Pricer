@@ -41,33 +41,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handles clicks on dropdowns (Solutions, Resources)
     dropdowns.forEach(dropdown => {
-        const dropdownLink = dropdown.querySelector("a");
-        dropdownLink.addEventListener("click", (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                e.stopPropagation();
-                const wasActive = dropdown.classList.contains("active");
+    const dropdownLink = dropdown.querySelector("a"); // This is the <a> tag
 
-                // First, close all other dropdowns
-                dropdowns.forEach(otherDropdown => {
+    dropdownLink.addEventListener("click", (e) => {
+        // We only want this special behavior on mobile
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const parentLi = dropdown; // The parent <li> element
+
+            // First, toggle the 'active' class on the specific dropdown that was clicked.
+            parentLi.classList.toggle("active");
+
+            // Now, go through all dropdowns again...
+            dropdowns.forEach(otherDropdown => {
+                // ...and if it's NOT the one we just clicked...
+                if (otherDropdown !== parentLi) {
+                    // ...remove the 'active' class to close it.
                     otherDropdown.classList.remove("active");
-                });
-
-                // If the clicked dropdown wasn't already open, open it
-                if (!wasActive) {
-                    dropdown.classList.add("active");
                 }
-                // If it was already active, the loop above has now closed it.
-            }
-        });
+            });
+        }
     });
+});
 
     // Handles clicks on non-dropdown links (Home, About Us, etc.)
     const nonDropdownLinks = document.querySelectorAll(".nav-center > ul > li:not(.dropdown) > a");
     nonDropdownLinks.forEach(link => {
         link.addEventListener("click", () => {
             if (window.innerWidth <= 768) {
-                // When a non-dropdown item is clicked, close any open dropdowns
                 dropdowns.forEach(d => {
                     d.classList.remove("active");
                 });
@@ -138,27 +141,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const words = ["Immersive", "Engaging", "Captivating", "Dynamic"];
         let wordIndex = 0;
 
-        // Set initial data-text attribute
         animatedWordEl.setAttribute("data-text", words[wordIndex]);
 
         setInterval(() => {
-            // Add the class to trigger the exit animation (glitch and flip)
             animatedWordEl.classList.add("is-animating");
 
-            // After the exit animation completes, change the word and reset
             setTimeout(() => {
                 wordIndex = (wordIndex + 1) % words.length;
                 const newWord = words[wordIndex];
 
-                // Update the visible text and the data-text for the glitch effect
                 animatedWordEl.textContent = newWord;
                 animatedWordEl.setAttribute("data-text", newWord);
 
-                // Remove the class to allow the word to flip back into view
                 animatedWordEl.classList.remove("is-animating");
             }, 600);
 
-        }, 2500); // Time between word changes (in milliseconds)
+        }, 2500);
     }
 
 
@@ -206,8 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotWindow = document.getElementById("chatbot-window");
     const closeChatBtn = chatbotWindow ? chatbotWindow.querySelector(".close-chat") : null;
     const chatBody = chatbotWindow ? chatbotWindow.querySelector(".chat-body") : null;
-    
-    // Your new questions and answers are stored here
+
+    // Your questions and answers are stored here
     const qaData = [
         {
             category: "General Product Information",
@@ -255,14 +253,12 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     if (chatbotIcon && chatbotWindow && closeChatBtn && chatBody) {
-        
-        // Open chat and display the main categories
+
         chatbotIcon.addEventListener("click", () => {
             chatbotWindow.classList.add("visible");
             displayInitialCategories();
         });
 
-        // Close chat
         closeChatBtn.addEventListener("click", () => chatbotWindow.classList.remove("visible"));
 
         const displayInitialCategories = () => {
@@ -271,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const optionsDiv = document.createElement("div");
             optionsDiv.classList.add("chat-options");
-            
+
             qaData.forEach(categoryData => {
                 const categoryBtn = document.createElement("button");
                 categoryBtn.classList.add("chat-option");
@@ -279,11 +275,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 categoryBtn.onclick = () => displayQuestionsForCategory(categoryData);
                 optionsDiv.appendChild(categoryBtn);
             });
-            
+
             chatBody.appendChild(optionsDiv);
             chatBody.scrollTop = chatBody.scrollHeight;
         };
-        
+
         const displayQuestionsForCategory = (categoryData) => {
             chatBody.innerHTML = "";
             appendMessage(categoryData.category, "sent");
@@ -299,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 optionBtn.onclick = () => showAnswer(item, categoryData);
                 optionsDiv.appendChild(optionBtn);
             });
-            
+
             chatBody.appendChild(optionsDiv);
             appendBackButton(displayInitialCategories, "⬅️ Back to Categories");
         };
@@ -312,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 appendBackButton(() => displayQuestionsForCategory(categoryData), "⬅️ Back to Questions");
             }, 400);
         };
-        
+
         const appendMessage = (html, type) => {
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("chat-message", type);
@@ -322,12 +318,12 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         const appendBackButton = (onClickAction, text) => {
-             const backButton = document.createElement("button");
-             backButton.textContent = text;
-             backButton.classList.add("back-to-questions", "chat-option");
-             backButton.onclick = onClickAction;
-             chatBody.appendChild(backButton);
-             chatBody.scrollTop = chatBody.scrollHeight;
+            const backButton = document.createElement("button");
+            backButton.textContent = text;
+            backButton.classList.add("back-to-questions", "chat-option");
+            backButton.onclick = onClickAction;
+            chatBody.appendChild(backButton);
+            chatBody.scrollTop = chatBody.scrollHeight;
         };
     }
 
@@ -338,21 +334,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (promoOverlay && closePromoBtn) {
 
-        // Show the pop-up after a 3-second delay
         setTimeout(() => {
             promoOverlay.classList.add("visible");
-        }, 3000); // 3000 milliseconds = 3 seconds
+        }, 3000);
 
-        // Function to close the modal
         const closePromoModal = () => {
             promoOverlay.classList.remove("visible");
         };
 
-        // Event listeners to close the modal
         closePromoBtn.addEventListener("click", closePromoModal);
 
         promoOverlay.addEventListener("click", (e) => {
-            // Close only if the dark overlay itself is clicked, not the content
             if (e.target === promoOverlay) {
                 closePromoModal();
             }
@@ -370,31 +362,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (blogsWrapper && leftBtn && rightBtn) {
             const card = blogsWrapper.querySelector(".blog-card");
-            const cardWidth = card.offsetWidth + 30; // Card width + gap
+            const cardWidth = card.offsetWidth + 30;
 
             const handleScrollButtons = () => {
-                // Hide left button if at the beginning
                 leftBtn.classList.toggle("hidden", blogsWrapper.scrollLeft < 10);
 
-                // Hide right button if at the end
                 const maxScrollLeft = blogsWrapper.scrollWidth - blogsWrapper.clientWidth;
                 rightBtn.classList.toggle("hidden", blogsWrapper.scrollLeft >= maxScrollLeft - 10);
             };
 
-            // Scroll right on button click
             rightBtn.addEventListener("click", () => {
                 blogsWrapper.scrollLeft += cardWidth;
             });
 
-            // Scroll left on button click
             leftBtn.addEventListener("click", () => {
                 blogsWrapper.scrollLeft -= cardWidth;
             });
 
-            // Update button visibility on scroll
             blogsWrapper.addEventListener("scroll", handleScrollButtons);
 
-            // Initial check on page load
             handleScrollButtons();
         }
     }
@@ -409,21 +395,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (newsletterForm && emailInput && successPopup) {
 
         newsletterForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Stop the form from reloading the page
+            event.preventDefault();
 
-            // The 'required' and 'type="email"' attributes already handle validation.
-            // This checks if the browser considers the input valid.
             if (emailInput.checkValidity()) {
                 showPopup();
-                emailInput.value = ""; // Clear the input field after successful submission
+                emailInput.value = "";
             }
-            // If invalid, the browser will automatically show a default error message.
         });
 
         const showPopup = () => {
             successPopup.classList.add("show");
-
-            // Hide the pop-up automatically after 5 seconds
             setTimeout(() => {
                 hidePopup();
             }, 5000);
@@ -433,7 +414,6 @@ document.addEventListener("DOMContentLoaded", function () {
             successPopup.classList.remove("show");
         };
 
-        // Allow the user to close the pop-up by clicking the 'x'
         if (closePopupBtn) {
             closePopupBtn.addEventListener("click", hidePopup);
         }
@@ -448,16 +428,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const optionsContainer = searchableSelect.querySelector(".options-container");
         const options = optionsContainer.querySelectorAll(".option");
 
-        // 1. Toggle dropdown visibility
         searchInput.addEventListener("click", (event) => {
             event.stopPropagation();
             optionsContainer.classList.toggle("active");
         });
 
-        // 2. Filter options based on search input
         searchInput.addEventListener("input", () => {
             const filter = searchInput.value.toLowerCase();
-            // When user starts typing, we treat it as a search, not a selection display
             hiddenInput.value = "";
 
             options.forEach(option => {
@@ -470,23 +447,17 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // 3. Handle option selection
         options.forEach(option => {
             option.addEventListener("click", () => {
-                // Set the visible input to the selected country's text
                 searchInput.value = option.textContent;
-                // Set the hidden input's value to the country code
                 hiddenInput.value = option.getAttribute("data-value");
 
-                // Manually trigger a "change" event for any other scripts that might be listening
                 hiddenInput.dispatchEvent(new Event('change'));
 
-                // Hide the dropdown
                 optionsContainer.classList.remove("active");
             });
         });
 
-        // 4. Close dropdown when clicking outside
         document.addEventListener("click", (event) => {
             if (!searchableSelect.contains(event.target)) {
                 optionsContainer.classList.remove("active");
