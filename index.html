@@ -324,301 +324,281 @@
 
 
     <section class="contact-form">
-    <h2>Interested? Contact Us</h2>
-    <form>
-        <div class="form-group">
-            <div class="required-field">
-                <input 
-                    type="text" 
-                    placeholder="First Name" 
-                    required 
-                    pattern="[A-Za-z\s]+" 
-                    title="Only letters and spaces are allowed." 
-                />
-            </div>
-            <div class="required-field">
-                <input 
-                    type="text" 
-                    placeholder="Last Name" 
-                    required 
-                    pattern="[A-Za-z\s]+" 
-                    title="Only letters and spaces are allowed." 
-                />
-            </div>
-        </div>
-        <div class="required-field">
-            <input 
-                type="email" 
-                placeholder="Email" 
-                required 
-                title="Please enter a valid email address." 
-            />
-        </div>
-        
-        <div class="form-group">
-            <div class="phone-country-code">
-                <div class="searchable-select">
-                    <input type="text" class="search-input" placeholder="Select Country" autocomplete="off">
-                    <input type="hidden" name="countryCode" class="hidden-value-input" required>
-                    <div class="options-container">
-                        <div class="option" data-value="+93">🇦🇫 Afghanistan (+93)</div>
-                        <div class="option" data-value="+355">🇦🇱 Albania (+355)</div>
-                        <div class="option" data-value="+213">🇩🇿 Algeria (+213)</div>
-                        <div class="option" data-value="+1-684">🇦🇸 American Samoa (+1-684)</div>
-                        <div class="option" data-value="+376">🇦🇩 Andorra (+376)</div>
-                        <div class="option" data-value="+244">🇦🇴 Angola (+244)</div>
-                        <div class="option" data-value="+1-264">🇦🇮 Anguilla (+1-264)</div>
-                        <div class="option" data-value="+672">🇦🇶 Antarctica (+672)</div>
-                        <div class="option" data-value="+1-268">🇦🇬 Antigua and Barbuda (+1-268)</div>
-                        <div class="option" data-value="+54">🇦🇷 Argentina (+54)</div>
-                        <div class="option" data-value="+374">🇦🇲 Armenia (+374)</div>
-                        <div class="option" data-value="+297">🇦🇼 Aruba (+297)</div>
-                        <div class="option" data-value="+61">🇦🇺 Australia (+61)</div>
-                        <div class="option" data-value="+43">🇦🇹 Austria (+43)</div>
-                        <div class="option" data-value="+994">🇦🇿 Azerbaijan (+994)</div>
-                        <div class="option" data-value="+1-242">🇧🇸 Bahamas (+1-242)</div>
-                        <div class="option" data-value="+973">🇧🇭 Bahrain (+973)</div>
-                        <div class="option" data-value="+880">🇧🇩 Bangladesh (+880)</div>
-                        <div class="option" data-value="+1-246">🇧🇧 Barbados (+1-246)</div>
-                        <div class="option" data-value="+375">🇧🇾 Belarus (+375)</div>
-                        <div class="option" data-value="+32">🇧🇪 Belgium (+32)</div>
-                        <div class="option" data-value="+501">🇧🇿 Belize (+501)</div>
-                        <div class="option" data-value="+229">🇧🇯 Benin (+229)</div>
-                        <div class="option" data-value="+1-441">🇧🇲 Bermuda (+1-441)</div>
-                        <div class="option" data-value="+975">🇧🇹 Bhutan (+975)</div>
-                        <div class="option" data-value="+591">🇧🇴 Bolivia (+591)</div>
-                        <div class="option" data-value="+387">🇧🇦 Bosnia and Herzegovina (+387)</div>
-                        <div class="option" data-value="+267">🇧🇼 Botswana (+267)</div>
-                        <div class="option" data-value="+55">🇧🇷 Brazil (+55)</div>
-                        <div class="option" data-value="+246">🇮🇴 British Indian Ocean Territory (+246)</div>
-                        <div class="option" data-value="+1-284">🇻🇬 British Virgin Islands (+1-284)</div>
-                        <div class="option" data-value="+673">🇧🇳 Brunei (+673)</div>
-                        <div class="option" data-value="+359">🇧🇬 Bulgaria (+359)</div>
-                        <div class="option" data-value="+226">🇧🇫 Burkina Faso (+226)</div>
-                        <div class="option" data-value="+257">🇧🇮 Burundi (+257)</div>
-                        <div class="option" data-value="+855">🇰🇭 Cambodia (+855)</div>
-                        <div class="option" data-value="+237">🇨🇲 Cameroon (+237)</div>
-                        <div class="option" data-value="+1">🇨🇦 Canada (+1)</div>
-                        <div class="option" data-value="+238">🇨🇻 Cape Verde (+238)</div>
-                        <div class="option" data-value="+1-345">🇰🇾 Cayman Islands (+1-345)</div>
-                        <div class="option" data-value="+236">🇨🇫 Central African Republic (+236)</div>
-                        <div class="option" data-value="+235">🇹🇩 Chad (+235)</div>
-                        <div class="option" data-value="+56">🇨🇱 Chile (+56)</div>
-                        <div class="option" data-value="+86">🇨🇳 China (+86)</div>
-                        <div class="option" data-value="+61">🇨🇽 Christmas Island (+61)</div>
-                        <div class="option" data-value="+61">🇨🇨 Cocos Islands (+61)</div>
-                        <div class="option" data-value="+57">🇨🇴 Colombia (+57)</div>
-                        <div class="option" data-value="+269">🇰🇲 Comoros (+269)</div>
-                        <div class="option" data-value="+682">🇨🇰 Cook Islands (+682)</div>
-                        <div class="option" data-value="+506">🇨🇷 Costa Rica (+506)</div>
-                        <div class="option" data-value="+385">🇭🇷 Croatia (+385)</div>
-                        <div class="option" data-value="+53">🇨🇺 Cuba (+53)</div>
-                        <div class="option" data-value="+599">🇨🇼 Curacao (+599)</div>
-                        <div class="option" data-value="+357">🇨🇾 Cyprus (+357)</div>
-                        <div class="option" data-value="+420">🇨🇿 Czech Republic (+420)</div>
-                        <div class="option" data-value="+243">🇨🇩 Democratic Republic of the Congo (+243)</div>
-                        <div class="option" data-value="+45">🇩🇰 Denmark (+45)</div>
-                        <div class="option" data-value="+253">🇩🇯 Djibouti (+253)</div>
-                        <div class="option" data-value="+1-767">🇩🇲 Dominica (+1-767)</div>
-                        <div class="option" data-value="+1-809">🇩🇴 Dominican Republic (+1-809)</div>
-                        <div class="option" data-value="+670">🇹🇱 East Timor (+670)</div>
-                        <div class="option" data-value="+593">🇪🇨 Ecuador (+593)</div>
-                        <div class="option" data-value="+20">🇪🇬 Egypt (+20)</div>
-                        <div class="option" data-value="+503">🇸🇻 El Salvador (+503)</div>
-                        <div class="option" data-value="+240">🇬🇶 Equatorial Guinea (+240)</div>
-                        <div class="option" data-value="+291">🇪🇷 Eritrea (+291)</div>
-                        <div class="option" data-value="+372">🇪🇪 Estonia (+372)</div>
-                        <div class="option" data-value="+251">🇪🇹 Ethiopia (+251)</div>
-                        <div class="option" data-value="+500">🇫🇰 Falkland Islands (+500)</div>
-                        <div class="option" data-value="+298">🇫🇴 Faroe Islands (+298)</div>
-                        <div class="option" data-value="+679">🇫🇯 Fiji (+679)</div>
-                        <div class="option" data-value="+358">🇫🇮 Finland (+358)</div>
-                        <div class="option" data-value="+33">🇫🇷 France (+33)</div>
-                        <div class="option" data-value="+689">🇵🇫 French Polynesia (+689)</div>
-                        <div class="option" data-value="+241">🇬🇦 Gabon (+241)</div>
-                        <div class="option" data-value="+220">🇬🇲 Gambia (+220)</div>
-                        <div class="option" data-value="+995">🇬🇪 Georgia (+995)</div>
-                        <div class="option" data-value="+49">🇩🇪 Germany (+49)</div>
-                        <div class="option" data-value="+233">🇬🇭 Ghana (+233)</div>
-                        <div class="option" data-value="+350">🇬🇮 Gibraltar (+350)</div>
-                        <div class="option" data-value="+30">🇬🇷 Greece (+30)</div>
-                        <div class="option" data-value="+299">🇬🇱 Greenland (+299)</div>
-                        <div class="option" data-value="+1-473">🇬🇩 Grenada (+1-473)</div>
-                        <div class="option" data-value="+1-671">🇬🇺 Guam (+1-671)</div>
-                        <div class="option" data-value="+502">🇬🇹 Guatemala (+502)</div>
-                        <div class="option" data-value="+44-1481">🇬🇬 Guernsey (+44-1481)</div>
-                        <div class="option" data-value="+224">🇬🇳 Guinea (+224)</div>
-                        <div class="option" data-value="+245">🇬🇼 Guinea-Bissau (+245)</div>
-                        <div class="option" data-value="+592">🇬🇾 Guyana (+592)</div>
-                        <div class="option" data-value="+509">🇭🇹 Haiti (+509)</div>
-                        <div class="option" data-value="+504">🇭🇳 Honduras (+504)</div>
-                        <div class="option" data-value="+852">🇭🇰 Hong Kong (+852)</div>
-                        <div class="option" data-value="+36">🇭🇺 Hungary (+36)</div>
-                        <div class="option" data-value="+354">🇮🇸 Iceland (+354)</div>
-                        <div class="option" data-value="+91">🇮🇳 India (+91)</div>
-                        <div class="option" data-value="+62">🇮🇩 Indonesia (+62)</div>
-                        <div class="option" data-value="+98">🇮🇷 Iran (+98)</div>
-                        <div class="option" data-value="+964">🇮🇶 Iraq (+964)</div>
-                        <div class="option" data-value="+353">🇮🇪 Ireland (+353)</div>
-                        <div class="option" data-value="+44-1624">🇮🇲 Isle of Man (+44-1624)</div>
-                        <div class="option" data-value="+972">🇮🇱 Israel (+972)</div>
-                        <div class="option" data-value="+39">🇮🇹 Italy (+39)</div>
-                        <div class="option" data-value="+225">🇨🇮 Ivory Coast (+225)</div>
-                        <div class="option" data-value="+1-876">🇯🇲 Jamaica (+1-876)</div>
-                        <div class="option" data-value="+81">🇯🇵 Japan (+81)</div>
-                        <div class="option" data-value="+44-1534">🇯🇪 Jersey (+44-1534)</div>
-                        <div class="option" data-value="+962">🇯🇴 Jordan (+962)</div>
-                        <div class="option" data-value="+7">🇰🇿 Kazakhstan (+7)</div>
-                        <div class="option" data-value="+254">🇰🇪 Kenya (+254)</div>
-                        <div class="option" data-value="+686">🇰🇮 Kiribati (+686)</div>
-                        <div class="option" data-value="+383">🇽🇰 Kosovo (+383)</div>
-                        <div class="option" data-value="+965">🇰🇼 Kuwait (+965)</div>
-                        <div class="option" data-value="+996">🇰🇬 Kyrgyzstan (+996)</div>
-                        <div class="option" data-value="+856">🇱🇦 Laos (+856)</div>
-                        <div class="option" data-value="+371">🇱🇻 Latvia (+371)</div>
-                        <div class="option" data-value="+961">🇱🇧 Lebanon (+961)</div>
-                        <div class="option" data-value="+266">🇱🇸 Lesotho (+266)</div>
-                        <div class="option" data-value="+231">🇱🇷 Liberia (+231)</div>
-                        <div class="option" data-value="+218">🇱🇾 Libya (+218)</div>
-                        <div class="option" data-value="+423">🇱🇮 Liechtenstein (+423)</div>
-                        <div class="option" data-value="+370">🇱🇹 Lithuania (+370)</div>
-                        <div class="option" data-value="+352">🇱🇺 Luxembourg (+352)</div>
-                        <div class="option" data-value="+853">🇲🇴 Macau (+853)</div>
-                        <div class="option" data-value="+389">🇲🇰 Macedonia (+389)</div>
-                        <div class="option" data-value="+261">🇲🇬 Madagascar (+261)</div>
-                        <div class="option" data-value="+265">🇲🇼 Malawi (+265)</div>
-                        <div class="option" data-value="+60">🇲🇾 Malaysia (+60)</div>
-                        <div class="option" data-value="+960">🇲🇻 Maldives (+960)</div>
-                        <div class="option" data-value="+223">🇲🇱 Mali (+223)</div>
-                        <div class="option" data-value="+356">🇲🇹 Malta (+356)</div>
-                        <div class="option" data-value="+692">🇲🇭 Marshall Islands (+692)</div>
-                        <div class="option" data-value="+222">🇲🇷 Mauritania (+222)</div>
-                        <div class="option" data-value="+230">🇲🇺 Mauritius (+230)</div>
-                        <div class="option" data-value="+262">🇾🇹 Mayotte (+262)</div>
-                        <div class="option" data-value="+52">🇲🇽 Mexico (+52)</div>
-                        <div class="option" data-value="+691">🇫🇲 Micronesia (+691)</div>
-                        <div class="option" data-value="+373">🇲🇩 Moldova (+373)</div>
-                        <div class="option" data-value="+377">🇲🇨 Monaco (+377)</div>
-                        <div class="option" data-value="+976">🇲🇳 Mongolia (+976)</div>
-                        <div class="option" data-value="+382">🇲🇪 Montenegro (+382)</div>
-                        <div class="option" data-value="+1-664">🇲🇸 Montserrat (+1-664)</div>
-                        <div class="option" data-value="+212">🇲🇦 Morocco (+212)</div>
-                        <div class="option" data-value="+258">🇲🇿 Mozambique (+258)</div>
-                        <div class="option" data-value="+95">🇲🇲 Myanmar (+95)</div>
-                        <div class="option" data-value="+264">🇳🇦 Namibia (+264)</div>
-                        <div class="option" data-value="+674">🇳🇷 Nauru (+674)</div>
-                        <div class="option" data-value="+977">🇳🇵 Nepal (+977)</div>
-                        <div class="option" data-value="+31">🇳🇱 Netherlands (+31)</div>
-                        <div class="option" data-value="+599">🇧🇶 Netherlands Antilles (+599)</div>
-                        <div class="option" data-value="+687">🇳🇨 New Caledonia (+687)</div>
-                        <div class="option" data-value="+64">🇳🇿 New Zealand (+64)</div>
-                        <div class="option" data-value="+505">🇳🇮 Nicaragua (+505)</div>
-                        <div class="option" data-value="+227">🇳🇪 Niger (+227)</div>
-                        <div class="option" data-value="+234">🇳🇬 Nigeria (+234)</div>
-                        <div class="option" data-value="+683">🇳🇺 Niue (+683)</div>
-                        <div class="option" data-value="+850">🇰🇵 North Korea (+850)</div>
-                        <div class="option" data-value="+1-670">🇲🇵 Northern Mariana Islands (+1-670)</div>
-                        <div class="option" data-value="+47">🇳🇴 Norway (+47)</div>
-                        <div class="option" data-value="+968">🇴🇲 Oman (+968)</div>
-                        <div class="option" data-value="+92">🇵🇰 Pakistan (+92)</div>
-                        <div class="option" data-value="+680">🇵🇼 Palau (+680)</div>
-                        <div class="option" data-value="+970">🇵🇸 Palestine (+970)</div>
-                        <div class="option" data-value="+507">🇵🇦 Panama (+507)</div>
-                        <div class="option" data-value="+675">🇵🇬 Papua New Guinea (+675)</div>
-                        <div class="option" data-value="+595">🇵🇾 Paraguay (+595)</div>
-                        <div class="option" data-value="+51">🇵🇪 Peru (+51)</div>
-                        <div class="option" data-value="+63">🇵🇭 Philippines (+63)</div>
-                        <div class="option" data-value="+64">🇵🇳 Pitcairn (+64)</div>
-                        <div class="option" data-value="+48">🇵🇱 Poland (+48)</div>
-                        <div class="option" data-value="+351">🇵🇹 Portugal (+351)</div>
-                        <div class="option" data-value="+1-787">🇵🇷 Puerto Rico (+1-787)</div>
-                        <div class="option" data-value="+974">🇶🇦 Qatar (+974)</div>
-                        <div class="option" data-value="+242">🇨🇬 Republic of the Congo (+242)</div>
-                        <div class="option" data-value="+262">🇷🇪 Reunion (+262)</div>
-                        <div class="option" data-value="+40">🇷🇴 Romania (+40)</div>
-                        <div class="option" data-value="+7">🇷🇺 Russia (+7)</div>
-                        <div class="option" data-value="+250">🇷🇼 Rwanda (+250)</div>
-                        <div class="option" data-value="+590">🇧🇱 Saint Barthelemy (+590)</div>
-                        <div class="option" data-value="+290">🇸🇭 Saint Helena (+290)</div>
-                        <div class="option" data-value="+1-869">🇰🇳 Saint Kitts and Nevis (+1-869)</div>
-                        <div class="option" data-value="+1-758">🇱🇨 Saint Lucia (+1-758)</div>
-                        <div class="option" data-value="+590">🇲🇫 Saint Martin (+590)</div>
-                        <div class="option" data-value="+508">🇵🇲 Saint Pierre and Miquelon (+508)</div>
-                        <div class="option" data-value="+1-784">🇻🇨 Saint Vincent and the Grenadines (+1-784)</div>
-                        <div class="option" data-value="+685">🇼🇸 Samoa (+685)</div>
-                        <div class="option" data-value="+378">🇸🇲 San Marino (+378)</div>
-                        <div class="option" data-value="+239">🇸🇹 Sao Tome and Principe (+239)</div>
-                        <div class="option" data-value="+966">🇸🇦 Saudi Arabia (+966)</div>
-                        <div class="option" data-value="+221">🇸🇳 Senegal (+221)</div>
-                        <div class="option" data-value="+381">🇷🇸 Serbia (+381)</div>
-                        <div class="option" data-value="+248">🇸🇨 Seychelles (+248)</div>
-                        <div class="option" data-value="+232">🇸🇱 Sierra Leone (+232)</div>
-                        <div class="option" data-value="+65">🇸🇬 Singapore (+65)</div>
-                        <div class="option" data-value="+1-721">🇸🇽 Sint Maarten (+1-721)</div>
-                        <div class="option" data-value="+421">🇸🇰 Slovakia (+421)</div>
-                        <div class="option" data-value="+386">🇸🇮 Slovenia (+386)</div>
-                        <div class="option" data-value="+677">🇸🇧 Solomon Islands (+677)</div>
-                        <div class="option" data-value="+252">🇸🇴 Somalia (+252)</div>
-                        <div class="option" data-value="+27">🇿🇦 South Africa (+27)</div>
-                        <div class="option" data-value="+82">🇰🇷 South Korea (+82)</div>
-                        <div class="option" data-value="+211">🇸🇸 South Sudan (+211)</div>
-                        <div class="option" data-value="+34">🇪🇸 Spain (+34)</div>
-                        <div class="option" data-value="+94">🇱🇰 Sri Lanka (+94)</div>
-                        <div class="option" data-value="+249">🇸🇩 Sudan (+249)</div>
-                        <div class="option" data-value="+597">🇸🇷 Suriname (+597)</div>
-                        <div class="option" data-value="+47">🇸🇯 Svalbard and Jan Mayen (+47)</div>
-                        <div class="option" data-value="+268">🇸🇿 Swaziland (+268)</div>
-                        <div class="option" data-value="+46">🇸🇪 Sweden (+46)</div>
-                        <div class="option" data-value="+41">🇨🇭 Switzerland (+41)</div>
-                        <div class="option" data-value="+963">🇸🇾 Syria (+963)</div>
-                        <div class="option" data-value="+886">🇹🇼 Taiwan (+886)</div>
-                        <div class="option" data-value="+992">🇹🇯 Tajikistan (+992)</div>
-                        <div class="option" data-value="+255">🇹🇿 Tanzania (+255)</div>
-                        <div class="option" data-value="+66">🇹🇭 Thailand (+66)</div>
-                        <div class="option" data-value="+228">🇹🇬 Togo (+228)</div>
-                        <div class="option" data-value="+690">🇹🇰 Tokelau (+690)</div>
-                        <div class="option" data-value="+676">🇹🇴 Tonga (+676)</div>
-                        <div class="option" data-value="+1-868">🇹🇹 Trinidad and Tobago (+1-868)</div>
-                        <div class="option" data-value="+216">🇹🇳 Tunisia (+216)</div>
-                        <div class="option" data-value="+90">🇹🇷 Turkey (+90)</div>
-                        <div class="option" data-value="+993">🇹🇲 Turkmenistan (+993)</div>
-                        <div class="option" data-value="+1-649">🇹🇨 Turks and Caicos Islands (+1-649)</div>
-                        <div class="option" data-value="+688">🇹🇻 Tuvalu (+688)</div>
-                        <div class="option" data-value="+1-340">🇻🇮 U.S. Virgin Islands (+1-340)</div>
-                        <div class="option" data-value="+256">🇺🇬 Uganda (+256)</div>
-                        <div class="option" data-value="+380">🇺🇦 Ukraine (+380)</div>
-                        <div class="option" data-value="+971">🇦🇪 United Arab Emirates (+971)</div>
-                        <div class="option" data-value="+44">🇬🇧 United Kingdom (+44)</div>
-                        <div class="option" data-value="+1">🇺🇸 United States (+1)</div>
-                        <div class="option" data-value="+598">🇺🇾 Uruguay (+598)</div>
-                        <div class="option" data-value="+998">🇺🇿 Uzbekistan (+998)</div>
-                        <div class="option" data-value="+678">🇻🇺 Vanuatu (+678)</div>
-                        <div class="option" data-value="+379">🇻🇦 Vatican (+379)</div>
-                        <div class="option" data-value="+58">🇻🇪 Venezuela (+58)</div>
-                        <div class="option" data-value="+84">🇻🇳 Vietnam (+84)</div>
-                        <div class="option" data-value="+681">🇼🇫 Wallis and Futuna (+681)</div>
-                        <div class="option" data-value="+212">🇪🇭 Western Sahara (+212)</div>
-                        <div class="option" data-value="+967">🇾🇪 Yemen (+967)</div>
-                        <div class="option" data-value="+260">🇿🇲 Zambia (+260)</div>
-                        <div class="option" data-value="+263">🇿🇼 Zimbabwe (+263)</div>
-                    </div>
+        <h2>Interested? Contact Us</h2>
+        <form>
+            <div class="form-group">
+                <div class="required-field">
+                    <input type="text" placeholder="First Name" required pattern="[A-Za-z\s]+"
+                        title="Only letters and spaces are allowed." />
+                </div>
+                <div class="required-field">
+                    <input type="text" placeholder="Last Name" required pattern="[A-Za-z\s]+"
+                        title="Only letters and spaces are allowed." />
                 </div>
             </div>
-            <div class="required-field phone-number-input">
-                <input 
-                    type="tel" 
-                    placeholder="Phone Number" 
-                    required 
-                    pattern="[0-9]+" 
-                    title="Only numbers are allowed." 
-                />
+            <div class="required-field">
+                <input type="email" placeholder="Email" required title="Please enter a valid email address." />
             </div>
-        </div>
 
-        <textarea placeholder="How can we help you today?" rows="4"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
+            <div class="form-group">
+                <div class="phone-country-code">
+                    <div class="searchable-select">
+                        <input type="text" class="search-input" placeholder="Select Country" autocomplete="off">
+                        <input type="hidden" name="countryCode" class="hidden-value-input" required>
+                        <div class="options-container">
+                            <div class="option" data-value="+93">🇦🇫 Afghanistan (+93)</div>
+                            <div class="option" data-value="+355">🇦🇱 Albania (+355)</div>
+                            <div class="option" data-value="+213">🇩🇿 Algeria (+213)</div>
+                            <div class="option" data-value="+1-684">🇦🇸 American Samoa (+1-684)</div>
+                            <div class="option" data-value="+376">🇦🇩 Andorra (+376)</div>
+                            <div class="option" data-value="+244">🇦🇴 Angola (+244)</div>
+                            <div class="option" data-value="+1-264">🇦🇮 Anguilla (+1-264)</div>
+                            <div class="option" data-value="+672">🇦🇶 Antarctica (+672)</div>
+                            <div class="option" data-value="+1-268">🇦🇬 Antigua and Barbuda (+1-268)</div>
+                            <div class="option" data-value="+54">🇦🇷 Argentina (+54)</div>
+                            <div class="option" data-value="+374">🇦🇲 Armenia (+374)</div>
+                            <div class="option" data-value="+297">🇦🇼 Aruba (+297)</div>
+                            <div class="option" data-value="+61">🇦🇺 Australia (+61)</div>
+                            <div class="option" data-value="+43">🇦🇹 Austria (+43)</div>
+                            <div class="option" data-value="+994">🇦🇿 Azerbaijan (+994)</div>
+                            <div class="option" data-value="+1-242">🇧🇸 Bahamas (+1-242)</div>
+                            <div class="option" data-value="+973">🇧🇭 Bahrain (+973)</div>
+                            <div class="option" data-value="+880">🇧🇩 Bangladesh (+880)</div>
+                            <div class="option" data-value="+1-246">🇧🇧 Barbados (+1-246)</div>
+                            <div class="option" data-value="+375">🇧🇾 Belarus (+375)</div>
+                            <div class="option" data-value="+32">🇧🇪 Belgium (+32)</div>
+                            <div class="option" data-value="+501">🇧🇿 Belize (+501)</div>
+                            <div class="option" data-value="+229">🇧🇯 Benin (+229)</div>
+                            <div class="option" data-value="+1-441">🇧🇲 Bermuda (+1-441)</div>
+                            <div class="option" data-value="+975">🇧🇹 Bhutan (+975)</div>
+                            <div class="option" data-value="+591">🇧🇴 Bolivia (+591)</div>
+                            <div class="option" data-value="+387">🇧🇦 Bosnia and Herzegovina (+387)</div>
+                            <div class="option" data-value="+267">🇧🇼 Botswana (+267)</div>
+                            <div class="option" data-value="+55">🇧🇷 Brazil (+55)</div>
+                            <div class="option" data-value="+246">🇮🇴 British Indian Ocean Territory (+246)</div>
+                            <div class="option" data-value="+1-284">🇻🇬 British Virgin Islands (+1-284)</div>
+                            <div class="option" data-value="+673">🇧🇳 Brunei (+673)</div>
+                            <div class="option" data-value="+359">🇧🇬 Bulgaria (+359)</div>
+                            <div class="option" data-value="+226">🇧🇫 Burkina Faso (+226)</div>
+                            <div class="option" data-value="+257">🇧🇮 Burundi (+257)</div>
+                            <div class="option" data-value="+855">🇰🇭 Cambodia (+855)</div>
+                            <div class="option" data-value="+237">🇨🇲 Cameroon (+237)</div>
+                            <div class="option" data-value="+1">🇨🇦 Canada (+1)</div>
+                            <div class="option" data-value="+238">🇨🇻 Cape Verde (+238)</div>
+                            <div class="option" data-value="+1-345">🇰🇾 Cayman Islands (+1-345)</div>
+                            <div class="option" data-value="+236">🇨🇫 Central African Republic (+236)</div>
+                            <div class="option" data-value="+235">🇹🇩 Chad (+235)</div>
+                            <div class="option" data-value="+56">🇨🇱 Chile (+56)</div>
+                            <div class="option" data-value="+86">🇨🇳 China (+86)</div>
+                            <div class="option" data-value="+61">🇨🇽 Christmas Island (+61)</div>
+                            <div class="option" data-value="+61">🇨🇨 Cocos Islands (+61)</div>
+                            <div class="option" data-value="+57">🇨🇴 Colombia (+57)</div>
+                            <div class="option" data-value="+269">🇰🇲 Comoros (+269)</div>
+                            <div class="option" data-value="+682">🇨🇰 Cook Islands (+682)</div>
+                            <div class="option" data-value="+506">🇨🇷 Costa Rica (+506)</div>
+                            <div class="option" data-value="+385">🇭🇷 Croatia (+385)</div>
+                            <div class="option" data-value="+53">🇨🇺 Cuba (+53)</div>
+                            <div class="option" data-value="+599">🇨🇼 Curacao (+599)</div>
+                            <div class="option" data-value="+357">🇨🇾 Cyprus (+357)</div>
+                            <div class="option" data-value="+420">🇨🇿 Czech Republic (+420)</div>
+                            <div class="option" data-value="+243">🇨🇩 Democratic Republic of the Congo (+243)</div>
+                            <div class="option" data-value="+45">🇩🇰 Denmark (+45)</div>
+                            <div class="option" data-value="+253">🇩🇯 Djibouti (+253)</div>
+                            <div class="option" data-value="+1-767">🇩🇲 Dominica (+1-767)</div>
+                            <div class="option" data-value="+1-809">🇩🇴 Dominican Republic (+1-809)</div>
+                            <div class="option" data-value="+670">🇹🇱 East Timor (+670)</div>
+                            <div class="option" data-value="+593">🇪🇨 Ecuador (+593)</div>
+                            <div class="option" data-value="+20">🇪🇬 Egypt (+20)</div>
+                            <div class="option" data-value="+503">🇸🇻 El Salvador (+503)</div>
+                            <div class="option" data-value="+240">🇬🇶 Equatorial Guinea (+240)</div>
+                            <div class="option" data-value="+291">🇪🇷 Eritrea (+291)</div>
+                            <div class="option" data-value="+372">🇪🇪 Estonia (+372)</div>
+                            <div class="option" data-value="+251">🇪🇹 Ethiopia (+251)</div>
+                            <div class="option" data-value="+500">🇫🇰 Falkland Islands (+500)</div>
+                            <div class="option" data-value="+298">🇫🇴 Faroe Islands (+298)</div>
+                            <div class="option" data-value="+679">🇫🇯 Fiji (+679)</div>
+                            <div class="option" data-value="+358">🇫🇮 Finland (+358)</div>
+                            <div class="option" data-value="+33">🇫🇷 France (+33)</div>
+                            <div class="option" data-value="+689">🇵🇫 French Polynesia (+689)</div>
+                            <div class="option" data-value="+241">🇬🇦 Gabon (+241)</div>
+                            <div class="option" data-value="+220">🇬🇲 Gambia (+220)</div>
+                            <div class="option" data-value="+995">🇬🇪 Georgia (+995)</div>
+                            <div class="option" data-value="+49">🇩🇪 Germany (+49)</div>
+                            <div class="option" data-value="+233">🇬🇭 Ghana (+233)</div>
+                            <div class="option" data-value="+350">🇬🇮 Gibraltar (+350)</div>
+                            <div class="option" data-value="+30">🇬🇷 Greece (+30)</div>
+                            <div class="option" data-value="+299">🇬🇱 Greenland (+299)</div>
+                            <div class="option" data-value="+1-473">🇬🇩 Grenada (+1-473)</div>
+                            <div class="option" data-value="+1-671">🇬🇺 Guam (+1-671)</div>
+                            <div class="option" data-value="+502">🇬🇹 Guatemala (+502)</div>
+                            <div class="option" data-value="+44-1481">🇬🇬 Guernsey (+44-1481)</div>
+                            <div class="option" data-value="+224">🇬🇳 Guinea (+224)</div>
+                            <div class="option" data-value="+245">🇬🇼 Guinea-Bissau (+245)</div>
+                            <div class="option" data-value="+592">🇬🇾 Guyana (+592)</div>
+                            <div class="option" data-value="+509">🇭🇹 Haiti (+509)</div>
+                            <div class="option" data-value="+504">🇭🇳 Honduras (+504)</div>
+                            <div class="option" data-value="+852">🇭🇰 Hong Kong (+852)</div>
+                            <div class="option" data-value="+36">🇭🇺 Hungary (+36)</div>
+                            <div class="option" data-value="+354">🇮🇸 Iceland (+354)</div>
+                            <div class="option" data-value="+91">🇮🇳 India (+91)</div>
+                            <div class="option" data-value="+62">🇮🇩 Indonesia (+62)</div>
+                            <div class="option" data-value="+98">🇮🇷 Iran (+98)</div>
+                            <div class="option" data-value="+964">🇮🇶 Iraq (+964)</div>
+                            <div class="option" data-value="+353">🇮🇪 Ireland (+353)</div>
+                            <div class="option" data-value="+44-1624">🇮🇲 Isle of Man (+44-1624)</div>
+                            <div class="option" data-value="+972">🇮🇱 Israel (+972)</div>
+                            <div class="option" data-value="+39">🇮🇹 Italy (+39)</div>
+                            <div class="option" data-value="+225">🇨🇮 Ivory Coast (+225)</div>
+                            <div class="option" data-value="+1-876">🇯🇲 Jamaica (+1-876)</div>
+                            <div class="option" data-value="+81">🇯🇵 Japan (+81)</div>
+                            <div class="option" data-value="+44-1534">🇯🇪 Jersey (+44-1534)</div>
+                            <div class="option" data-value="+962">🇯🇴 Jordan (+962)</div>
+                            <div class="option" data-value="+7">🇰🇿 Kazakhstan (+7)</div>
+                            <div class="option" data-value="+254">🇰🇪 Kenya (+254)</div>
+                            <div class="option" data-value="+686">🇰🇮 Kiribati (+686)</div>
+                            <div class="option" data-value="+383">🇽🇰 Kosovo (+383)</div>
+                            <div class="option" data-value="+965">🇰🇼 Kuwait (+965)</div>
+                            <div class="option" data-value="+996">🇰🇬 Kyrgyzstan (+996)</div>
+                            <div class="option" data-value="+856">🇱🇦 Laos (+856)</div>
+                            <div class="option" data-value="+371">🇱🇻 Latvia (+371)</div>
+                            <div class="option" data-value="+961">🇱🇧 Lebanon (+961)</div>
+                            <div class="option" data-value="+266">🇱🇸 Lesotho (+266)</div>
+                            <div class="option" data-value="+231">🇱🇷 Liberia (+231)</div>
+                            <div class="option" data-value="+218">🇱🇾 Libya (+218)</div>
+                            <div class="option" data-value="+423">🇱🇮 Liechtenstein (+423)</div>
+                            <div class="option" data-value="+370">🇱🇹 Lithuania (+370)</div>
+                            <div class="option" data-value="+352">🇱🇺 Luxembourg (+352)</div>
+                            <div class="option" data-value="+853">🇲🇴 Macau (+853)</div>
+                            <div class="option" data-value="+389">🇲🇰 Macedonia (+389)</div>
+                            <div class="option" data-value="+261">🇲🇬 Madagascar (+261)</div>
+                            <div class="option" data-value="+265">🇲🇼 Malawi (+265)</div>
+                            <div class="option" data-value="+60">🇲🇾 Malaysia (+60)</div>
+                            <div class="option" data-value="+960">🇲🇻 Maldives (+960)</div>
+                            <div class="option" data-value="+223">🇲🇱 Mali (+223)</div>
+                            <div class="option" data-value="+356">🇲🇹 Malta (+356)</div>
+                            <div class="option" data-value="+692">🇲🇭 Marshall Islands (+692)</div>
+                            <div class="option" data-value="+222">🇲🇷 Mauritania (+222)</div>
+                            <div class="option" data-value="+230">🇲🇺 Mauritius (+230)</div>
+                            <div class="option" data-value="+262">🇾🇹 Mayotte (+262)</div>
+                            <div class="option" data-value="+52">🇲🇽 Mexico (+52)</div>
+                            <div class="option" data-value="+691">🇫🇲 Micronesia (+691)</div>
+                            <div class="option" data-value="+373">🇲🇩 Moldova (+373)</div>
+                            <div class="option" data-value="+377">🇲🇨 Monaco (+377)</div>
+                            <div class="option" data-value="+976">🇲🇳 Mongolia (+976)</div>
+                            <div class="option" data-value="+382">🇲🇪 Montenegro (+382)</div>
+                            <div class="option" data-value="+1-664">🇲🇸 Montserrat (+1-664)</div>
+                            <div class="option" data-value="+212">🇲🇦 Morocco (+212)</div>
+                            <div class="option" data-value="+258">🇲🇿 Mozambique (+258)</div>
+                            <div class="option" data-value="+95">🇲🇲 Myanmar (+95)</div>
+                            <div class="option" data-value="+264">🇳🇦 Namibia (+264)</div>
+                            <div class="option" data-value="+674">🇳🇷 Nauru (+674)</div>
+                            <div class="option" data-value="+977">🇳🇵 Nepal (+977)</div>
+                            <div class="option" data-value="+31">🇳🇱 Netherlands (+31)</div>
+                            <div class="option" data-value="+599">🇧🇶 Netherlands Antilles (+599)</div>
+                            <div class="option" data-value="+687">🇳🇨 New Caledonia (+687)</div>
+                            <div class="option" data-value="+64">🇳🇿 New Zealand (+64)</div>
+                            <div class="option" data-value="+505">🇳🇮 Nicaragua (+505)</div>
+                            <div class="option" data-value="+227">🇳🇪 Niger (+227)</div>
+                            <div class="option" data-value="+234">🇳🇬 Nigeria (+234)</div>
+                            <div class="option" data-value="+683">🇳🇺 Niue (+683)</div>
+                            <div class="option" data-value="+850">🇰🇵 North Korea (+850)</div>
+                            <div class="option" data-value="+1-670">🇲🇵 Northern Mariana Islands (+1-670)</div>
+                            <div class="option" data-value="+47">🇳🇴 Norway (+47)</div>
+                            <div class="option" data-value="+968">🇴🇲 Oman (+968)</div>
+                            <div class="option" data-value="+92">🇵🇰 Pakistan (+92)</div>
+                            <div class="option" data-value="+680">🇵🇼 Palau (+680)</div>
+                            <div class="option" data-value="+970">🇵🇸 Palestine (+970)</div>
+                            <div class="option" data-value="+507">🇵🇦 Panama (+507)</div>
+                            <div class="option" data-value="+675">🇵🇬 Papua New Guinea (+675)</div>
+                            <div class="option" data-value="+595">🇵🇾 Paraguay (+595)</div>
+                            <div class="option" data-value="+51">🇵🇪 Peru (+51)</div>
+                            <div class="option" data-value="+63">🇵🇭 Philippines (+63)</div>
+                            <div class="option" data-value="+64">🇵🇳 Pitcairn (+64)</div>
+                            <div class="option" data-value="+48">🇵🇱 Poland (+48)</div>
+                            <div class="option" data-value="+351">🇵🇹 Portugal (+351)</div>
+                            <div class="option" data-value="+1-787">🇵🇷 Puerto Rico (+1-787)</div>
+                            <div class="option" data-value="+974">🇶🇦 Qatar (+974)</div>
+                            <div class="option" data-value="+242">🇨🇬 Republic of the Congo (+242)</div>
+                            <div class="option" data-value="+262">🇷🇪 Reunion (+262)</div>
+                            <div class="option" data-value="+40">🇷🇴 Romania (+40)</div>
+                            <div class="option" data-value="+7">🇷🇺 Russia (+7)</div>
+                            <div class="option" data-value="+250">🇷🇼 Rwanda (+250)</div>
+                            <div class="option" data-value="+590">🇧🇱 Saint Barthelemy (+590)</div>
+                            <div class="option" data-value="+290">🇸🇭 Saint Helena (+290)</div>
+                            <div class="option" data-value="+1-869">🇰🇳 Saint Kitts and Nevis (+1-869)</div>
+                            <div class="option" data-value="+1-758">🇱🇨 Saint Lucia (+1-758)</div>
+                            <div class="option" data-value="+590">🇲🇫 Saint Martin (+590)</div>
+                            <div class="option" data-value="+508">🇵🇲 Saint Pierre and Miquelon (+508)</div>
+                            <div class="option" data-value="+1-784">🇻🇨 Saint Vincent and the Grenadines (+1-784)</div>
+                            <div class="option" data-value="+685">🇼🇸 Samoa (+685)</div>
+                            <div class="option" data-value="+378">🇸🇲 San Marino (+378)</div>
+                            <div class="option" data-value="+239">🇸🇹 Sao Tome and Principe (+239)</div>
+                            <div class="option" data-value="+966">🇸🇦 Saudi Arabia (+966)</div>
+                            <div class="option" data-value="+221">🇸🇳 Senegal (+221)</div>
+                            <div class="option" data-value="+381">🇷🇸 Serbia (+381)</div>
+                            <div class="option" data-value="+248">🇸🇨 Seychelles (+248)</div>
+                            <div class="option" data-value="+232">🇸🇱 Sierra Leone (+232)</div>
+                            <div class="option" data-value="+65">🇸🇬 Singapore (+65)</div>
+                            <div class="option" data-value="+1-721">🇸🇽 Sint Maarten (+1-721)</div>
+                            <div class="option" data-value="+421">🇸🇰 Slovakia (+421)</div>
+                            <div class="option" data-value="+386">🇸🇮 Slovenia (+386)</div>
+                            <div class="option" data-value="+677">🇸🇧 Solomon Islands (+677)</div>
+                            <div class="option" data-value="+252">🇸🇴 Somalia (+252)</div>
+                            <div class="option" data-value="+27">🇿🇦 South Africa (+27)</div>
+                            <div class="option" data-value="+82">🇰🇷 South Korea (+82)</div>
+                            <div class="option" data-value="+211">🇸🇸 South Sudan (+211)</div>
+                            <div class="option" data-value="+34">🇪🇸 Spain (+34)</div>
+                            <div class="option" data-value="+94">🇱🇰 Sri Lanka (+94)</div>
+                            <div class="option" data-value="+249">🇸🇩 Sudan (+249)</div>
+                            <div class="option" data-value="+597">🇸🇷 Suriname (+597)</div>
+                            <div class="option" data-value="+47">🇸🇯 Svalbard and Jan Mayen (+47)</div>
+                            <div class="option" data-value="+268">🇸🇿 Swaziland (+268)</div>
+                            <div class="option" data-value="+46">🇸🇪 Sweden (+46)</div>
+                            <div class="option" data-value="+41">🇨🇭 Switzerland (+41)</div>
+                            <div class="option" data-value="+963">🇸🇾 Syria (+963)</div>
+                            <div class="option" data-value="+886">🇹🇼 Taiwan (+886)</div>
+                            <div class="option" data-value="+992">🇹🇯 Tajikistan (+992)</div>
+                            <div class="option" data-value="+255">🇹🇿 Tanzania (+255)</div>
+                            <div class="option" data-value="+66">🇹🇭 Thailand (+66)</div>
+                            <div class="option" data-value="+228">🇹🇬 Togo (+228)</div>
+                            <div class="option" data-value="+690">🇹🇰 Tokelau (+690)</div>
+                            <div class="option" data-value="+676">🇹🇴 Tonga (+676)</div>
+                            <div class="option" data-value="+1-868">🇹🇹 Trinidad and Tobago (+1-868)</div>
+                            <div class="option" data-value="+216">🇹🇳 Tunisia (+216)</div>
+                            <div class="option" data-value="+90">🇹🇷 Turkey (+90)</div>
+                            <div class="option" data-value="+993">🇹🇲 Turkmenistan (+993)</div>
+                            <div class="option" data-value="+1-649">🇹🇨 Turks and Caicos Islands (+1-649)</div>
+                            <div class="option" data-value="+688">🇹🇻 Tuvalu (+688)</div>
+                            <div class="option" data-value="+1-340">🇻🇮 U.S. Virgin Islands (+1-340)</div>
+                            <div class="option" data-value="+256">🇺🇬 Uganda (+256)</div>
+                            <div class="option" data-value="+380">🇺🇦 Ukraine (+380)</div>
+                            <div class="option" data-value="+971">🇦🇪 United Arab Emirates (+971)</div>
+                            <div class="option" data-value="+44">🇬🇧 United Kingdom (+44)</div>
+                            <div class="option" data-value="+1">🇺🇸 United States (+1)</div>
+                            <div class="option" data-value="+598">🇺🇾 Uruguay (+598)</div>
+                            <div class="option" data-value="+998">🇺🇿 Uzbekistan (+998)</div>
+                            <div class="option" data-value="+678">🇻🇺 Vanuatu (+678)</div>
+                            <div class="option" data-value="+379">🇻🇦 Vatican (+379)</div>
+                            <div class="option" data-value="+58">🇻🇪 Venezuela (+58)</div>
+                            <div class="option" data-value="+84">🇻🇳 Vietnam (+84)</div>
+                            <div class="option" data-value="+681">🇼🇫 Wallis and Futuna (+681)</div>
+                            <div class="option" data-value="+212">🇪🇭 Western Sahara (+212)</div>
+                            <div class="option" data-value="+967">🇾🇪 Yemen (+967)</div>
+                            <div class="option" data-value="+260">🇿🇲 Zambia (+260)</div>
+                            <div class="option" data-value="+263">🇿🇼 Zimbabwe (+263)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="required-field phone-number-input">
+                    <input type="tel" placeholder="Phone Number" required pattern="[0-9]+"
+                        title="Only numbers are allowed." />
+                </div>
+            </div>
+
+            <textarea placeholder="How can we help you today?" rows="4"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
 
     <footer class="global-footer">
@@ -685,18 +665,25 @@
 
     <div id="chatbot-window">
         <div class="chat-header">
-            <strong>John Bot</strong>
+            <strong>Profit Pricer Bot</strong>
             <span class="close-chat">&times;</span>
         </div>
         <div class="chat-body">
             <div class="chat-message received">
-                <span>Hey There, Nice to meet you! Im John</span>
+                <span>Hey There, Nice to meet you! Im Profit Pricer Bot</span>
             </div>
         </div>
-        <form class="chat-input-area">
-            <input type="text" placeholder="Type your message" required autocomplete="off" />
-            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-        </form>
+        <div id="chatbot-window">
+            <div class="chat-header">
+                <strong>Profit Pricer Bot</strong>
+                <span class="close-chat">&times;</span>
+            </div>
+            <div class="chat-body">
+                <div class="chat-message received">
+                    <span>Hey There, Nice to meet you! Im Profit Pricer Bot</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="promo-modal-overlay">

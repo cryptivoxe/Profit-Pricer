@@ -134,66 +134,131 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- CHATBOT WINDOW LOGIC ---
     const chatbotIcon = document.querySelector(".chatbot-icon");
     const chatbotWindow = document.getElementById("chatbot-window");
-    const closeChatBtn = chatbotWindow.querySelector(".close-chat");
-    const chatBody = chatbotWindow.querySelector(".chat-body");
-    const chatForm = chatbotWindow.querySelector(".chat-input-area");
-    const chatInput = chatForm.querySelector("input");
+    const closeChatBtn = chatbotWindow ? chatbotWindow.querySelector(".close-chat") : null;
+    const chatBody = chatbotWindow ? chatbotWindow.querySelector(".chat-body") : null;
+    
+    // Your new questions and answers are stored here
+    const qaData = [
+        {
+            category: "General Product Information",
+            questions: [
+                { q: "What is Profit Pricer?", a: "Profit Pricer is a platform that uses artificial intelligence to help businesses optimize, manage, and grow their revenue and margins with smarter pricing strategies." },
+                { q: "What are the main products offered?", a: "Profit Pricer offers two main products:<br><ul><li><b>Profit Pricer Fusion:</b> An advanced enterprise solution for businesses with complex pricing needs.</li><li><b>Profit Pricer Lite:</b> A fast, simple tool designed for small businesses and entrepreneurs.</li></ul>" }
+            ]
+        },
+        {
+            category: "Product Features & Benefits",
+            questions: [
+                { q: "How does Profit Pricer help my business?", a: "Profit Pricer helps you set, manage, and simulate pricing quickly, standardizes and tracks price changes, and provides recommendations to maximize profits." },
+                { q: "What makes Profit Pricer’s AI unique?", a: "Our AI-driven platform provides actionable pricing recommendations, automates complex processes, and adapts to market changes to support sustainable financial growth." }
+            ]
+        },
+        {
+            category: "Specific Product Information",
+            questions: [
+                { q: "What is Profit Pricer Fusion?", a: "Fusion is our advanced edition for larger organizations. It offers powerful tools for setting, managing, and simulating prices at scale for complex operations." },
+                { q: "What is Profit Pricer Lite?", a: "Lite is a simple, efficient tool for small businesses. It offers key pricing features and is available through flexible subscription plans." }
+            ]
+        },
+        {
+            category: "Pricing & Subscription",
+            questions: [
+                { q: "What are the subscription options for Lite?", a: "We offer several plans:<br><ul><li><b>Free Trial:</b> 7 days, 1GB data, 1 user</li><li><b>Small:</b> ₹39.99/month per user</li><li><b>Medium:</b> ₹99/month per user (12-month minimum)</li></ul>" },
+                { q: "How do I start a free trial?", a: "Click “Start Free Trial” on our website. You’ll get 7 days with 1GB of data for one user." }
+            ]
+        },
+        {
+            category: "Request a Demo",
+            questions: [
+                { q: "How do I request a demo?", a: "Click the “Request a Demo” button on our homepage. Fill out your details, and our team will schedule a personalized walkthrough." },
+                { q: "What happens after I request a demo?", a: "A Profit Pricer consultant will contact you to understand your needs and arrange a session where you can see the platform in action." },
+                { q: "Is the demo personalized?", a: "Yes, our demos are tailored to your company’s size, industry, and pricing challenges to ensure you get the most relevant insights." }
+            ]
+        },
+        {
+            category: "Customer Success & Support",
+            questions: [
+                { q: "Where can I see customer success stories?", a: "Visit the <b>Client Success Stories</b> section on our homepage for real customer experiences and success metrics." },
+                { q: "How can I contact support?", a: "If your question wasn't answered here, please use our website’s main contact form or type 'Contact Support' for further assistance." }
+            ]
+        }
+    ];
 
-    if (chatbotIcon && chatbotWindow && closeChatBtn && chatForm) {
-
-        // --- Event Listeners to Open/Close Chat ---
-        chatbotIcon.addEventListener("click", () => chatbotWindow.classList.toggle("visible"));
-        closeChatBtn.addEventListener("click", () => chatbotWindow.classList.remove("visible"));
-
-        // --- Event Listener for Sending a Message ---
-        chatForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Stop form from refreshing the page
-            const userInput = chatInput.value.trim();
-            if (userInput === "") return; // Don't send empty messages
-
-            // Display user's message and get bot's response
-            appendMessage(userInput, "sent");
-            chatInput.value = ""; // Clear the input field
-            getBotResponse(userInput);
+    if (chatbotIcon && chatbotWindow && closeChatBtn && chatBody) {
+        
+        // Open chat and display the main categories
+        chatbotIcon.addEventListener("click", () => {
+            chatbotWindow.classList.add("visible");
+            displayInitialCategories();
         });
 
-        // --- Function to Add a Message to the Chat Body ---
-        function appendMessage(text, type) {
+        // Close chat
+        closeChatBtn.addEventListener("click", () => chatbotWindow.classList.remove("visible"));
+
+        const displayInitialCategories = () => {
+            chatBody.innerHTML = "";
+            appendMessage("Hey There! I'm John. Please select a category below.", "received");
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.classList.add("chat-options");
+            
+            qaData.forEach(categoryData => {
+                const categoryBtn = document.createElement("button");
+                categoryBtn.classList.add("chat-option");
+                categoryBtn.textContent = categoryData.category;
+                categoryBtn.onclick = () => displayQuestionsForCategory(categoryData);
+                optionsDiv.appendChild(categoryBtn);
+            });
+            
+            chatBody.appendChild(optionsDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        };
+        
+        const displayQuestionsForCategory = (categoryData) => {
+            chatBody.innerHTML = "";
+            appendMessage(categoryData.category, "sent");
+            appendMessage(`Great! Here are some questions about ${categoryData.category}.`, "received");
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.classList.add("chat-options");
+
+            categoryData.questions.forEach(item => {
+                const optionBtn = document.createElement("button");
+                optionBtn.classList.add("chat-option");
+                optionBtn.textContent = item.q;
+                optionBtn.onclick = () => showAnswer(item, categoryData);
+                optionsDiv.appendChild(optionBtn);
+            });
+            
+            chatBody.appendChild(optionsDiv);
+            appendBackButton(displayInitialCategories, "⬅️ Back to Categories");
+        };
+
+        const showAnswer = (item, categoryData) => {
+            chatBody.innerHTML = "";
+            appendMessage(item.q, "sent");
+            setTimeout(() => {
+                appendMessage(item.a, "received");
+                appendBackButton(() => displayQuestionsForCategory(categoryData), "⬅️ Back to Questions");
+            }, 400);
+        };
+        
+        const appendMessage = (html, type) => {
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("chat-message", type);
-            messageDiv.innerHTML = `<span>${text}</span>`;
+            messageDiv.innerHTML = `<span>${html}</span>`;
             chatBody.appendChild(messageDiv);
-            // Scroll to the bottom to see the new message
             chatBody.scrollTop = chatBody.scrollHeight;
-        }
+        };
 
-        // --- Function to Simulate Bot Response ---
-        function getBotResponse(userInput) {
-            // Simulate bot thinking time
-            setTimeout(() => {
-                const text = userInput.toLowerCase();
-                let response;
-
-                // Simple keyword-based logic
-                if (text.includes("hello") || text.includes("hi")) {
-                    response = "Hello there! How can I assist you with our pricing solutions today?";
-                } else if (text.includes("pricing") || text.includes("solutions")) {
-                    response = "We have two main solutions: Profit Pricer Fusion for large enterprises and Profit Pricer Lite for small businesses. Which one are you interested in?";
-                } else if (text.includes("fusion")) {
-                    response = "Profit Pricer Fusion is our advanced enterprise edition, tailored for complex pricing needs. You can find more details on our solutions page!";
-                } else if (text.includes("lite")) {
-                    response = "Profit Pricer Lite is a fast, simple pricing tool for small businesses and entrepreneurs, available via flexible subscription plans.";
-                } else if (text.includes("contact") || text.includes("demo")) {
-                    response = "You can request a demo or get in touch with our team through the 'Contact Us' page.";
-                } else if (text.includes("thank")) {
-                    response = "You're welcome! Is there anything else I can help you with?";
-                } else {
-                    response = "I'm sorry, I'm still learning. Can you please rephrase? You can ask me about 'pricing', 'solutions', or how to 'contact' us.";
-                }
-
-                appendMessage(response, "received");
-            }, 1200); // 1.2 second delay
-        }
+        const appendBackButton = (onClickAction, text) => {
+             const backButton = document.createElement("button");
+             backButton.textContent = text;
+             backButton.classList.add("back-to-questions", "chat-option");
+             backButton.onclick = onClickAction;
+             chatBody.appendChild(backButton);
+             chatBody.scrollTop = chatBody.scrollHeight;
+        };
     }
 
     // --- VIDEO MODAL LOGIC ---
