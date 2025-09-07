@@ -295,7 +295,14 @@ document.addEventListener("DOMContentLoaded", function () {
         startChatBtn.addEventListener("click", () => {
             startChatContainer.style.display = 'none';
             chatInputArea.classList.remove('hidden');
-            displayInitialCategories();
+            
+            // **MODIFICATION START**
+            // Directly show the initial message without the "thinking" indicator.
+            chatBody.innerHTML = "";
+            appendMessage("Hey There! I'm Profit Pricer Assistant. Please select a category below or type a message.", "received");
+            appendCategoryOptions();
+            chatBody.scrollTop = chatBody.scrollHeight;
+            // **MODIFICATION END**
         });
 
         const showThinkingAndRespond = (responseCallback) => {
@@ -311,13 +318,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 responseCallback();
                 chatBody.scrollTop = chatBody.scrollHeight;
-            }, 3000);
+            }, 1000); // Reduced thinking time for a better user experience
         };
 
         const displayInitialCategories = () => {
             chatBody.innerHTML = "";
             showThinkingAndRespond(() => {
-                appendMessage("Hey There! I'm Profit Pricer Assistant. Please select a category below or type a message.", "received");
+                appendMessage("How else can I help you? Please select a category.", "received");
                 appendCategoryOptions();
             });
         };
