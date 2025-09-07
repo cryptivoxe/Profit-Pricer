@@ -663,22 +663,25 @@
     <img src="/assets/images/chatbot.jpeg" alt="Chatbot Icon" class="chatbot-icon">
 
     <div id="chatbot-window">
-        <div class="chat-header">
-            <strong>Profit Pricer Assistant</strong>
-            <span class="close-chat">&times;</span>
-        </div>
-        <div class="chat-body">
-            <div id="start-chat-container">
-                <button id="start-chat-btn">
-                    <i class="fas fa-comment-dots"></i>&nbsp; Start Conversation
-                </button>
-            </div>
-        </div>
-        <div class="chat-input-area hidden">
-            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
-            <button id="send-chat-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
+    <div class="chat-header">
+        <strong>Profit IQ</strong>
+        <span class="close-chat">&times;</span>
+    </div>
+    <div class="chat-body">
+        <div id="start-chat-container">
+            <button id="start-chat-btn">
+                <i class="fas fa-comment-dots"></i>&nbsp; Start Conversation
+            </button>
         </div>
     </div>
+    
+    <div id="chat-suggestions-container"></div>
+
+    <div class="chat-input-area hidden">
+        <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+        <button id="send-chat-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
 
 
     <div id="promo-modal-overlay">
