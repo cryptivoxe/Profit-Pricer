@@ -600,7 +600,10 @@
 
     <div id="chatbot-window">
         <div class="chat-header">
-            <strong>Profit IQ</strong>
+            <div class="header-left-content">
+                <img src="/assets/images/chatbot.jpeg" alt="Bot Icon" class="header-icon">
+                <strong>ProfitIQ</strong>
+            </div>
             <span class="close-chat">&times;</span>
         </div>
         <div class="chat-body">
@@ -610,13 +613,35 @@
                 </button>
             </div>
         </div>
-    
+
         <div id="chat-suggestions-container"></div>
-    
+
         <div class="chat-input-area hidden">
             <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
             <button id="send-chat-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
         </div>
+    </div>
+
+    <div id="feedback-modal-overlay">
+        <div class="feedback-modal">
+            <div class="feedback-modal-header">
+                <h2>Provide Feedback</h2>
+                <span class="close-feedback-modal">&times;</span>
+            </div>
+            <div class="feedback-modal-body">
+                <form id="feedback-form">
+                    <label for="feedback-text">Your Feedback:</label>
+                    <textarea id="feedback-text" rows="5" placeholder="Tell us what you think..." required></textarea>
+                    <label for="feedback-email">Your Email (Optional):</label>
+                    <input type="email" id="feedback-email" placeholder="name@example.com">
+                    <button type="submit" id="submit-feedback-btn">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="feedback-success-popup">
+        Feedback submitted successfully!
     </div>
     
     <script src="/js/about-script.js"></script>
