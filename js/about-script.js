@@ -226,7 +226,14 @@ document.addEventListener("DOMContentLoaded", function () {
         startChatBtn.addEventListener("click", () => {
             startChatContainer.style.display = 'none';
             chatInputArea.classList.remove('hidden');
-            displayInitialCategories();
+            
+            // **MODIFICATION START**
+            // Directly show the initial message without the "thinking" indicator.
+            chatBody.innerHTML = "";
+            appendMessage("Hey There! I'm Profit Pricer Assistant. Please select a category below or type a message.", "received");
+            appendCategoryOptions();
+            chatBody.scrollTop = chatBody.scrollHeight;
+            // **MODIFICATION END**
         });
 
         const showThinkingAndRespond = (responseCallback) => {
@@ -242,13 +249,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 responseCallback();
                 chatBody.scrollTop = chatBody.scrollHeight;
-            }, 3000);
+            }, 1000); // Shortened delay for better UX
         };
 
         const displayInitialCategories = () => {
+            // This function is now used for the "Back to Categories" button
             chatBody.innerHTML = "";
             showThinkingAndRespond(() => {
-                appendMessage("Hey There! I'm Profit Pricer Assistant. Please select a category below or type a message.", "received");
+                appendMessage("How else can I help? Please choose a category.", "received");
                 appendCategoryOptions();
             });
         };
@@ -321,10 +329,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatBody.scrollTop = chatBody.scrollHeight;
         };
 
-        /**
-         * UPDATED FUNCTION: Wraps the back button in a .chat-options container
-         * to ensure consistent spacing throughout the conversation.
-         */
         const appendBackButton = (onClickAction, text) => {
             const optionsDiv = document.createElement("div");
             optionsDiv.classList.add("chat-options");
@@ -351,6 +355,37 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             chatBody.appendChild(optionsDiv);
         };
+    }
+
+
+    // --- NEW LOAD MORE BLOGS LOGIC ---
+    const allBlogCards = document.querySelectorAll(".blog-card");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    const initialVisibleCount = 4;
+
+    if (loadMoreBtn) {
+        if (allBlogCards.length <= initialVisibleCount) {
+            const showMoreContainer = document.querySelector(".show-more");
+            if (showMoreContainer) {
+                showMoreContainer.style.display = "none";
+            }
+        } else {
+            const hiddenCards = Array.from(allBlogCards).slice(initialVisibleCount);
+            const loadCount = 4;
+            let currentlyShown = 0;
+
+            hiddenCards.forEach(card => card.classList.add("hidden"));
+
+            loadMoreBtn.addEventListener("click", () => {
+                const toShow = hiddenCards.slice(currentlyShown, currentlyShown + loadCount);
+                toShow.forEach(card => card.classList.remove("hidden"));
+                currentlyShown += toShow.length;
+
+                if (currentlyShown >= hiddenCards.length) {
+                    loadMoreBtn.parentElement.style.display = "none";
+                }
+            });
+        }
     }
 
 

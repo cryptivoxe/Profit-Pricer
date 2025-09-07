@@ -213,7 +213,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         chatbotIcon.addEventListener("click", () => {
             chatbotWindow.classList.add("visible");
-
             chatBody.innerHTML = '';
             startChatContainer.style.display = 'flex';
             chatInputArea.classList.add('hidden');
@@ -225,7 +224,14 @@ document.addEventListener("DOMContentLoaded", function () {
         startChatBtn.addEventListener("click", () => {
             startChatContainer.style.display = 'none';
             chatInputArea.classList.remove('hidden');
-            displayInitialCategories();
+
+            // **MODIFICATION START**
+            // Directly show the initial message without the "thinking" indicator.
+            chatBody.innerHTML = "";
+            appendMessage("Hey There! I'm Profit Pricer Assistant. Please select a category below or type a message.", "received");
+            appendCategoryOptions();
+            chatBody.scrollTop = chatBody.scrollHeight;
+            // **MODIFICATION END**
         });
 
         const showThinkingAndRespond = (responseCallback) => {
@@ -241,13 +247,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 responseCallback();
                 chatBody.scrollTop = chatBody.scrollHeight;
-            }, 3000);
+            }, 1000); // Shortened delay for better UX
         };
 
         const displayInitialCategories = () => {
+            // This function is now used for the "Back to Categories" button
             chatBody.innerHTML = "";
             showThinkingAndRespond(() => {
-                appendMessage("Hey There! I'm Profit Pricer Assistant. Please select a category below or type a message.", "received");
+                appendMessage("How else can I help? Please choose a category.", "received");
                 appendCategoryOptions();
             });
         };
@@ -320,10 +327,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatBody.scrollTop = chatBody.scrollHeight;
         };
 
-        /**
-         * UPDATED FUNCTION: Wraps the back button in a .chat-options container
-         * to ensure consistent spacing throughout the conversation.
-         */
         const appendBackButton = (onClickAction, text) => {
             const optionsDiv = document.createElement("div");
             optionsDiv.classList.add("chat-options");
@@ -351,7 +354,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatBody.appendChild(optionsDiv);
         };
     }
-
 
     // --- NEWSLETTER SUBSCRIPTION LOGIC ---
     const newsletterForm = document.getElementById("newsletter-form");
