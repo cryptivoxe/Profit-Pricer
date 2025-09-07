@@ -131,6 +131,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    // --- DYNAMIC BLOG SEARCH LOGIC ---
+    const handleSearch = (event) => {
+        // This function will handle the search redirection
+        if (event.key === 'Enter') {
+            const searchInput = document.getElementById('search-bar');
+            const searchTerm = searchInput.value.trim();
+
+            if (searchTerm) {
+                // Redirect to the search results page with the query
+                window.location.href = `/pages/search-results.html?query=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+    };
+
+    // Attach the event listener to the search bar
+    const searchBarInput = document.getElementById('search-bar');
+    if (searchBarInput) {
+        searchBarInput.addEventListener('keydown', handleSearch);
+    }
+    
+
    // --- CHATBOT WINDOW LOGIC ---
 const chatbotIcon = document.querySelector(".chatbot-icon");
 const chatbotWindow = document.getElementById("chatbot-window");

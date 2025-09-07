@@ -134,6 +134,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    // --- DYNAMIC BLOG SEARCH LOGIC ---
+    const handleSearch = (event) => {
+        // This function will handle the search redirection
+        if (event.key === 'Enter') {
+            const searchInput = document.getElementById('search-bar');
+            const searchTerm = searchInput.value.trim();
+
+            if (searchTerm) {
+                // Redirect to the search results page with the query
+                window.location.href = `/pages/search-results.html?query=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+    };
+
+    // Attach the event listener to the search bar
+    const searchBarInput = document.getElementById('search-bar');
+    if (searchBarInput) {
+        searchBarInput.addEventListener('keydown', handleSearch);
+    }
+
+
 
     // --- HERO TEXT ANIMATION (Glitch & Flip Version) ---
     const animatedWordEl = document.getElementById("animated-word");
@@ -369,10 +390,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatBody.scrollTop = chatBody.scrollHeight;
         };
 
-        /**
-         * UPDATED FUNCTION: Wraps the back button in a .chat-options container
-         * to ensure consistent spacing throughout the conversation.
-         */
         const appendBackButton = (onClickAction, text) => {
             const optionsDiv = document.createElement("div");
             optionsDiv.classList.add("chat-options");

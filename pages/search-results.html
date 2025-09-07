@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profit Pricer</title>
+    <link rel="stylesheet" href="/css/search-results-style.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Poppins:wght@300;400&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+
+    <style>
+        /* Adjust footer column spacing on larger screens */
+        @media screen and (min-width: 1025px) {
+            .global-footer .footer-box:nth-child(2) {
+                margin-left: 50px;
+                /* Increase gap between logo and quick links */
+            }
+
+            .global-footer .footer-box:nth-child(3) {
+                margin-left: -5px;
+                /* Decrease gap between quick links and solutions */
+            }
+        }
+    </style>
+</head>
+
+<body id="home-page">
+    <header id="navbar">
+        <div class="nav-left">
+            <a href="/index.html">
+                <img src="/assets/images/logo.png" alt="Profit Pricer Logo" />
+            </a>
+        </div>
+
+        <button id="mobile-toggle" class="mobile-menu-icon">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-center-wrapper" id="nav-links">
+            <div class="nav-center">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/about.html">About Us</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Solutions <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/solutions/fusion.html">Profit Pricer Fusion</a></li>
+                            <li><a href="/pages/solutions/lite.html">Profit Pricer Lite</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Resources <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/blog.html">Blog</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/pages/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="search-demo-wrapper">
+                <div class="search-wrapper" id="search-wrapper">
+                    <i id="search-icon" class="fas fa-search"></i>
+                    <input type="text" id="search-bar" placeholder="Search" />
+                </div>
+                <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a
+                    Demo</button>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a
+                Demo</button>
+            <div class="lang">EN</div>
+        </div>
+    </header>
+
+    <main class="search-results-main">
+        <h1 id="search-heading">Searching...</h1>
+        <section id="results-grid" class="blog-grid"></section>
+        <p id="no-results" class="hidden">No blog posts found matching your search. Try another term.</p>
+    </main>
+
+    <footer class="global-footer">
+        <div class="footer-box">
+            <a href="/index.html">
+                <img src="/assets/images/logo-white.png" alt="Profit Pricer Logo" class="footer-logo" />
+            </a>
+            <p> Built for Small and Medium sized teams who need intelligent, fast, and profit maximizing pricing.</p>
+
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/profitpricer/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h4>Quick Links</h4>
+            <a href="/index.html">Home</a>
+            <a href="/pages/about.html">About Us</a>
+            <a href="/pages/blog.html">Blogs</a>
+            <a href="/pages/contact.html">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h4>Solutions</h4>
+            <a href="/pages/solutions/fusion.html">Profit Pricer Fusion</a>
+            <a href="/pages/solutions/lite.html">Profit Pricer Lite</a>
+        </div>
+        <div class="footer-box newsletter">
+            <h4>Newsletter</h4>
+            <p class="newsletter-description">Subscribe to our newsletter for the latest updates and pricing insights.
+            </p>
+
+            <form id="newsletter-form" class="newsletter-form-container">
+                <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+                <button type="submit" id="newsletter-btn">➤</button>
+            </form>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <p>©2025 Copyright and All Rights Reserved</p>
+        <div><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></div>
+    </div>
+
+    <div id="success-popup">
+        <p>✅ Thank you for subscribing to our newsletter!</p>
+        <span class="close-popup-btn">&times;</span>
+    </div>
+
+
+    <script src="/js/script.js"></script>
+    <script src="/js/search-data.js"></script>
+    <script src="/js/search-results.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+/* ===================== General & Copied Styles ===================== */
+/* Import existing header/footer/card styles to keep them consistent */
+@import url('style.css'); /* Imports styles from your main CSS */
+@import url('blog-style.css'); /* Imports blog card styles */
+
+/* ===================== Search Results Page Specific Styles ===================== */
+.search-results-main {
+    padding: 120px 40px 60px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 60vh;
+}
+
+#search-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+#results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; 
+}
+
+/* For small screens (768px and below): Switch to a 1-column grid */
+@media screen and (max-width: 768px) {
+    #results-grid {
+        grid-template-columns: 1fr; 
+    }
+    #search-heading {
+        font-size: 1.8rem;
+    }
+}
+
+#no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+@media screen and (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    #search-heading {
+        font-size: 1.8rem;
+    }
+}
