@@ -400,7 +400,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1500);
         };
 
-        // **MODIFIED** appendMessage to include feedback controls
         const appendMessage = (html, type, showFeedback = true) => {
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("chat-message", type);
@@ -413,7 +412,6 @@ document.addEventListener("DOMContentLoaded", function () {
             messageDiv.appendChild(span);
             chatBody.appendChild(messageDiv);
 
-            // MODIFIED THIS CONDITION: It now checks the 'showFeedback' flag
             if (type === 'received' && showFeedback) {
                 const feedbackControls = createFeedbackControls();
                 chatBody.appendChild(feedbackControls);
@@ -421,7 +419,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatBody.scrollTop = chatBody.scrollHeight;
         };
 
-        // **NEW** functions for feedback system
         const createFeedbackControls = () => {
             const controlsContainer = document.createElement('div');
             controlsContainer.className = 'feedback-controls';
@@ -532,37 +529,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- NEWSLETTER SUBSCRIPTION LOGIC ---
     const newsletterForm = document.getElementById("newsletter-form");
     const emailInput = document.getElementById("newsletter-email");
-    const successPopup = document.getElementById("success-popup");
+    const newsletterSuccessPopup = document.getElementById("success-popup");
     const closePopupBtn = document.querySelector(".close-popup-btn");
 
-    if (newsletterForm && emailInput && successPopup) {
-
+    if (newsletterForm && emailInput && newsletterSuccessPopup) {
         newsletterForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Stop the form from reloading the page
-
-            // The 'required' and 'type="email"' attributes already handle validation.
-            // This checks if the browser considers the input valid.
+            event.preventDefault();
             if (emailInput.checkValidity()) {
                 showPopup();
-                emailInput.value = ""; // Clear the input field after successful submission
+                emailInput.value = "";
             }
-            // If invalid, the browser will automatically show a default error message.
         });
-
         const showPopup = () => {
-            successPopup.classList.add("show");
-
-            // Hide the pop-up automatically after 5 seconds
+            newsletterSuccessPopup.classList.add("show");
             setTimeout(() => {
                 hidePopup();
             }, 5000);
         };
-
         const hidePopup = () => {
-            successPopup.classList.remove("show");
+            newsletterSuccessPopup.classList.remove("show");
         };
-
-        // Allow the user to close the pop-up by clicking the 'x'
         if (closePopupBtn) {
             closePopupBtn.addEventListener("click", hidePopup);
         }

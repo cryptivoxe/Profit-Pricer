@@ -436,7 +436,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1500);
         };
 
-        // **MODIFIED** appendMessage to include feedback controls
         const appendMessage = (html, type, showFeedback = true) => {
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("chat-message", type);
@@ -449,7 +448,6 @@ document.addEventListener("DOMContentLoaded", function () {
             messageDiv.appendChild(span);
             chatBody.appendChild(messageDiv);
 
-            // MODIFIED THIS CONDITION: It now checks the 'showFeedback' flag
             if (type === 'received' && showFeedback) {
                 const feedbackControls = createFeedbackControls();
                 chatBody.appendChild(feedbackControls);
@@ -457,7 +455,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatBody.scrollTop = chatBody.scrollHeight;
         };
 
-        // **NEW** functions for feedback system
         const createFeedbackControls = () => {
             const controlsContainer = document.createElement('div');
             controlsContainer.className = 'feedback-controls';

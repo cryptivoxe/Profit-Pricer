@@ -166,8 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatInput = document.getElementById("chat-input");
     const sendChatBtn = document.getElementById("send-chat-btn");
     const suggestionsContainer = document.getElementById("chat-suggestions-container");
-
-    // **NEW**: Selectors for the feedback system
     const feedbackModalOverlay = document.getElementById("feedback-modal-overlay");
     const closeFeedbackModalBtn = document.querySelector(".close-feedback-modal");
     const feedbackForm = document.getElementById("feedback-form");
@@ -533,37 +531,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- NEWSLETTER SUBSCRIPTION LOGIC ---
     const newsletterForm = document.getElementById("newsletter-form");
     const emailInput = document.getElementById("newsletter-email");
-    const successPopup = document.getElementById("success-popup");
+    const newsletterSuccessPopup = document.getElementById("success-popup");
     const closePopupBtn = document.querySelector(".close-popup-btn");
 
-    if (newsletterForm && emailInput && successPopup) {
-
+    if (newsletterForm && emailInput && newsletterSuccessPopup) {
         newsletterForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Stop the form from reloading the page
-
-            // The 'required' and 'type="email"' attributes already handle validation.
-            // This checks if the browser considers the input valid.
+            event.preventDefault();
             if (emailInput.checkValidity()) {
                 showPopup();
-                emailInput.value = ""; // Clear the input field after successful submission
+                emailInput.value = "";
             }
-            // If invalid, the browser will automatically show a default error message.
         });
-
         const showPopup = () => {
-            successPopup.classList.add("show");
-
-            // Hide the pop-up automatically after 5 seconds
+            newsletterSuccessPopup.classList.add("show");
             setTimeout(() => {
                 hidePopup();
             }, 5000);
         };
-
         const hidePopup = () => {
-            successPopup.classList.remove("show");
+            newsletterSuccessPopup.classList.remove("show");
         };
-
-        // Allow the user to close the pop-up by clicking the 'x'
         if (closePopupBtn) {
             closePopupBtn.addEventListener("click", hidePopup);
         }

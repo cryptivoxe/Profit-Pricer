@@ -19,7 +19,6 @@
         overflow: hidden;
     }
 
-    /* Logo fixed at top-left without affecting layout */
     .logo-container {
         position: absolute;
         top: 20px;
@@ -194,21 +193,18 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Auto-fill from localStorage
         const fullName = localStorage.getItem("fullName") || "";
         const selectedPlan = localStorage.getItem("selectedPlan") || "";
 
         document.getElementById("userName").textContent = fullName;
         document.getElementById("planField").value = selectedPlan ? `Profit Pricer: ${selectedPlan}` : "";
 
-        // Clear sensitive fields on page load
         document.getElementById("cardNumber").value = "";
         document.getElementById("expiryDate").value = "";
         document.getElementById("ccv").value = "";
         document.getElementById("customerName").value = "";
     });
 
-    // Get form elements
     const paymentForm = document.getElementById('paymentForm');
     const cardNumberInput = document.getElementById('cardNumber');
     const expiryDateInput = document.getElementById('expiryDate');
@@ -216,30 +212,24 @@
     const nameInput = document.getElementById('customerName');
     const messageBox = document.getElementById('messageBox');
 
-    // --- REAL-TIME INPUT FORMATTING ---
-
-    // 1. Credit Card: Format as XXXX XXXX XXXX XXXX
     cardNumberInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+        let value = e.target.value.replace(/\D/g, ''); 
         let formattedValue = (value.match(/.{1,4}/g) || []).join(' ');
         e.target.value = formattedValue.substring(0, 19);
     });
 
-    // 2. Expiry Date: Format as MM / YY
     expiryDateInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+        let value = e.target.value.replace(/\D/g, ''); 
         if (value.length > 2) {
             value = `${value.substring(0, 2)} / ${value.substring(2, 4)}`;
         }
         e.target.value = value;
     });
 
-    // 3. CCV: Allow only numbers
     ccvInput.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+        e.target.value = e.target.value.replace(/\D/g, ''); 
     });
 
-    // 4. Name: Allow only letters and spaces
     nameInput.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
     });
@@ -249,9 +239,8 @@
     paymentForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Reset previous error states
         [cardNumberInput, expiryDateInput, ccvInput, nameInput].forEach(input => input.classList.remove('error'));
-        messageBox.className = 'message-box'; // Resets the message box style
+        messageBox.className = 'message-box';
         messageBox.style.display = 'none';
 
         let isValid = true;
