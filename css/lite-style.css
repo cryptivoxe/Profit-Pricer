@@ -1768,8 +1768,15 @@ footer {
         height: auto;
         min-height: 320px;
     }
-    .enabler-number{
+
+    /* Keep this rule to hide the number */
+    .enabler-number {
         display: none;
+    }
+
+    /* Add this rule to remove the extra top padding from the heading */
+    .enabler-card h3 {
+        padding-top: 0;
     }
 }
 

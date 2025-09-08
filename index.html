@@ -5,34 +5,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profit Pricer</title>
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Poppins:wght@300;400&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Poppins:wght@300;400&family=Quicksand:wght@400&family=Rubik:wght@400&display=swap" rel="stylesheet">
 
     <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
 
     <style>
-        /* Adjust footer column spacing on larger screens */
+        /* Layout Correction: Fine-tunes the spacing of footer columns on large screens (1025px and up).
+          This is a specific visual adjustment to perfect the alignment that the global flex/grid layout doesn't handle perfectly.
+        */
         @media screen and (min-width: 1025px) {
             .global-footer .footer-box:nth-child(2) {
-                margin-left: 50px;
-                /* Increase gap between logo and quick links */
+                margin-left: 50px; /* Nudges the "Quick Links" column slightly to the right. */
             }
 
             .global-footer .footer-box:nth-child(3) {
-                margin-left: -5px;
-                /* Decrease gap between quick links and solutions */
+                margin-left: -5px; /* Pulls the "Solutions" column slightly to the left to tighten the gap. */
             }
         }
     </style>
 </head>
 
 <body id="home-page">
+
     <header id="navbar">
         <div class="nav-left">
             <a href="/index.html">
@@ -74,18 +73,15 @@
                     <i id="search-icon" class="fas fa-search"></i>
                     <input type="text" id="search-bar" placeholder="Search" />
                 </div>
-                <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a
-                    Demo</button>
+                <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a Demo</button>
             </div>
         </div>
 
         <div class="nav-right">
-            <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a
-                Demo</button>
+            <button class="demo-btn" onclick="window.location.href='/pages/contact.html'">Request a Demo</button>
             <div class="lang">EN</div>
         </div>
     </header>
-
 
     <section class="hero-wrapper">
         <div class="hero-content">
@@ -99,11 +95,10 @@
             </div>
 
             <div class="hero-right">
-                <img src="/assets/images/home/hero-side-image.png" alt="sales-margin-cost" />
+                <img src="/assets/images/home/hero-side-image.png" alt="A diagram showing sales, margin, and cost optimization." />
             </div>
         </div>
     </section>
-
 
     <section class="mini-hero">
         <div class="mini-hero-content">
@@ -116,10 +111,8 @@
                 <source src="/assets/videos/profit-prier-marketing.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-
         </div>
     </section>
-
 
     <section class="solutions-exact" id="solutions">
         <h2>About our solutions</h2>
@@ -130,11 +123,7 @@
             <div class="solution-content-wrapper">
                 <div class="solution-left">
                     <p>
-                        Profit Pricer Fusion is the advanced enterprise edition of Profit Pricer, tailored specifically
-                        for
-                        organizations with complex pricing needs and large-scale operations. This powerful solution
-                        enables
-                        businesses to set, manage, and simulate pricing with unmatched speed and flexibility.
+                        Profit Pricer Fusion is the advanced enterprise edition of Profit Pricer, tailored specifically for organizations with complex pricing needs and large-scale operations. This powerful solution enables businesses to set, manage, and simulate pricing with unmatched speed and flexibility.
                     </p>
                     <a href="/pages/solutions/fusion.html" class="explore-btn green desktop-btn">Explore More</a>
                 </div>
@@ -144,12 +133,11 @@
                         <li>Specifically built for large organizations with complex pricing needs.</li>
                         <li>Enables fast, rules-based price setting and simulation of multiple scenarios.</li>
                         <li>Embedded analytics deliver actionable insights across all relevant business metrics.</li>
-                        <li>Includes collaborative features to engage all stakeholders throughout the pricing process.
-                        </li>
+                        <li>Includes collaborative features to engage all stakeholders throughout the pricing process.</li>
                     </ul>
                 </div>
                 <div class="solution-right">
-                    <img src="/assets/images/solutions/fusion/about.png" alt="Fusion Product Image" />
+                    <img src="/assets/images/solutions/fusion/about.png" alt="Screenshot of the Profit Pricer Fusion interface." />
                 </div>
                 <a href="/pages/solutions/fusion.html" class="explore-btn green mobile-btn">Explore More</a>
             </div>
@@ -161,11 +149,7 @@
             <div class="solution-content-wrapper">
                 <div class="solution-left">
                     <p>
-                        Profit Pricer Lite is a fast, simple pricing tool for small businesses and entrepreneurs. It
-                        offers
-                        smart, essential features without the complexity—helping you grow, adapt, and stay in control,
-                        all
-                        through flexible subscription plans.
+                        Profit Pricer Lite is a fast, simple pricing tool for small businesses and entrepreneurs. It offers smart, essential features without the complexity—helping you grow, adapt, and stay in control, all through flexible subscription plans.
                     </p>
                     <a href="/pages/solutions/lite.html" class="explore-btn purple desktop-btn">Explore More</a>
                 </div>
@@ -179,13 +163,12 @@
                     </ul>
                 </div>
                 <div class="solution-right">
-                    <img src="/assets/images/solutions/lite/about.png" alt="Lite Product Image" />
+                    <img src="/assets/images/solutions/lite/about.png" alt="Screenshot of the Profit Pricer Lite interface." />
                 </div>
                 <a href="/pages/solutions/lite.html" class="explore-btn purple mobile-btn">Explore More</a>
             </div>
         </div>
     </section>
-
 
     <section class="blogs-section">
         <h2>From Our Blogs</h2>
@@ -193,147 +176,108 @@
             <button class="scroll-btn left" aria-label="Scroll Left">
                 <i class="fas fa-chevron-left"></i>
             </button>
-
             <div class="blogs-wrapper">
-
                 <div class="blog-card">
-                    <img src="/assets/images/blogs/blog-1/List-pricing-header-1200-x-479-px.webp" />
+                    <img src="/assets/images/blogs/blog-1/List-pricing-header-1200-x-479-px.webp" alt="Abstract image representing list pricing concepts." />
                     <div class="card-info">
                         <p class="blog-meta">Mar 24, 2024 | by Anya K</p>
                         <h4>What is a Price List – Meaning, Benefits & Strategies</h4>
-                        <p>A list price is the price a manufacturer or supplier sets for their products or services
-                            without
-                            negotiations or discounts. List pricing is a starting point for price negotiations and can
-                            provide a standard price...</p>
+                        <p>A list price is the price a manufacturer or supplier sets for their products or services without negotiations or discounts. List pricing is a starting point for price negotiations and can provide a standard price...</p>
                         <button class="card-btn">Learn More</button>
                     </div>
                 </div>
-
                 <div class="blog-card">
-                    <img src="/assets/images/blogs/blog-2/benefits_2x-1.webp" />
+                    <img src="/assets/images/blogs/blog-2/benefits_2x-1.webp" alt="Infographic illustrating the benefits of price optimization." />
                     <div class="card-info">
                         <p class="blog-meta">Mar 24, 2024 | by Anya K</p>
                         <h4>Price Optimization: What is the Big Deal?</h4>
-                        <p>Where Picasso had his Blue period, we should call the last couple of years the Murphy’s Law
-                            Period. Whatever could happen, did happen: the worst of the COVID-19 pandemic, runaway
-                            inflation, exploding interest rates, see-sawing energy prices, domestic political
-                            turmoil,...
-                        </p>
+                        <p>Where Picasso had his Blue period, we should call the last couple of years the Murphy’s Law Period. Whatever could happen, did happen: the worst of the COVID-19 pandemic, runaway inflation, exploding interest rates, see-sawing energy prices, domestic political turmoil,...</p>
                         <button class="card-btn">Learn More</button>
                     </div>
                 </div>
-
                 <div class="blog-card">
-                    <img src="/assets/images/blogs/blog-3/machine-learning-dynamic-pricing.webp" />
+                    <img src="/assets/images/blogs/blog-3/machine-learning-dynamic-pricing.webp" alt="Futuristic image showing data flows for machine learning." />
                     <div class="card-info">
                         <p class="blog-meta">Mar 24, 2024 | by Anya K</p>
                         <h4>How AI is transforming B2B pricing</h4>
-                        <p>It is almost universally accepted throughout the business world that AI will transform
-                            things. A
-                            PWC survey confirmed as much, with 85 percent of CEOs feeling AI will “significantly” alter
-                            how
-                            they do business in the next five years. In B2B pricing, the challenges...</p>
+                        <p>It is almost universally accepted throughout the business world that AI will transform things. A PWC survey confirmed as much, with 85 percent of CEOs feeling AI will “significantly” alter how they do business in the next five years. In B2B pricing, the challenges...</p>
                         <button class="card-btn">Learn More</button>
                     </div>
                 </div>
-
             </div>
-
             <button class="scroll-btn right" aria-label="Scroll Right">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </section>
 
-
     <section class="testimonials-section">
         <h2>Client Success Stories</h2>
         <div class="testimonials-wrapper">
-
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <img src="/assets/images/home/testimonial/Evelyn-Reed.jpg" alt="Evelyn Reed"
-                        class="testimonial-person-img">
+                    <img src="/assets/images/home/testimonial/Evelyn-Reed.jpg" alt="Headshot of Evelyn Reed." class="testimonial-person-img">
                     <div class="testimonial-author">
                         <span>From,</span>
                         <h4>Evelyn Reed</h4>
                     </div>
                 </div>
-                <p class="testimonial-text">"We were able to find the items losing share quickly and turned them around
-                    to be more competitive and bring in more profit than ever before. Price Elasticity is no longer a
-                    mystery to understand the future implications of different price points!"</p>
+                <p class="testimonial-text">"We were able to find the items losing share quickly and turned them around to be more competitive and bring in more profit than ever before. Price Elasticity is no longer a mystery to understand the future implications of different price points!"</p>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
             </div>
-
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <img src="/assets/images/home/testimonial/Jane-Smith.jpg" alt="Jane Smith"
-                        class="testimonial-person-img">
+                    <img src="/assets/images/home/testimonial/Jane-Smith.jpg" alt="Headshot of Jane Smith." class="testimonial-person-img">
                     <div class="testimonial-author">
                         <span>From,</span>
                         <h4>Jane Smith</h4>
                     </div>
                 </div>
-                <p class="testimonial-text">"Thanks to Profit Pricer, we have been able to standardize and track our
-                    price changes across regions so much better. Great product and very easy to use."</p>
+                <p class="testimonial-text">"Thanks to Profit Pricer, we have been able to standardize and track our price changes across regions so much better. Great product and very easy to use."</p>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="far fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                 </div>
             </div>
-
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <img src="/assets/images/home/testimonial/Mark-Johnson.jpg" alt="Mark Johnson"
-                        class="testimonial-person-img">
+                    <img src="/assets/images/home/testimonial/Mark-Johnson.jpg" alt="Headshot of Mark Johnson." class="testimonial-person-img">
                     <div class="testimonial-author">
                         <span>From,</span>
                         <h4>Mark Johnson</h4>
                     </div>
                 </div>
-                <p class="testimonial-text">"I would recommend Profit Pricer for any company struggling to create a
-                    consistent pricing strategy. We were able to harmonize our process in under a month!"</p>
+                <p class="testimonial-text">"I would recommend Profit Pricer for any company struggling to create a consistent pricing strategy. We were able to harmonize our process in under a month!"</p>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="far fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                 </div>
             </div>
-
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <img src="/assets/images/home/testimonial/Mike-Davis.jpg" alt="Mike Davis"
-                        class="testimonial-person-img">
+                    <img src="/assets/images/home/testimonial/Mike-Davis.jpg" alt="Headshot of Mike Davis." class="testimonial-person-img">
                     <div class="testimonial-author">
                         <span>From,</span>
                         <h4>Mike Davis</h4>
                     </div>
                 </div>
-                <p class="testimonial-text">"We were surprised by the ROI. Our prices were more competitive and we
-                    improved margins by 5% within the first three months. Definitely a strong addition."</p>
+                <p class="testimonial-text">"We were surprised by the ROI. Our prices were more competitive and we improved margins by 5% within the first three months. Definitely a strong addition."</p>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
             </div>
-
         </div>
     </section>
-
 
     <section class="contact-form">
         <h2>Interested? Contact Us</h2>
         <form>
             <div class="form-group">
                 <div class="required-field">
-                    <input type="text" placeholder="First Name" required pattern="[A-Za-z\s]+"
-                        title="Only letters and spaces are allowed." />
+                    <input type="text" placeholder="First Name" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed." />
                 </div>
                 <div class="required-field">
-                    <input type="text" placeholder="Last Name" required pattern="[A-Za-z\s]+"
-                        title="Only letters and spaces are allowed." />
+                    <input type="text" placeholder="Last Name" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed." />
                 </div>
             </div>
             <div class="required-field">
@@ -590,8 +534,7 @@
                     </div>
                 </div>
                 <div class="required-field phone-number-input">
-                    <input type="tel" placeholder="Phone Number" required pattern="[0-9]+"
-                        title="Only numbers are allowed." />
+                    <input type="tel" placeholder="Phone Number" required pattern="[0-9]+" title="Only numbers are allowed." />
                 </div>
             </div>
 
@@ -600,14 +543,12 @@
         </form>
     </section>
 
-
     <footer class="global-footer">
         <div class="footer-box">
             <a href="/index.html">
                 <img src="/assets/images/logo-white.png" alt="Profit Pricer Logo" class="footer-logo" />
             </a>
-            <p> Built for Small and Medium sized teams who need intelligent, fast, and profit maximizing pricing.</p>
-
+            <p>Built for Small and Medium sized teams who need intelligent, fast, and profit maximizing pricing.</p>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/profitpricer/" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
@@ -628,12 +569,10 @@
         </div>
         <div class="footer-box newsletter">
             <h4>Newsletter</h4>
-            <p class="newsletter-description">Subscribe to our newsletter for the latest updates and pricing insights.
-            </p>
-
+            <p class="newsletter-description">Subscribe to our newsletter for the latest updates and pricing insights.</p>
             <form id="newsletter-form" class="newsletter-form-container">
                 <input type="email" id="newsletter-email" placeholder="Enter your email" required />
-                <button type="submit" id="newsletter-btn">➤</button>
+                <button type="submit" id="newsletter-btn" aria-label="Subscribe to newsletter">➤</button>
             </form>
         </div>
     </footer>
@@ -647,8 +586,6 @@
         <p>✅ Thank you for subscribing to our newsletter!</p>
         <span class="close-popup-btn">&times;</span>
     </div>
-
-
 
     <div id="video-modal-overlay">
         <div class="video-modal-content">
@@ -672,20 +609,16 @@
         </div>
         <div class="chat-body">
             <div id="start-chat-container">
-                <button id="start-chat-btn">
-                    <i class="fas fa-comment-dots"></i>&nbsp; Start Conversation
-                </button>
+                <button id="start-chat-btn"><i class="fas fa-comment-dots"></i>&nbsp; Start Conversation</button>
             </div>
         </div>
-
         <div id="chat-suggestions-container"></div>
-
         <div class="chat-input-area hidden">
             <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
             <button id="send-chat-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
-
+    
     <div id="feedback-modal-overlay">
         <div class="feedback-modal">
             <div class="feedback-modal-header">
@@ -707,7 +640,6 @@
     <div id="feedback-success-popup">
         Feedback submitted successfully!
     </div>
-
 
     <div id="promo-modal-overlay">
         <div class="promo-modal-content">

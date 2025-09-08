@@ -1202,7 +1202,7 @@ footer {
     padding: 12px 25px;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1003; /* Highest z-index */
+    z-index: 1003;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
@@ -1851,30 +1851,60 @@ footer {
 }
 
 /* --- Mobile-Specific View --- */
+/* --- Mobile-Specific View --- */
 @media (max-width: 768px) {
     .process-section {
-        padding: 60px 20px; /* Reduce overall section padding */
+        padding: 60px 20px;
     }
 
     .flow-part {
-        margin-bottom: 60px; /* Reduce space between the two process flows */
+        margin-bottom: 60px;
     }
 
     .section-heading {
-        font-size: 28px; /* Make heading smaller */
+        font-size: 28px;
         margin-bottom: 40px;
     }
 
-    .flow-box {
-        padding: 25px; /* Reduce padding inside the boxes */
+    /* === FINAL MODIFICATION WITH FIXED WIDTH START === */
+
+    /* Keep spacing minimal */
+    .flow-wrapper.horizontal-flow {
+        gap: 10px;
     }
+    .flow-arrow,
+    .config-arrow {
+        margin: 10px auto;
+    }
+
+    /* Apply a fixed width and centering to all boxes */
+    .flow-box {
+        padding: 25px;
+        overflow: auto;
+        width: 340px;       /* NEW: Set a fixed width */
+        margin: 0 auto;     /* NEW: Ensure the box is centered */
+    }
+
+    /* Force all GREEN boxes to a single, fixed height */
+    .flow-box.green-box {
+        height: 120px;
+        justify-content: center; 
+    }
+    
+    /* Force all PURPLE boxes to a single, fixed height */
+    .flow-box.purple-box {
+        height: 320px;
+    }
+
+    /* === FINAL MODIFICATION WITH FIXED WIDTH END === */
 
     .flow-box h3 {
-        font-size: 18px; /* Make box titles smaller */
+        font-size: 18px;
     }
 
-    .purple-box li, .green-box p {
-        font-size: 14px; /* Make box content text smaller */
+    .purple-box li,
+    .green-box p {
+        font-size: 14px;
     }
 }
 
