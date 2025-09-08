@@ -119,9 +119,9 @@ body {
 }
 
 @media (hover: hover) and (min-width: 769px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 }
 
 .dropdown.active .dropdown-menu {
@@ -135,6 +135,7 @@ body {
 /* --- SEARCH STYLES --- */
 .search-wrapper {
     position: relative;
+
     width: 40px;
     height: 40px;
     transition: width 0.4s ease-in-out;
@@ -148,7 +149,7 @@ body {
     font-size: 18px;
     color: #333;
     cursor: pointer;
-    padding: 8px;
+    padding: 0px;
     transition: left 0.4s ease-in-out, color 0.3s;
 }
 
@@ -203,11 +204,12 @@ body {
 
 .demo-btn {
     background-color: #EDB463;
+    font-family: "Inter", sans-serif;
     color: #111;
     height: 38px;
     padding: 0 30px;
     border-radius: 26px;
-    font-weight: 600;
+    font-weight: 400;
     border: 1px solid #292C30;
     cursor: pointer;
     font-size: 14px;
@@ -719,9 +721,8 @@ footer {
 
 
 /* ===================== CHATBOT WINDOW STYLES ===================== */
-/* --- Chat Header --- */
 .chat-header {
-    padding: 0.75rem 1rem; /* Adjusted padding for a better fit */
+    padding: 0.75rem 1rem;
     background-color: #f7f7f7;
     border-top-left-radius: 23px;
     border-top-right-radius: 23px;
@@ -731,18 +732,16 @@ footer {
     border-bottom: 1px solid #e9e9e9;
 }
 
-/* NEW: Styles for the left side of the header */
 .header-left-content {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between image and text */
+    gap: 10px;
 }
 
-/* NEW: Styles for the header icon image */
 .header-icon {
     width: 36px;
     height: 36px;
-    border-radius: 50%; /* Makes the image round */
+    border-radius: 50%;
     object-fit: cover;
 }
 
@@ -817,13 +816,12 @@ footer {
     opacity: 1;
 }
 
-/* --- New styles for suggestions and buttons --- */
 #chat-suggestions-container {
     max-height: 125px;
     overflow-y: auto;
     background-color: #ffffff;
     border-top: 1px solid #e9e9e9;
-    display: none; /* Hidden by default */
+    display: none;
     scrollbar-width: thin;
     scrollbar-color: #ccc #f7f7f7;
 }
@@ -864,7 +862,6 @@ footer {
     background-color: #e0e0e0;
 }
 
-/* --- Chat Header --- */
 .chat-header {
     padding: 1rem;
     background-color: #f7f7f7;
@@ -1011,7 +1008,7 @@ footer {
 
 /* --- Thinking Indicator --- */
 .thinking-gif {
-    width: 60px; 
+    width: 60px;
     height: auto;
     border-radius: 12px;
 }
@@ -1020,7 +1017,7 @@ footer {
 .chat-message.received {
     display: flex;
     align-items: flex-end;
-    gap: 8px; 
+    gap: 8px;
 }
 
 .chat-message.received::before {
@@ -1028,9 +1025,9 @@ footer {
     display: block;
     width: 32px;
     height: 32px;
-    flex-shrink: 0; 
-    border-radius: 50%; 
-    background-image: url('/assets/images/chatbot.jpeg'); 
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-image: url('/assets/images/chatbot.jpeg');
     background-size: cover;
     background-position: center;
 }
@@ -1041,9 +1038,9 @@ footer {
 
 /* Styles all links within bot messages */
 .chat-message.received span a {
-    color: #0056b3; 
-    text-decoration: none; 
-    font-weight: 600; 
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .chat-message.received span a:hover {
@@ -1055,7 +1052,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-left: 40px; /* Aligns with the message content (32px icon + 8px gap) */
+    margin-left: 40px;
     margin-top: 6px;
     margin-bottom: 10px;
 }
@@ -1076,11 +1073,11 @@ footer {
 }
 
 .feedback-btn.active.like {
-    color: #357beb; /* Blue for liked */
+    color: green;
 }
 
 .feedback-btn.active.dislike {
-    color: #e74c3c; /* Red for disliked */
+    color: #e74c3c;
 }
 
 .feedback-link {
@@ -1104,8 +1101,8 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1002; /* Higher z-index than promo modal */
-    display: none; /* Hidden by default */
+    z-index: 1002;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -1202,7 +1199,7 @@ footer {
     padding: 12px 25px;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1003; /* Highest z-index */
+    z-index: 1003;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
