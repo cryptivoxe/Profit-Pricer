@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (chatbotIcon && chatbotWindow && closeChatBtn && chatBody && chatInput && sendChatBtn && startChatBtn && chatInputArea && suggestionsContainer) {
 
         if (chatHeader) {
-            chatHeader.textContent = "Profit IQ";
+            chatHeader.textContent = "ProfitIQ";
         }
 
         chatbotIcon.addEventListener("click", () => {
