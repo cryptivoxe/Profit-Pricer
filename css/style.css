@@ -2487,10 +2487,10 @@ footer {
 #explore-now-link {
     position: absolute;
     top: 60%;
-    left: 75%;
+    left: 78%;
     transform: translateX(-50%);
-    width: 35%;
-    height: 10%;
+    width: 22%;
+    height: 7%;
     border-radius: 50px;
     cursor: pointer;
 }
